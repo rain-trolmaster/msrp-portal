@@ -268,5 +268,17 @@
     "timestamp": "2026-05-05T11:20:55.190152",
     "description": "MSRP-only version with updated exchange rates (HKD=8.5, THB=34)",
     "snapshot": "build/versions/2026-05-05/20260505_112055_v1.0.44_MSRP-only_version_with_updated_exchange_.html"
+  },
+  {
+    "version": "1.0.45",
+    "timestamp": "2026-05-05T11:32:41.075535",
+    "description": "Fix logo path and text overflow",
+    "snapshot": "build/versions/2026-05-05/20260505_113241_v1.0.45_Fix_logo_path_and_text_overflow.html"
+  },
+  {
+    "version": "1.0.46",
+    "timestamp": "2026-05-05T11:33:22.275695",
+    "description": "Fix text overflow with word-wrap and hyphens",
+    "snapshot": "build/versions/2026-05-05/20260505_113322_v1.0.46_Fix_text_overflow_with_word-wrap_and_hyp.html"
   }
 ]

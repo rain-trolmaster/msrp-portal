@@ -130,6 +130,9 @@
   font-weight: 600;
   line-height: 1.4;
   margin: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 .c-model-chip {
@@ -200,6 +203,8 @@
   font-size: 13px;
   color: var(--color-text-secondary);
   line-height: 1.6;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .pi-short { display: inline; }
