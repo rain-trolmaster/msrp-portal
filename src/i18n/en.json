@@ -64,5 +64,6 @@
   "oe_disclaimer_text": "All prices shown are for reference only. VAT and shipping costs may vary by region. Final pricing and availability are subject to confirmation by TrolMaster.",
   "oe_quick_add": "Quick Add",
   "oe_unit_price": "Unit",
-  "oe_line_total": "Total"
+  "oe_line_total": "Total",
+  "oe_greeting": "Welcome! Start adding products to estimate your order."
 }

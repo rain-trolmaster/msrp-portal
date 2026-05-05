@@ -64,5 +64,6 @@
   "oe_disclaimer_text": "所有價格僅供參考。部份地區可能需要加收 VAT 及運費，最終價格及供應情況以 TrolMaster 確認為準。",
   "oe_quick_add": "快速加入",
   "oe_unit_price": "單價",
-  "oe_line_total": "金額"
+  "oe_line_total": "金額",
+  "oe_greeting": "歡迎！開始添加產品以估算您的訂單。"
 }

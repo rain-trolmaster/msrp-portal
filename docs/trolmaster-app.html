@@ -1,0 +1,3343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TrolMaster Product Search</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Microsoft JhengHei","Noto Sans TC","Noto Sans Thai",sans-serif;background:#f5f5f5;color:#1a1a2e;min-height:100vh}
+.header{background:#ffffff;border-bottom:1px solid #e2e8f0;padding:12px 20px;position:sticky;top:0;z-index:50}
+.h-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.h-left{display:flex;align-items:center;gap:12px}
+.menu-btn{background:none;border:none;color:#1a1a2e;font-size:20px;cursor:pointer;padding:4px 8px}
+.logo-img{height:36px;width:auto;object-fit:contain}
+.h-text h1{font-size:16px;font-weight:700;color:#1a1a2e;letter-spacing:.3px}
+.h-text p{font-size:11px;color:#718096;margin-top:1px}
+.lang-switcher{position:relative}
+.lang-btn{background:#f7fafc;border:1px solid #e2e8f0;padding:6px 14px;border-radius:8px;font-size:12px;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:5px;color:#1a1a2e}
+.lang-dd{display:none;position:absolute;top:calc(100% + 4px);right:0;background:#ffffff;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;z-index:100;min-width:120px;box-shadow:0 4px 12px rgba(0,0,0,0.1)}
+.lang-dd.show{display:block}
+.lang-opt{padding:10px 16px;font-size:13px;color:#2d3748;cursor:pointer}
+.lang-opt:hover{background:#f7fafc}
+.lang-opt.active{background:#edf2f7;font-weight:600;color:#1a1a2e}
+.hero{max-width:900px;margin:30px auto 0;padding:0 20px}
+.hero-title{font-size:20px;font-weight:700;color:#0d1b3e;margin-bottom:4px}
+.hero-sub{font-size:13px;color:#718096;margin-bottom:20px}
+.s-wrap{display:flex;background:#fff;border:2px solid #e2e8f0;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
+.s-wrap input{flex:1;padding:14px 18px;border:none;font-size:15px;outline:none;font-family:inherit;color:#1a1a2e}
+.s-wrap input::placeholder{color:#a0aec0;font-size:14px}
+.s-wrap button{padding:14px 30px;background:#0d1b3e;color:#fff;border:none;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap}
+.s-wrap button:hover{background:#1a2b5e}
+.tags{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
+.tag{padding:4px 12px;background:#fff;border:1px solid #e2e8f0;border-radius:16px;font-size:12px;cursor:pointer;color:#4a5568;font-family:inherit;transition:all .2s}
+.tag:hover{background:#0d1b3e;color:#fff;border-color:#0d1b3e}
+.res{max-width:900px;margin:24px auto;padding:0 20px 40px}
+.card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.04);margin-bottom:12px}
+.c-head{background:#0d1b3e;color:#fff;padding:14px 18px}
+.c-head h2{font-size:15px;font-weight:600}
+.c-badge{display:inline-block;background:rgba(255,255,255,0.15);color:#fff;padding:2px 8px;border-radius:6px;font-size:11px;margin-top:4px}
+.c-body{padding:16px 18px}
+.irow{display:flex;padding:8px 0;border-bottom:1px solid #f0f4f8;gap:10px}
+.irow:last-child{border-bottom:none}
+.ilabel{width:100px;flex-shrink:0;font-weight:600;color:#718096;font-size:12px}
+.ivalue{font-size:13px;color:#2d3748}
+.ptable{width:100%;border-collapse:collapse;margin:10px 0;border:1px solid #edf2f7;border-radius:8px;overflow:hidden}
+.ptable th{background:#f7fafc;padding:8px 12px;text-align:left;font-size:11px;color:#718096;font-weight:600;border-bottom:1px solid #e2e8f0}
+.ptable td{padding:8px 12px;font-size:13px;color:#2d3748;border-bottom:1px solid #f7fafc}
+.ptable tr:last-child td{border-bottom:none}
+.ptable td:last-child{text-align:right;font-weight:600;color:#0d1b3e}
+.price-note{font-size:11px;color:#a0aec0;margin-top:4px}
+.stock{margin-top:12px;padding:12px;background:#f7fafc;border:1px solid #edf2f7;border-radius:10px}
+.stock-title{font-weight:600;color:#0d1b3e;margin-bottom:8px;font-size:13px}
+.igrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.icard{background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:10px 12px}
+.icard .l{font-size:10px;color:#a0aec0;text-transform:uppercase;letter-spacing:.3px;margin-bottom:3px;font-weight:600}
+.icard .v{font-size:20px;font-weight:700;color:#0d1b3e}
+.stock-msg{margin-top:8px;font-size:12px;font-weight:600;text-align:center}
+.noresult{text-align:center;padding:40px 20px;color:#a0aec0;font-size:14px}
+.footer{text-align:center;padding:24px 20px;color:#a0aec0;font-size:11px;border-top:1px solid #e2e8f0;margin-top:16px}
+.stock-status{font-size:11px;padding:3px 10px;border-radius:16px;display:inline-flex;align-items:center;gap:4px}
+.stock-status.ok{color:#276749;background:#f0fff4}
+.stock-status.err{color:#c53030;background:#fff5f5}
+.stock-status.loading{color:#a0aec0;background:#f7fafc}
+.stock-status.fallback{color:#c05621;background:#fffaf0}
+.overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:90;opacity:0;transition:opacity .3s}
+.overlay.show{display:block;opacity:1}
+.sidebar{position:fixed;top:0;left:-280px;width:280px;height:100%;background:#0d1b3e;z-index:100;transition:left .3s ease;overflow-y:auto;box-shadow:2px 0 12px rgba(0,0,0,0.3)}
+.sidebar.open{left:0}
+.sb-header{padding:20px;border-bottom:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:space-between}
+.sb-header h2{color:#fff;font-size:15px;font-weight:600}
+.sb-close{background:none;border:none;color:#a0aec0;font-size:24px;cursor:pointer;padding:0 4px;line-height:1}
+.sb-close:hover{color:#fff}
+.sb-nav{padding:8px 0}
+.sb-item{display:flex;align-items:center;gap:12px;padding:12px 20px;color:#e2e8f0;font-size:14px;cursor:pointer;transition:background .2s;border:none;background:none;width:100%;text-align:left;font-family:inherit}
+.sb-item:hover{background:rgba(255,255,255,0.08)}
+.sb-item.active{background:rgba(255,255,255,0.12);color:#fff;font-weight:600;border-left:3px solid #e53e3e}
+.sb-item .sb-icon{font-size:18px;width:24px;text-align:center;flex-shrink:0}
+.sb-item.disabled{opacity:0.4;cursor:not-allowed;pointer-events:none}
+.sb-item .coming-soon{font-size:10px;color:#a0aec0;margin-left:auto;background:rgba(255,255,255,0.1);padding:1px 6px;border-radius:4px;font-weight:400}
+.sb-divider{height:1px;background:rgba(255,255,255,0.08);margin:4px 0}
+.sb-footer{padding:16px 20px;border-top:1px solid rgba(255,255,255,0.08);margin-top:auto}
+.sb-footer p{color:#718096;font-size:11px;line-height:1.5}
+/* Page visibility */
+.page{display:none}
+.page.active{display:block}
+/* Order Estimation styles */
+.oe-wrap{max-width:960px;margin:24px auto;padding:0 20px 60px}
+.oe-title{font-size:20px;font-weight:700;color:#0d1b3e;margin-bottom:4px}
+.oe-sub{font-size:13px;color:#718096;margin-bottom:20px}
+.oe-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.04);margin-bottom:16px}
+.oe-card-head{background:#0d1b3e;color:#fff;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.oe-card-head h3{font-size:15px;font-weight:600}
+.oe-price-type{display:flex;gap:6px}
+.oe-price-type label{display:flex;align-items:center;gap:4px;font-size:12px;color:rgba(255,255,255,0.8);cursor:pointer;padding:4px 10px;border-radius:6px;border:1px solid rgba(255,255,255,0.2);transition:all .2s}
+.oe-price-type label:hover{background:rgba(255,255,255,0.1)}
+.oe-price-type input{accent-color:#e53e3e}
+.oe-price-type input:checked+span{color:#fff;font-weight:600}
+.oe-add-row{background:#f7fafc;border:none;border-top:1px solid #e2e8f0;width:100%;padding:12px 18px;font-size:13px;color:#0d1b3e;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:6px;font-family:inherit;transition:background .2s}
+.oe-add-row:hover{background:#edf2f7}
+.oe-table-wrap{overflow-x:auto}
+.oe-table{width:100%;border-collapse:collapse;min-width:600px}
+.oe-table th{background:#f7fafc;padding:10px 12px;text-align:left;font-size:11px;color:#718096;font-weight:600;border-bottom:2px solid #e2e8f0;white-space:nowrap}
+.oe-table td{padding:8px 10px;font-size:13px;color:#2d3748;border-bottom:1px solid #f0f4f8;vertical-align:middle}
+.oe-table tr:hover{background:#fafbfc}
+.oe-table .num-col{width:30px;text-align:center;color:#718096;font-size:11px}
+.oe-table .model-col{width:140px}
+.oe-table .desc-col{min-width:160px;color:#4a5568;font-size:12px}
+.oe-table .qty-col{width:70px}
+.oe-table .price-col{width:100px;text-align:right;font-weight:600;color:#0d1b3e}
+.oe-table .total-col{width:110px;text-align:right;font-weight:700;color:#0d1b3e}
+.oe-table .action-col{width:36px;text-align:center}
+.oe-table input[type="number"]{width:100%;padding:6px 8px;border:1px solid #e2e8f0;border-radius:6px;font-size:13px;font-family:inherit;text-align:right;outline:none;transition:border-color .2s}
+.oe-table input[type="number"]:focus{border-color:#0d1b3e}
+.oe-table input[type="text"]{width:100%;padding:6px 8px;border:1px solid #e2e8f0;border-radius:6px;font-size:13px;font-family:inherit;outline:none;transition:border-color .2s}
+.oe-table input[type="text"]:focus{border-color:#0d1b3e}
+.oe-del-btn{background:none;border:none;color:#e53e3e;font-size:16px;cursor:pointer;padding:4px;border-radius:4px;opacity:0.5;transition:opacity .2s}
+.oe-del-btn:hover{opacity:1;background:#fff5f5}
+/* Product search dropdown */
+.oe-search-wrap{position:relative}
+.oe-search-input{width:100%;padding:6px 8px;border:1px solid #e2e8f0;border-radius:6px;font-size:13px;font-family:inherit;outline:none}
+.oe-search-input:focus{border-color:#0d1b3e}
+.oe-dropdown{position:absolute;top:100%;left:0;right:0;background:#fff;border:1px solid #e2e8f0;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,0.12);max-height:240px;overflow-y:auto;z-index:200;display:none}
+.oe-dropdown.show{display:block}
+.oe-dd-item{padding:8px 12px;cursor:pointer;font-size:13px;border-bottom:1px solid #f7fafc;transition:background .15s}
+.oe-dd-item:last-child{border-bottom:none}
+.oe-dd-item:hover{background:#f0f4f8}
+.oe-dd-item .dd-model{font-weight:600;color:#0d1b3e}
+.oe-dd-item .dd-desc{font-size:11px;color:#718096;margin-top:1px}
+.oe-dd-item .dd-price{font-size:11px;color:#4a5568;margin-top:1px}
+.oe-dd-empty{padding:16px;text-align:center;color:#a0aec0;font-size:12px}
+/* Stock indicator in OE */
+.oe-stock-badge{font-size:10px;padding:2px 6px;border-radius:10px;font-weight:600}
+.oe-stock-badge.in-stock{color:#276749;background:#f0fff4}
+.oe-stock-badge.low-stock{color:#c05621;background:#fffaf0}
+.oe-stock-badge.no-stock{color:#c53030;background:#fff5f5}
+.oe-stock-badge.unknown{color:#a0aec0;background:#f7fafc}
+/* Summary */
+.oe-summary{background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+.oe-summary-head{background:#0d1b3e;color:#fff;padding:14px 18px}
+.oe-summary-head h3{font-size:15px;font-weight:600}
+.oe-summary-body{padding:16px 18px}
+.oe-summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.oe-sum-item{background:#f7fafc;border:1px solid #edf2f7;border-radius:8px;padding:12px 16px}
+.oe-sum-item .sum-label{font-size:11px;color:#718096;font-weight:600;text-transform:uppercase;letter-spacing:.3px;margin-bottom:4px}
+.oe-sum-item .sum-value{font-size:20px;font-weight:700;color:#0d1b3e}
+.oe-sum-item.sum-total{grid-column:1/-1;background:#0d1b3e;border-color:#0d1b3e}
+.oe-sum-item.sum-total .sum-label{color:rgba(255,255,255,0.7)}
+.oe-sum-item.sum-total .sum-value{color:#fff;font-size:24px}
+.oe-sum-item.sum-ship .sum-value{font-size:16px}
+.oe-empty{text-align:center;padding:60px 20px;color:#a0aec0}
+.oe-empty .empty-icon{font-size:48px;margin-bottom:12px}
+.oe-empty p{font-size:14px}
+@media(max-width:600px){
+  .logo-img{height:30px}
+  .h-text h1{font-size:14px}
+  .hero{margin-top:20px}
+  .hero-title{font-size:18px}
+  .s-wrap{flex-direction:column}
+  .s-wrap button{border-radius:0}
+  .irow{flex-direction:column;gap:2px}
+  .ilabel{width:100%}
+  .oe-summary-grid{grid-template-columns:1fr}
+  .oe-card-head{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+<div class="overlay" id="overlay" onclick="closeMenu()"></div>
+<div class="sidebar" id="sidebar">
+  <div class="sb-header">
+    <h2 id="sbTitle">TM Testing Tools</h2>
+    <button class="sb-close" onclick="closeMenu()">&times;</button>
+  </div>
+  <div class="sb-nav">
+    <button class="sb-item active" data-page="product-search" onclick="navTo('product-search')">
+      <span class="sb-icon">&#128269;</span>
+      <span id="sbItem1">Product Price and Stock</span>
+    </button>
+    <button class="sb-item disabled" data-page="tech-sheet">
+      <span class="sb-icon">&#128196;</span>
+      <span id="sbItem2">Tech sheet download</span>
+      <span class="coming-soon" id="sbCs2">Coming Soon</span>
+    </button>
+    <button class="sb-item disabled" data-page="model-one">
+      <span class="sb-icon">&#128290;</span>
+      <span id="sbItem3">Model-One Calculator</span>
+      <span class="coming-soon" id="sbCs3">Coming Soon</span>
+    </button>
+    <button class="sb-item" data-page="order-est" onclick="navTo('order-est')">
+      <span class="sb-icon">&#128178;</span>
+      <span id="sbItem4">Order Estimation</span>
+    </button>
+  </div>
+  <div class="sb-footer">
+    <p>&copy; 2026 Green Environmental Control</p>
+    <p>TrolMaster Authorized Distributor</p>
+  </div>
+</div>
+
+<!-- Page: Product Search -->
+<div class="page active" id="page-product-search">
+  <div class="hero">
+    <div class="hero-title" id="heroTitle">TrolMaster Product Search</div>
+    <div class="hero-sub" id="heroSub">Enter model number for pricing and stock</div>
+    <div class="s-wrap">
+      <input type="text" id="q" placeholder="Enter product model, e.g.: WCS-9, NFS-2, ECW-1" autocomplete="off">
+      <button id="searchBtn">Search</button>
+    </div>
+    <div class="tags" id="tags"></div>
+  </div>
+  <div class="res" id="res"></div>
+</div>
+
+<!-- Page: Order Estimation -->
+<div class="page" id="page-order-est">
+  <div class="oe-wrap">
+    <div class="oe-title" id="oeTitle">Order Estimation</div>
+    <div class="oe-sub" id="oeSub">Add products and quantities to calculate your order total</div>
+
+    <div class="oe-card" id="oeItemsCard">
+      <div class="oe-card-head">
+        <h3 id="oeItemsTitle">Product List</h3>
+        <div class="oe-price-type" id="oePriceType">
+          <label><input type="radio" name="priceType" value="msrp" checked><span id="oePT1">MSRP</span></label>
+          <label><input type="radio" name="priceType" value="ws5"><span id="oePT2">Wholesaler +5%</span></label>
+          <label><input type="radio" name="priceType" value="ws"><span id="oePT3">Wholesale</span></label>
+        </div>
+      </div>
+      <div class="oe-table-wrap">
+        <table class="oe-table">
+          <thead>
+            <tr>
+              <th class="num-col">#</th>
+              <th class="model-col" id="oeThModel">Model</th>
+              <th class="desc-col" id="oeThDesc">Description</th>
+              <th class="qty-col" id="oeThQty">Qty</th>
+              <th class="price-col" id="oeThPrice">Unit Price</th>
+              <th class="total-col" id="oeThSubtotal">Subtotal</th>
+              <th class="action-col"></th>
+            </tr>
+          </thead>
+          <tbody id="oeItemsBody">
+          </tbody>
+        </table>
+      </div>
+      <button class="oe-add-row" onclick="addOEItem()" id="oeAddBtn">+ Add Product</button>
+    </div>
+
+    <div class="oe-summary" id="oeSummary" style="display:none">
+      <div class="oe-summary-head">
+        <h3 id="oeSumTitle">Order Summary</h3>
+      </div>
+      <div class="oe-summary-body">
+        <div class="oe-summary-grid">
+          <div class="oe-sum-item">
+            <div class="sum-label" id="oeSumItems">Items</div>
+            <div class="sum-value" id="oeSumItemsVal">0</div>
+          </div>
+          <div class="oe-sum-item">
+            <div class="sum-label" id="oeSumQty">Total Qty</div>
+            <div class="sum-value" id="oeSumQtyVal">0</div>
+          </div>
+          <div class="oe-sum-item">
+            <div class="sum-label" id="oeSumSubtotal">Subtotal</div>
+            <div class="sum-value" id="oeSumSubtotalVal">$0.00</div>
+          </div>
+          <div class="oe-sum-item">
+            <div class="sum-label" id="oeSumVat">VAT 7%</div>
+            <div class="sum-value" id="oeSumVatVal">$0.00</div>
+          </div>
+          <div class="oe-sum-item sum-ship">
+            <div class="sum-label" id="oeSumShip">Shipping Cost</div>
+            <div class="sum-value"><input type="number" id="oeShipInput" value="0" min="0" step="1" style="width:120px;padding:6px 10px;border:1px solid rgba(255,255,255,0.2);border-radius:6px;font-size:16px;font-weight:700;font-family:inherit;background:rgba(255,255,255,0.1);color:#fff;text-align:right;outline:none" oninput="recalcOE()"></div>
+          </div>
+          <div class="oe-sum-item sum-total">
+            <div class="sum-label" id="oeSumGrand">Grand Total</div>
+            <div class="sum-value" id="oeSumGrandVal">$0.00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <span id="stockStatus" class="stock-status loading">&#9203; Loading stock...</span>
+  &nbsp;&middot;&nbsp; &copy; 2026 TrolMaster Asia Co., Ltd.
+</div>
+<script>
+const T = {
+  "zh-Hant": {
+    pageTitle: "TrolMaster 產品查詢",
+    heroTitle: "TrolMaster 產品查詢",
+    heroSub: "輸入產品型號以查詢價格與庫存狀態",
+    langLabel: "繁體中文",
+    placeholder: "輸入產品型號，例如：WCS-9、NFS-2、ECW-1",
+    searchBtn: "查詢",
+    notFound: "找不到型號「{q}」的產品",
+    badgeLabel: "型號",
+    modelLabel: "產品型號",
+    msrpLabel: "建議零售價 MSRP",
+    ws5Label: "Wholesaler +5%",
+    wsLabel: "批發價 Wholesale",
+    priceNote: "* 以上價格以 USD 計算，實際價格請與我們聯絡",
+    compatLabel: "相容設備",
+    dimLabel: "包裝尺寸",
+    weightLabel: "重量",
+    stockTitle: "庫存狀況",
+    canSaleLabel: "可售庫存",
+    stockLevelLabel: "庫存水平",
+    stockOk: "可售 {n} 件",
+    stockLow: "庫存偏低 ({n} 件)",
+    stockOut: "暫無庫存",
+    stockLoading: "⏳ 正在讀取庫存...",
+    stockReady: "✅ 庫存已更新 (Live)",
+    stockFallback: "⚠️ 離線模式",
+    stockError: "❌ 無法讀取庫存",
+    sbItem1: "產品價格與庫存查詢",
+    sbItem2: "技術資料下載",
+    sbItem3: "Model-One 計算器",
+    sbItem4: "訂單估算",
+    sbTitle: "TM 測試工具",
+    comingSoon: "即將推出",
+    oeTitle: "訂單估算",
+    oeSub: "新增產品和數量以計算您的訂單總價",
+    oeItemsTitle: "產品清單",
+    oePT1: "MSRP",
+    oePT2: "Wholesaler +5%",
+    oePT3: "批發價",
+    oeThModel: "型號",
+    oeThDesc: "產品說明",
+    oeThQty: "數量",
+    oeThPrice: "單價",
+    oeThSubtotal: "小計",
+    oeAddBtn: "+ 新增產品",
+    oeSumTitle: "訂單摘要",
+    oeSumItems: "產品項目",
+    oeSumQty: "總數量",
+    oeSumSubtotal: "小計",
+    oeSumVat: "税款 7%",
+    oeSumShip: "運費",
+    oeSumGrand: "總計",
+    oeSearchPH: "搜尋型號...",
+    oeNoMatch: "找不到匹配產品"
+  },
+  "en": {
+    pageTitle: "TrolMaster Product Search",
+    heroTitle: "TrolMaster Product Search",
+    heroSub: "Enter model number for pricing and stock",
+    langLabel: "English",
+    placeholder: "Enter product model, e.g.: WCS-9, NFS-2, ECW-1",
+    searchBtn: "Search",
+    notFound: 'Product model "{q}" not found',
+    badgeLabel: "Model",
+    modelLabel: "Product Model",
+    msrpLabel: "MSRP",
+    ws5Label: "Wholesaler +5%",
+    wsLabel: "Wholesale",
+    priceNote: "* Prices in USD. Contact us for actual pricing.",
+    compatLabel: "Compatible Devices",
+    dimLabel: "Package Dimensions",
+    weightLabel: "Weight",
+    stockTitle: "Stock Status",
+    canSaleLabel: "Available",
+    stockLevelLabel: "Stock Level",
+    stockOk: "{n} units available",
+    stockLow: "Low stock ({n} units)",
+    stockOut: "Out of stock",
+    stockLoading: "⏳ Loading stock...",
+    stockReady: "✅ Stock updated (Live)",
+    stockFallback: "⚠️ Offline mode",
+    stockError: "❌ Stock unavailable",
+    sbItem1: "Product Price and Stock",
+    sbItem2: "Tech sheet download",
+    sbItem3: "Model-One Calculator",
+    sbItem4: "Order Estimation",
+    sbTitle: "TM Testing Tools",
+    comingSoon: "Coming Soon",
+    oeTitle: "Order Estimation",
+    oeSub: "Add products and quantities to calculate your order total",
+    oeItemsTitle: "Product List",
+    oePT1: "MSRP",
+    oePT2: "Wholesaler +5%",
+    oePT3: "Wholesale",
+    oeThModel: "Model",
+    oeThDesc: "Description",
+    oeThQty: "Qty",
+    oeThPrice: "Unit Price",
+    oeThSubtotal: "Subtotal",
+    oeAddBtn: "+ Add Product",
+    oeSumTitle: "Order Summary",
+    oeSumItems: "Items",
+    oeSumQty: "Total Qty",
+    oeSumSubtotal: "Subtotal",
+    oeSumVat: "VAT 7%",
+    oeSumShip: "Shipping Cost",
+    oeSumGrand: "Grand Total",
+    oeSearchPH: "Search model...",
+    oeNoMatch: "No matching products"
+  },
+  "th": {
+    pageTitle: "ค้นหาผลิตภัณฑ์ TrolMaster",
+    heroTitle: "ค้นหาผลิตภัณฑ์ TrolMaster",
+    heroSub: "กรอกรุ่นเพื่อดูราคาและสต็อก",
+    langLabel: "ไทย",
+    placeholder: "กรอกรุ่นสินค้า เช่น: WCS-9, NFS-2, ECW-1",
+    searchBtn: "ค้นหา",
+    notFound: 'ไม่พบรุ่นสินค้า "{q}"',
+    badgeLabel: "รุ่น",
+    modelLabel: "รุ่นสินค้า",
+    msrpLabel: "ราคาปลีแนะนำ MSRP",
+    ws5Label: "Wholesaler +5%",
+    wsLabel: "ราคาส่ง Wholesale",
+    priceNote: "* ราคาเป็นสกุล USD กรุณาติดต่อเรา",
+    compatLabel: "อุปกรณ์ที่เข้ากันได้",
+    dimLabel: "ขนาดบรรจุภัณฑ์",
+    weightLabel: "น้ำหนัก",
+    stockTitle: "สถานะสต็อก",
+    canSaleLabel: "พร้อมขาย",
+    stockLevelLabel: "ระดับสต็อก",
+    stockOk: "มีสต็อก {n} ชิ้น",
+    stockLow: "สต็อกต่ำ ({n} ชิ้น)",
+    stockOut: "สินค้าหมด",
+    stockLoading: "⏳ กำลังโหลดสต็อก...",
+    stockReady: "✅ สต็อกอัปเดตแล้ว (Live)",
+    stockFallback: "⚠️ โหมดออฟไลน์",
+    stockError: "❌ โหลดสต็อกไม่ได้",
+    sbItem1: "ราคาและสต็อกสินค้า",
+    sbItem2: "ดาวน์โหลดแผ่นพับเทคนิค",
+    sbItem3: "เครื่องคำนวณ Model-One",
+    sbItem4: "ประมาณการสั่งซื้อ",
+    sbTitle: "TM เครื่องมือทดสอบ",
+    comingSoon: "เร็วๆ นี้",
+    oeTitle: "ประมาณการสั่งซื้อ",
+    oeSub: "เพิ่มสินค้าและจำนวนเพื่อคำนวณยอดรวมของคุณ",
+    oeItemsTitle: "รายการสินค้า",
+    oePT1: "MSRP",
+    oePT2: "Wholesaler +5%",
+    oePT3: "ราคาส่ง",
+    oeThModel: "รุ่น",
+    oeThDesc: "รายละเอียด",
+    oeThQty: "จำนวน",
+    oeThPrice: "ราคาต่อหน่วย",
+    oeThSubtotal: "ยอดรวม",
+    oeAddBtn: "+ เพิ่มสินค้า",
+    oeSumTitle: "สรุปสั่งซื้อ",
+    oeSumItems: "รายการสินค้า",
+    oeSumQty: "จำนวนรวม",
+    oeSumSubtotal: "ยอดรวม",
+    oeSumVat: "ภาษี 7%",
+    oeSumShip: "ค่าขนส่ง",
+    oeSumGrand: "ยอดรวมทั้งหมด",
+    oeSearchPH: "ค้นหารุ่น...",
+    oeNoMatch: "ไม่พบสินค้าที่ตรง"
+  }
+};
+
+var curLang = "en";
+var lastQuery = "";
+var INVENTORY = {};
+var stockSource = "none";
+var currentPage = "product-search";
+var oeItems = [];
+
+function t(k) { return (T[curLang] && T[curLang][k]) || T["zh-Hant"][k] || k; }
+
+function toggleLang() { document.getElementById("langDD").classList.toggle("show"); }
+
+function openMenu() {
+  document.getElementById("sidebar").classList.add("open");
+  document.getElementById("overlay").classList.add("show");
+  document.body.style.overflow = "hidden";
+}
+
+function closeMenu() {
+  document.getElementById("sidebar").classList.remove("open");
+  document.getElementById("overlay").classList.remove("show");
+  document.body.style.overflow = "";
+}
+
+function navTo(page) {
+  closeMenu();
+  currentPage = page;
+  document.querySelectorAll(".page").forEach(function(el) {
+    el.classList.toggle("active", el.id === "page-" + page);
+  });
+  document.querySelectorAll(".sb-item").forEach(function(el) {
+    el.classList.toggle("active", el.dataset.page === page);
+  });
+  if (page === "product-search") {
+    document.getElementById("pageTitle").textContent = t("pageTitle");
+    document.getElementById("q").focus();
+  } else if (page === "order-est") {
+    document.getElementById("pageTitle").textContent = t("oeTitle");
+  }
+}
+
+document.addEventListener("click", function(e) {
+  if (!e.target.closest(".lang-switcher")) document.getElementById("langDD").classList.remove("show");
+  // Close OE dropdowns when clicking outside
+  if (!e.target.closest(".oe-search-wrap")) {
+    document.querySelectorAll(".oe-dropdown").forEach(function(dd) { dd.classList.remove("show"); });
+  }
+});
+
+function updateStockStatus(state) {
+  var el = document.getElementById("stockStatus");
+  if (!el) return;
+  el.className = "stock-status " + state;
+  if (state === "loading") el.textContent = t("stockLoading");
+  else if (state === "ok") el.textContent = t("stockReady");
+  else if (state === "fallback") el.textContent = t("stockFallback");
+  else el.textContent = t("stockError");
+}
+
+function setLang(lang) {
+  curLang = lang;
+  document.getElementById("langDD").classList.remove("show");
+  document.querySelectorAll(".lang-opt").forEach(function(el) {
+    el.classList.toggle("active", el.dataset.lang === lang);
+  });
+  document.getElementById("langLabel").textContent = t("langLabel");
+  document.getElementById("pageTitle").textContent = currentPage === "order-est" ? t("oeTitle") : t("pageTitle");
+  document.getElementById("heroTitle").textContent = t("heroTitle");
+  document.getElementById("heroSub").textContent = t("heroSub");
+  document.getElementById("searchBtn").textContent = t("searchBtn");
+  document.getElementById("q").placeholder = t("placeholder");
+  document.getElementById("sbItem1").textContent = t("sbItem1");
+  document.getElementById("sbItem2").textContent = t("sbItem2");
+  document.getElementById("sbItem3").textContent = t("sbItem3");
+  document.getElementById("sbItem4").textContent = t("sbItem4");
+  document.getElementById("sbTitle").textContent = t("sbTitle");
+  document.getElementById("sbCs2").textContent = t("comingSoon");
+  document.getElementById("sbCs3").textContent = t("comingSoon");
+  // OE elements
+  document.getElementById("oeTitle").textContent = t("oeTitle");
+  document.getElementById("oeSub").textContent = t("oeSub");
+  document.getElementById("oeItemsTitle").textContent = t("oeItemsTitle");
+  document.getElementById("oePT1").textContent = t("oePT1");
+  document.getElementById("oePT2").textContent = t("oePT2");
+  document.getElementById("oePT3").textContent = t("oePT3");
+  document.getElementById("oeThModel").textContent = t("oeThModel");
+  document.getElementById("oeThDesc").textContent = t("oeThDesc");
+  document.getElementById("oeThQty").textContent = t("oeThQty");
+  document.getElementById("oeThPrice").textContent = t("oeThPrice");
+  document.getElementById("oeThSubtotal").textContent = t("oeThSubtotal");
+  document.getElementById("oeAddBtn").textContent = t("oeAddBtn");
+  document.getElementById("oeSumTitle").textContent = t("oeSumTitle");
+  document.getElementById("oeSumItems").textContent = t("oeSumItems");
+  document.getElementById("oeSumQty").textContent = t("oeSumQty");
+  document.getElementById("oeSumSubtotal").textContent = t("oeSumSubtotal");
+  document.getElementById("oeSumVat").textContent = t("oeSumVat");
+  document.getElementById("oeSumShip").textContent = t("oeSumShip");
+  document.getElementById("oeSumGrand").textContent = t("oeSumGrand");
+  if (stockSource === "live") updateStockStatus("ok");
+  else if (stockSource === "fallback") updateStockStatus("fallback");
+  else updateStockStatus("loading");
+  if (lastQuery) go();
+  renderOETable();
+}
+
+const COL_MODEL = 0;
+const COL_CAN_SALE = 2;
+const COL_STOCK_LEVEL = 3;
+
+const INVENTORY_SHEET_ID = "1GVRc_dSaDGesEdh_7pnU4bzhm5lyBLvm-XCC4gQWr8w";
+const INVENTORY_GID = "817864539";
+const INVENTORY_FALLBACK = {
+  "4RS-1": {
+    "canSale": "8",
+    "stockLevel": "8"
+  },
+  "4RS-2": {
+    "canSale": "16",
+    "stockLevel": "16"
+  },
+  "AMC-1": {
+    "canSale": "10",
+    "stockLevel": "10"
+  },
+  "AMP-2": {
+    "canSale": "29",
+    "stockLevel": "29"
+  },
+  "AMP-3": {
+    "canSale": "17",
+    "stockLevel": "17"
+  },
+  "ARS-1": {
+    "canSale": "11",
+    "stockLevel": "12"
+  },
+  "ARS-2": {
+    "canSale": "44",
+    "stockLevel": "44"
+  },
+  "AS-1": {
+    "canSale": "44",
+    "stockLevel": "44"
+  },
+  "AS-2": {
+    "canSale": "0",
+    "stockLevel": "0"
+  },
+  "AS-3": {
+    "canSale": "0",
+    "stockLevel": "0"
+  },
+  "AS-4": {
+    "canSale": "0",
+    "stockLevel": "0"
+  },
+  "AS-5": {
+    "canSale": "4",
+    "stockLevel": "4"
+  },
+  "BETA-1": {
+    "canSale": "0",
+    "stockLevel": "0"
+  },
+  "BETA-2": {
+    "canSale": "0",
+    "stockLevel": "0"
+  },
+  "BETA-4": {
+    "canSale": "0",
+    "stockLevel": "0"
+  },
+  "BETA-6": {
+    "canSale": "1",
+    "stockLevel": "1"
+  },
+  "BETA-8": {
+    "canSale": "23",
+    "stockLevel": "23"
+  },
+  "BM-1": {
+    "canSale": "0",
+    "stockLevel": "0"
+  },
+  "CDA-1": {
+    "canSale": "19",
+    "stockLevel": "19"
+  },
+  "CM-1": {
+    "canSale": "18",
+    "stockLevel": "18"
+  },
+  "DCA-10": {
+    "canSale": "0",
+    "stockLevel": "0"
+  },
+  "DCA-12": {
+    "canSale": "0",
+    "stockLevel": "0"
+  },
+  "DCA-14": {
+    "canSale": "0",
+    "stockLevel": "0"
+  },
+  "DCC-1": {
+    "canSale": "13",
+    "stockLevel": "13"
+  },
+  "DEA-10": {
+    "canSale": "0",
+    "stockLevel": "0"
+  },
+  "DEA-10L": {
+    "canSale": "0",
+    "stockLevel": "0"
+  },
+  "DEA-12": {
+    "canSale": "0",
+    "stockLevel": "0"
+  },
+  "DEA-14": {
+    "canSale": "0",
+    "stockLevel": "0"
+  },
+  "DELTA-1": {
+    "canSale": "2",
+    "stockLevel": "2"
+  },
+  "DFM-1": {
+    "canSale": "18",
+    "stockLevel": "19"
+  },
+  "DFM-2": {
+    "canSale": "27",
+    "stockLevel": "27"
+  },
+  "DFM-3": {
+    "canSale": "25",
+    "stockLevel": "25"
+  },
+  "DMC-1": {
+    "canSale": "18",
+    "stockLevel": "18"
+  },
+  "DSC-1": {
+    "canSale": "23",
+    "stockLevel": "29"
+  },
+  "DSD-1": {
+    "canSale": "28",
+    "stockLevel": "28"
+  },
+  "DSD-3": {
+    "canSale": "0",
+    "stockLevel": "0"
+  },
+  "DSE-1": {
+    "canSale": "93",
+    "stockLevel": "93"
+  },
+  "DSH-1": {
+    "canSale": "40",
+    "stockLevel": "40"
+  },
+  "DSP-1": {
+    "canSale": "36",
+    "stockLevel": "36"
+  },
+  "DSR-1": {
+    "canSale": "24",
+    "stockLevel": "24"
+  },
+  "DST-1": {
+    "canSale": "28",
+    "stockLevel": "28"
+  },
+  "DSV-1": {
+    "canSale": "59",
+    "stockLevel": "59"
+  },
+  "EC-12": {
+    "canSale": "15",
+    "stockLevel": "15"
+  },
+  "ECS-1": {
+    "canSale": "10",
+    "stockLevel": "10"
+  },
+  "ECS-10": {
+    "canSale": "93",
+    "stockLevel": "93"
+  },
+  "ECS-2": {
+    "canSale": "33",
+    "stockLevel": "33"
+  },
+  "ECS-3": {
+    "canSale": "41",
+    "stockLevel": "41"
+  },
+  "ECS-4": {
+    "canSale": "35",
+    "stockLevel": "35"
+  },
+  "ECS-5": {
+    "canSale": "41",
+    "stockLevel": "41"
+  },
+  "ECS-500": {
+    "canSale": "14",
+    "stockLevel": "16"
+  },
+  "ECS-6": {
+    "canSale": "15",
+    "stockLevel": "15"
+  },
+  "ECS-7": {
+    "canSale": "182",
+    "stockLevel": "182"
+  },
+  "ECS-8": {
+    "canSale": "17",
+    "stockLevel": "17"
+  },
+  "ECS-9": {
+    "canSale": "6",
+    "stockLevel": "8"
+  },
+  "ECW-1": {
+    "canSale": "23",
+    "stockLevel": "23"
+  },
+  "EFC-1": {
+    "canSale": "14",
+    "stockLevel": "14"
+  },
+  "GCS-1": {
+    "canSale": "17",
+    "stockLevel": "18"
+  },
+  "HCS-1": {
+    "canSale": "13",
+    "stockLevel": "18"
+  },
+  "HCS-2": {
+    "canSale": "21",
+    "stockLevel": "21"
+  },
+  "HCS-3": {
+    "canSale": "18",
+    "stockLevel": "18"
+  },
+  "HS-1": {
+    "canSale": "20",
+    "stockLevel": "20"
+  },
+  "LLT-1": {
+    "canSale": "0",
+    "stockLevel": "0"
+  },
+  "LLT-2": {
+    "canSale": "8",
+    "stockLevel": "8"
+  },
+  "LLT-3": {
+    "canSale": "20",
+    "stockLevel": "20"
+  },
+  "LMA-11": {
+    "canSale": "27",
+    "stockLevel": "27"
+  },
+  "LMA-12": {
+    "canSale": "33",
+    "stockLevel": "33"
+  },
+  "LMA-13": {
+    "canSale": "35",
+    "stockLevel": "35"
+  },
+  "LMA-14": {
+    "canSale": "24",
+    "stockLevel": "24"
+  },
+  "LMA-15": {
+    "canSale": "22",
+    "stockLevel": "22"
+  },
+  "LMA-24": {
+    "canSale": "19",
+    "stockLevel": "19"
+  },
+  "LMA-G": {
+    "canSale": "18",
+    "stockLevel": "18"
+  },
+  "LMA-14G": {
+    "canSale": "0",
+    "stockLevel": "0"
+  },
+  "LMA-G4P": {
+    "canSale": "11",
+    "stockLevel": "11"
+  },
+  "LMA-T": {
+    "canSale": "149",
+    "stockLevel": "150"
+  },
+  "LRC-1": {
+    "canSale": "12",
+    "stockLevel": "12"
+  },
+  "MBS-GH": {
+    "canSale": "21",
+    "stockLevel": "21"
+  },
+  "MBS-K30": {
+    "canSale": "20",
+    "stockLevel": "20"
+  },
+  "MBS-PAR": {
+    "canSale": "22",
+    "stockLevel": "22"
+  },
+  "MBS-PRO": {
+    "canSale": "26",
+    "stockLevel": "26"
+  },
+  "MBS-S8": {
+    "canSale": "12",
+    "stockLevel": "18"
+  },
+  "MBS-SD": {
+    "canSale": "20",
+    "stockLevel": "20"
+  },
+  "MBS-TH": {
+    "canSale": "16",
+    "stockLevel": "16"
+  },
+  "MBS-WS": {
+    "canSale": "11",
+    "stockLevel": "11"
+  },
+  "MC-1": {
+    "canSale": "8",
+    "stockLevel": "8"
+  },
+  "MODEL-H": {
+    "canSale": "42",
+    "stockLevel": "42"
+  },
+  "MODEL-H PLUS": {
+    "canSale": "40",
+    "stockLevel": "40"
+  },
+  "MODEL-I": {
+    "canSale": "15",
+    "stockLevel": "15"
+  },
+  "MODEL-I PLUS": {
+    "canSale": "42",
+    "stockLevel": "42"
+  },
+  "MODEL-V": {
+    "canSale": "16",
+    "stockLevel": "16"
+  },
+  "MODEL-W": {
+    "canSale": "0",
+    "stockLevel": "0"
+  },
+  "NEW MODEL-H": {
+    "canSale": "0",
+    "stockLevel": "0"
+  },
+  "NFS-1": {
+    "canSale": "15",
+    "stockLevel": "16"
+  },
+  "NFS-2": {
+    "canSale": "9",
+    "stockLevel": "9"
+  },
+  "NFS-3": {
+    "canSale": "18",
+    "stockLevel": "18"
+  },
+  "OA6-110": {
+    "canSale": "6",
+    "stockLevel": "6"
+  },
+  "OA6-24": {
+    "canSale": "13",
+    "stockLevel": "14"
+  },
+  "OAT-24": {
+    "canSale": "13",
+    "stockLevel": "13"
+  },
+  "OM-8": {
+    "canSale": "28",
+    "stockLevel": "28"
+  },
+  "PA-1": {
+    "canSale": "214",
+    "stockLevel": "214"
+  },
+  "OPA-1": {
+    "canSale": "4",
+    "stockLevel": "4"
+  },
+  "PCT-1": {
+    "canSale": "22",
+    "stockLevel": "22"
+  },
+  "PCT-2": {
+    "canSale": "0",
+    "stockLevel": "0"
+  },
+  "PCT-3": {
+    "canSale": "20",
+    "stockLevel": "20"
+  },
+  "PPH-1": {
+    "canSale": "20",
+    "stockLevel": "20"
+  },
+  "PPH-2": {
+    "canSale": "0",
+    "stockLevel": "0"
+  },
+  "PPH-3": {
+    "canSale": "18",
+    "stockLevel": "18"
+  },
+  "RC-1": {
+    "canSale": "9",
+    "stockLevel": "9"
+  },
+  "SCC-1": {
+    "canSale": "4",
+    "stockLevel": "4"
+  },
+  "SCC-2": {
+    "canSale": "12",
+    "stockLevel": "12"
+  },
+  "SCC-3": {
+    "canSale": "5",
+    "stockLevel": "5"
+  },
+  "SCC-D": {
+    "canSale": "5",
+    "stockLevel": "5"
+  },
+  "SCC-4": {
+    "canSale": "4",
+    "stockLevel": "5"
+  },
+  "SPH-1": {
+    "canSale": "6",
+    "stockLevel": "12"
+  },
+  "TC-1": {
+    "canSale": "15",
+    "stockLevel": "15"
+  },
+  "TC-2": {
+    "canSale": "7",
+    "stockLevel": "7"
+  },
+  "TCS-1": {
+    "canSale": "44",
+    "stockLevel": "45"
+  },
+  "TPS-1": {
+    "canSale": "2",
+    "stockLevel": "2"
+  },
+  "TS-1": {
+    "canSale": "42",
+    "stockLevel": "42"
+  },
+  "TS-2": {
+    "canSale": "40",
+    "stockLevel": "40"
+  },
+  "TSB-1": {
+    "canSale": "16",
+    "stockLevel": "16"
+  },
+  "TSH-1": {
+    "canSale": "29",
+    "stockLevel": "29"
+  },
+  "TSS-1": {
+    "canSale": "131",
+    "stockLevel": "131"
+  },
+  "TSS-2": {
+    "canSale": "0",
+    "stockLevel": "0"
+  },
+  "UH-1": {
+    "canSale": "14",
+    "stockLevel": "14"
+  },
+  "UH-2": {
+    "canSale": "18",
+    "stockLevel": "18"
+  },
+  "UV-1": {
+    "canSale": "10",
+    "stockLevel": "10"
+  },
+  "VFD-1": {
+    "canSale": "5",
+    "stockLevel": "5"
+  },
+  "WCS-1": {
+    "canSale": "30",
+    "stockLevel": "30"
+  },
+  "WCS-2": {
+    "canSale": "12",
+    "stockLevel": "12"
+  },
+  "WCS-3": {
+    "canSale": "49",
+    "stockLevel": "49"
+  },
+  "WCS-9": {
+    "canSale": "-1",
+    "stockLevel": "0"
+  },
+  "WN-9": {
+    "canSale": "-2",
+    "stockLevel": "0"
+  },
+  "WD-1": {
+    "canSale": "16",
+    "stockLevel": "16"
+  },
+  "TLD-2": {
+    "canSale": "81",
+    "stockLevel": "86"
+  },
+  "TLD-4": {
+    "canSale": "38",
+    "stockLevel": "38"
+  },
+  "TLD-2 (NEW)": {
+    "canSale": "20",
+    "stockLevel": "20"
+  },
+  "TLD-4 (NEW)": {
+    "canSale": "13",
+    "stockLevel": "13"
+  },
+  "DR-1": {
+    "canSale": "2",
+    "stockLevel": "2"
+  },
+  "FR-1": {
+    "canSale": "36",
+    "stockLevel": "36"
+  },
+  "TLB-1": {
+    "canSale": "22",
+    "stockLevel": "22"
+  },
+  "TLB-2": {
+    "canSale": "15",
+    "stockLevel": "15"
+  },
+  "ICL-300": {
+    "canSale": "88",
+    "stockLevel": "88"
+  },
+  "ICL-150": {
+    "canSale": "17",
+    "stockLevel": "19"
+  },
+  "ICL-120": {
+    "canSale": "4",
+    "stockLevel": "4"
+  },
+  "TDC-1": {
+    "canSale": "93",
+    "stockLevel": "93"
+  },
+  "TDC-2": {
+    "canSale": "203",
+    "stockLevel": "208"
+  },
+  "TDC-3": {
+    "canSale": "123",
+    "stockLevel": "123"
+  },
+  "TDC-4": {
+    "canSale": "13",
+    "stockLevel": "13"
+  },
+  "TDC-120": {
+    "canSale": "145",
+    "stockLevel": "147"
+  },
+  "TSD-1": {
+    "canSale": "53",
+    "stockLevel": "53"
+  },
+  "TSD-3": {
+    "canSale": "38",
+    "stockLevel": "38"
+  },
+  "MB-4": {
+    "canSale": "10",
+    "stockLevel": "10"
+  },
+  "MB-7": {
+    "canSale": "9",
+    "stockLevel": "9"
+  },
+  "MB-8": {
+    "canSale": "10",
+    "stockLevel": "10"
+  },
+  "MB-9": {
+    "canSale": "10",
+    "stockLevel": "10"
+  },
+  "V-6": {
+    "canSale": "16",
+    "stockLevel": "16"
+  },
+  "V-8": {
+    "canSale": "11",
+    "stockLevel": "11"
+  },
+  "V-10": {
+    "canSale": "10",
+    "stockLevel": "10"
+  },
+  "V-10M": {
+    "canSale": "10",
+    "stockLevel": "10"
+  },
+  "V-12": {
+    "canSale": "11",
+    "stockLevel": "11"
+  },
+  "V-12M": {
+    "canSale": "10",
+    "stockLevel": "10"
+  },
+  "HE-20": {
+    "canSale": "-1",
+    "stockLevel": "0"
+  },
+  "HE-20M": {
+    "canSale": "0",
+    "stockLevel": "0"
+  },
+  "FRC-1": {
+    "canSale": "15",
+    "stockLevel": "15"
+  },
+  "FRC-2": {
+    "canSale": "12",
+    "stockLevel": "12"
+  },
+  "AB-6": {
+    "canSale": "0",
+    "stockLevel": "0"
+  },
+  "AB-8": {
+    "canSale": "0",
+    "stockLevel": "0"
+  },
+  "PS-4": {
+    "canSale": "0",
+    "stockLevel": "0"
+  },
+  "PS-6": {
+    "canSale": "0",
+    "stockLevel": "0"
+  },
+  "LIGHT BAR BOX": {
+    "canSale": "0",
+    "stockLevel": "0"
+  }
+};
+
+async function loadInventoryLive() {
+  var url = "https://docs.google.com/spreadsheets/d/" + INVENTORY_SHEET_ID + "/gviz/tq?tqx=out:json&gid=" + INVENTORY_GID;
+  try {
+    var resp = await fetch(url);
+    var text = await resp.text();
+    var startIdx = text.indexOf("(");
+    var endIdx = text.lastIndexOf(")");
+    if (startIdx === -1 || endIdx === -1) throw new Error("Invalid response");
+    var json = JSON.parse(text.substring(startIdx + 1, endIdx));
+    var inv = {};
+    if (json && json.table && json.table.rows) {
+      for (var i = 0; i < json.table.rows.length; i++) {
+        var row = json.table.rows[i];
+        var cells = row.c;
+        if (!cells || !cells[COL_MODEL] || !cells[COL_MODEL].v) continue;
+        var model = String(cells[COL_MODEL].v).trim();
+        if (!model) continue;
+        if (model.toLowerCase().indexOf("model") !== -1 && cells[1] && cells[1].v && String(cells[1].v).indexOf("Description") !== -1) continue;
+        var canSale = "";
+        if (cells[COL_CAN_SALE] && cells[COL_CAN_SALE].v !== null && cells[COL_CAN_SALE].v !== "") {
+          canSale = String(cells[COL_CAN_SALE].v).trim();
+        }
+        var stockLevel = "";
+        if (cells[COL_STOCK_LEVEL] && cells[COL_STOCK_LEVEL].v !== null && cells[COL_STOCK_LEVEL].v !== "") {
+          stockLevel = String(cells[COL_STOCK_LEVEL].v).trim();
+        }
+        inv[model.toUpperCase()] = { canSale: canSale, stockLevel: stockLevel };
+      }
+    }
+    console.log("[LIVE] Inventory loaded:", Object.keys(inv).length, "records");
+    return { data: inv, success: true };
+  } catch (e) {
+    console.warn("[LIVE] Failed:", e.message);
+    return { data: null, success: false };
+  }
+}
+
+async function loadInventory() {
+  updateStockStatus("loading");
+  var live = await loadInventoryLive();
+  if (live.success && Object.keys(live.data).length > 0) {
+    INVENTORY = live.data;
+    stockSource = "live";
+    updateStockStatus("ok");
+    if (lastQuery) go();
+    renderOETable();
+    return;
+  }
+  console.log("[FALLBACK] Using static inventory");
+  INVENTORY = INVENTORY_FALLBACK;
+  stockSource = "fallback";
+  updateStockStatus("fallback");
+  if (lastQuery) go();
+  renderOETable();
+}
+
+const PRODUCTS = [
+  {
+    "model": "HCS-1",
+    "desc": "Hydro-X Controller with 3-in-1 Sensor (Temp / Humid / Light ) and Cable set, Free Phone App",
+    "msrp": "345.45",
+    "ws5": "256.40",
+    "ws": "244.19",
+    "compat": "",
+    "dim": "530*285*400mm",
+    "weight": "20.40"
+  },
+  {
+    "model": "HCS-2",
+    "desc": "Hydro-X Pro Controller with 4-in-1 Sensor (Temp / Humid / CO2/ Light ) and Cable set, Free Phone App",
+    "msrp": "2,623.95",
+    "ws5": "1,943.60",
+    "ws": "1,851.05",
+    "compat": "",
+    "dim": "530*285*400mm",
+    "weight": "18.87"
+  },
+  {
+    "model": "HCS-3",
+    "desc": "Hydro-X Plus Controller with 4-in-1 Sensor (Temp / Humid / CO2/ Light ) and Cable set, Free Phone App",
+    "msrp": "1,258.95",
+    "ws5": "979.20",
+    "ws": "932.57",
+    "compat": "",
+    "dim": "530*285*400mm",
+    "weight": "16.64"
+  },
+  {
+    "model": "NFS-1",
+    "desc": "Aqua-X Controller with Water Detector set, Free SmartPhone App",
+    "msrp": "348.60",
+    "ws5": "256.40",
+    "ws": "244.19",
+    "compat": "",
+    "dim": "530*285*400mm",
+    "weight": "15.00"
+  },
+  {
+    "model": "NFS-2",
+    "desc": "Aqua-X Pro Controller with AMP-3 Sensor Board, Free Phone App",
+    "msrp": "2,623.95",
+    "ws5": "1,943.60",
+    "ws": "1,851.05",
+    "compat": "",
+    "dim": "530*285*400mm",
+    "weight": "19.35"
+  },
+  {
+    "model": "NFS-3",
+    "desc": "Aqua-X Plus Controller with AMP-3 Sensor Board, Free Phone App",
+    "msrp": "1,258.95",
+    "ws5": "979.20",
+    "ws": "932.57",
+    "compat": "",
+    "dim": "530*285*400mm",
+    "weight": "17.50"
+  },
+  {
+    "model": "TCS-1",
+    "desc": "Tent-X Main Controller with 3-in-1 Sensor (Temp / Humid / Light ) and Cable set, Free Phone App",
+    "msrp": "313.95",
+    "ws5": "227.45",
+    "ws": "216.62",
+    "compat": "",
+    "dim": "530*285*400mm",
+    "weight": "20.25"
+  },
+  {
+    "model": "CDA-1",
+    "desc": "Carbon-X Controller with cable set, Free SmartPhone App",
+    "msrp": "550.20",
+    "ws5": "386.54",
+    "ws": "368.13",
+    "compat": "",
+    "dim": "530*285*400mm",
+    "weight": "17.38"
+  },
+  {
+    "model": "GCS-1",
+    "desc": "Green-X Controller with 4-in-1 Sensor (Temp / Humid / CO2 / Light ) and Cable set, Free Phone App",
+    "msrp": "550.00",
+    "ws5": "392.70",
+    "ws": "374.00",
+    "compat": "",
+    "dim": "530*285*285mm",
+    "weight": "17.19"
+  },
+  {
+    "model": "MBS-TH",
+    "desc": "Replacement and Backup Temp / Humidity / Light Sensor for Hydro-X",
+    "msrp": "82.95",
+    "ws5": "57.98",
+    "ws": "55.22",
+    "compat": "HCS-1, TCS-1",
+    "dim": "530*285*420mm",
+    "weight": "17.65"
+  },
+  {
+    "model": "MBS-S8",
+    "desc": "CO2 Sensor for Hydro-X with cable set",
+    "msrp": "233.10",
+    "ws5": "163.63",
+    "ws": "155.84",
+    "compat": "HCS-1, TCS-1",
+    "dim": "530*285*420mm",
+    "weight": "17.65"
+  },
+  {
+    "model": "MBS-PRO",
+    "desc": "Temp/Humid/CO2/Light 4-in-1 Sensor for Hydro-X Pro and Hydro-X Plus",
+    "msrp": "439.95",
+    "ws5": "308.74",
+    "ws": "294.04",
+    "compat": "HCS-2, HCS-3",
+    "dim": "530*285*400mm",
+    "weight": "11.62"
+  },
+  {
+    "model": "MBS-SD",
+    "desc": "Smoke Detector for Hydro-X with cable set",
+    "msrp": "60.90",
+    "ws5": "42.53",
+    "ws": "40.50",
+    "compat": "HCS-1, HCS-2, HCS-3, TCS-1, GCS-1",
+    "dim": "530*285*420mm",
+    "weight": "17.65"
+  },
+  {
+    "model": "MBS-PAR",
+    "desc": "Full Spectrum Quantum Sensor",
+    "msrp": "488.25",
+    "ws5": "387.75",
+    "ws": "369.29",
+    "compat": "HCS-1, HCS-2, HCS-3, TCS-1, GCS-1",
+    "dim": "530*285*400mm",
+    "weight": "15.31"
+  },
+  {
+    "model": "MBS-K30",
+    "desc": "CO2 sensor for Carbon-X with cable set",
+    "msrp": "385.35",
+    "ws5": "269.85",
+    "ws": "257.00",
+    "compat": "CDA-1",
+    "dim": "530*285*400mm",
+    "weight": "12.16"
+  },
+  {
+    "model": "AMP-2",
+    "desc": "Sensor Board to connect sensors to controller",
+    "msrp": "120.75",
+    "ws5": "85.04",
+    "ws": "80.99",
+    "compat": "NFS-1",
+    "dim": "530*285*420mm",
+    "weight": "10.90"
+  },
+  {
+    "model": "AMP-3",
+    "desc": "Sensor Board to connect sensors to NFS-2 controller with LCD display, for Aqua-X Pro and Tent-X main controller",
+    "msrp": "142.80",
+    "ws5": "100.50",
+    "ws": "95.71",
+    "compat": "NFS-2, NFS-3, TCS-1, GCS-1",
+    "dim": "530*285*420mm",
+    "weight": "18.49"
+  },
+  {
+    "model": "PCT-1",
+    "desc": "2-in-1 EC + Temp Sensor for Reservoir",
+    "msrp": "100.28",
+    "ws5": "70.51",
+    "ws": "67.15",
+    "compat": "NFS-1, NFS-2, NFS-3, TCS-1, GCS-1",
+    "dim": "530*285*400mm",
+    "weight": "7.68"
+  },
+  {
+    "model": "PCT-2",
+    "desc": "Inline EC+Temp Sensor, Heavy Duty",
+    "msrp": "219.45",
+    "ws5": "154.37",
+    "ws": "147.02",
+    "compat": "NFS-1, NFS-2, NFS-3, TCS-1, GCS-1",
+    "dim": "530*285*400mm",
+    "weight": "10.08"
+  },
+  {
+    "model": "PCT-3",
+    "desc": "Heavy Duty Nutrient EC+Temp Sensor, drop-in/in-line compatible",
+    "msrp": "241.50",
+    "ws5": "171.69",
+    "ws": "163.51",
+    "compat": "NFS-1, NFS-2, NFS-3, TCS-1, GCS-1",
+    "dim": "530*285*400mm",
+    "weight": "7.06"
+  },
+  {
+    "model": "PPH-1",
+    "desc": "pH Sensor for Reservoir",
+    "msrp": "88.20",
+    "ws5": "61.86",
+    "ws": "58.91",
+    "compat": "NFS-1, NFS-2, NFS-3, TCS-1, GCS-1",
+    "dim": "530*285*400mm",
+    "weight": "6.48"
+  },
+  {
+    "model": "PPH-2",
+    "desc": "Inline pH Sensor, Heavy Duty",
+    "msrp": "197.40",
+    "ws5": "138.57",
+    "ws": "131.97",
+    "compat": "NFS-1, NFS-2, NFS-3, TCS-1, GCS-1",
+    "dim": "530*285*400mm",
+    "weight": "9.12"
+  },
+  {
+    "model": "PPH-3",
+    "desc": "Heavy Duty Nutrient pH Sensor, drop-in/in-line compatible",
+    "msrp": "219.45",
+    "ws5": "154.43",
+    "ws": "147.08",
+    "compat": "NFS-1, NFS-2, NFS-3, TCS-1, GCS-1",
+    "dim": "530*285*400mm",
+    "weight": "6.82"
+  },
+  {
+    "model": "WCS-1",
+    "desc": "Water Content Sensor with Cable Set",
+    "msrp": "241.50",
+    "ws5": "170.07",
+    "ws": "161.97",
+    "compat": "HCS-2, HCS-3, NFS-1, NFS-2, NFS-3, TCS-1, GCS-1",
+    "dim": "530*285*420mm",
+    "weight": "12.52"
+  },
+  {
+    "model": "WCS-2",
+    "desc": "Soil Moisture, Temp and EC 3-in-1 Sensor with cable set",
+    "msrp": "325.50",
+    "ws5": "232.41",
+    "ws": "221.34",
+    "compat": "HCS-2, NFS-1, NFS-2, NFS-3, TCS-1, GCS-1",
+    "dim": "530*285*420mm",
+    "weight": "13.84"
+  },
+  {
+    "model": "WCS-3",
+    "desc": "Water Content Sensor 3 with splitter cable set",
+    "msrp": "124.95",
+    "ws5": "91.84",
+    "ws": "87.47",
+    "compat": "NFS-1, NFS-2, NFS-3, TCS-1, GCS-1",
+    "dim": "530*285*400mm",
+    "weight": "13.00"
+  },
+  {
+    "model": "WCS-9",
+    "desc": "Soil Moisture, EC and Temp 3-in-1 Substrate Sensor Set",
+    "msrp": "199.00",
+    "ws5": "146.27",
+    "ws": "139.30",
+    "compat": "HCS-2, NFS-1, NFS-2, NFS-3, TCS-1, GCS-1",
+    "dim": "530*285*400mm",
+    "weight": "24.40"
+  },
+  {
+    "model": "WN-9",
+    "desc": "Soil Moisture, EC and Temp 3-in-1 Substrate Sensor Node",
+    "msrp": "119.00",
+    "ws5": "87.47",
+    "ws": "83.30",
+    "compat": "HCS-2, NFS-1, NFS-2, NFS-3, TCS-1, GCS-1",
+    "dim": "530*285*420mm",
+    "weight": "14.00"
+  },
+  {
+    "model": "WD-1",
+    "desc": "Water Detector + Touch Spot for watering confirmation",
+    "msrp": "77.18",
+    "ws5": "54.11",
+    "ws": "51.53",
+    "compat": "HCS-1, HCS-2, HCS-3, NFS-1, NFS-2, TCS-1, GCS-1",
+    "dim": "530*285*420mm",
+    "weight": "20.35"
+  },
+  {
+    "model": "DFM-1",
+    "desc": "1“ Digital Flow Meter",
+    "msrp": "103.95",
+    "ws5": "74.22",
+    "ws": "70.69",
+    "compat": "NFS-2, GCS-1",
+    "dim": "530*285*420mm",
+    "weight": "15.59"
+  },
+  {
+    "model": "DFM-2",
+    "desc": "1.25\" Digital Flow Meter",
+    "msrp": "110.25",
+    "ws5": "78.72",
+    "ws": "74.97",
+    "compat": "NFS-2, GCS-1",
+    "dim": "530*285*420mm",
+    "weight": "13.12"
+  },
+  {
+    "model": "DFM-3",
+    "desc": "1.5“ Digital Flow Meter",
+    "msrp": "115.50",
+    "ws5": "82.47",
+    "ws": "78.54",
+    "compat": "NFS-2, GCS-1",
+    "dim": "530*285*420mm",
+    "weight": "12.52"
+  },
+  {
+    "model": "MBS-GH",
+    "desc": "Replacement 4-in-1 Sensor for Green-X Controller",
+    "msrp": "199.00",
+    "ws5": "142.09",
+    "ws": "135.32",
+    "compat": "GCS-1",
+    "dim": "530*285*400mm",
+    "weight": "9.78"
+  },
+  {
+    "model": "MBS-WS",
+    "desc": "Weather Station Sensor for Green-X Controller",
+    "msrp": "350.00",
+    "ws5": "249.90",
+    "ws": "238.00",
+    "compat": "GCS-1",
+    "dim": "530*285*420mm",
+    "weight": "10.75"
+  },
+  {
+    "model": "LMA-11",
+    "desc": "Lighting Control Adapter P, for Controlling Phantom Ballast",
+    "msrp": "61.16",
+    "ws5": "42.53",
+    "ws": "40.50",
+    "compat": "HCS-1, HCS-2, HCS-3, TCS-1, GCS-1",
+    "dim": "530*285*400mm",
+    "weight": "7.65"
+  },
+  {
+    "model": "LMA-12",
+    "desc": "Lighting Control Adapter D, for Controlling Dimlux Ballast",
+    "msrp": "61.16",
+    "ws5": "42.53",
+    "ws": "40.50",
+    "compat": "HCS-1, HCS-2, HCS-3, TCS-1, GCS-1",
+    "dim": "530*285*400mm",
+    "weight": "7.65"
+  },
+  {
+    "model": "LMA-13",
+    "desc": "Lighting Control Adapter S, for Controlling Sun System Ballast",
+    "msrp": "61.16",
+    "ws5": "42.53",
+    "ws": "40.50",
+    "compat": "HCS-1, HCS-2, HCS-3, TCS-1, GCS-1",
+    "dim": "530*285*400mm",
+    "weight": "7.65"
+  },
+  {
+    "model": "LMA-14",
+    "desc": "Lighting Control Adapter F \nfor Controlling Fluence or any light using 0~10V protocal",
+    "msrp": "61.16",
+    "ws5": "42.53",
+    "ws": "40.50",
+    "compat": "HCS-1, HCS-2, HCS-3, TCS-1, GCS-1",
+    "dim": "530*285*400mm",
+    "weight": "7.65"
+  },
+  {
+    "model": "LMA-15",
+    "desc": "Lighting Control Adapter DLI\nfor Hydro-X Control System",
+    "msrp": "61.16",
+    "ws5": "42.53",
+    "ws": "40.50",
+    "compat": "HCS-1, HCS-2, HCS-3, TCS-1, GCS-1",
+    "dim": "530*285*400mm",
+    "weight": "7.65"
+  },
+  {
+    "model": "LMA-24",
+    "desc": "Lantern Schedule Lighting Adapter Compatible with any light controled by 0~10V code",
+    "msrp": "95.55",
+    "ws5": "66.85",
+    "ws": "63.67",
+    "compat": "HCS-1, HCS-2, HCS-3, TCS-1, GCS-1",
+    "dim": "530*285*400mm",
+    "weight": "7.65"
+  },
+  {
+    "model": "LMA-T",
+    "desc": "Lighting Control Adapter T, for Controlling ThinkGrow LED",
+    "msrp": "95.55",
+    "ws5": "66.85",
+    "ws": "63.67",
+    "compat": "HCS-1, HCS-2, HCS-3, TCS-1, GCS-1",
+    "dim": "530*285*420mm",
+    "weight": "22.48"
+  },
+  {
+    "model": "LMA-G",
+    "desc": "Group Control Lighting Adaptor, for Grouping ThinkGrow Model-I LEDs",
+    "msrp": "95.55",
+    "ws5": "66.85",
+    "ws": "63.67",
+    "compat": "HCS-2, HCS-3",
+    "dim": "530*285*420mm",
+    "weight": "21.34"
+  },
+  {
+    "model": "LMA-9",
+    "desc": "Lighting Adapter to Convert 0-10V Signals to Digital Signals to Control ThinkGrow LEDs",
+    "msrp": "90.00",
+    "ws5": "63.32",
+    "ws": "60.30",
+    "compat": "",
+    "dim": "530*285*285mm",
+    "weight": "17.23"
+  },
+  {
+    "model": "LMA-14G",
+    "desc": "Group Control Lighting Adapter, for 0-10V protocol",
+    "msrp": "95.55",
+    "ws5": "66.85",
+    "ws": "63.67",
+    "compat": "HCS-2, HCS-3",
+    "dim": "530*285*420mm",
+    "weight": "10.81"
+  },
+  {
+    "model": "TS-1",
+    "desc": "Thermostat Station, for Cool only conventinal HVAC",
+    "msrp": "110.25",
+    "ws5": "77.31",
+    "ws": "73.63",
+    "compat": "HCS-1, HCS-2, HCS-3",
+    "dim": "530*285*420mm",
+    "weight": "19.03"
+  },
+  {
+    "model": "TS-2",
+    "desc": "Thermostat Station 2, for all type of HVAC (Heatpump and Conventionals)",
+    "msrp": "128.63",
+    "ws5": "89.95",
+    "ws": "85.67",
+    "compat": "HCS-1, HCS-2, HCS-3, TCS-1, GCS-1",
+    "dim": "530*285*420mm",
+    "weight": "19.03"
+  },
+  {
+    "model": "TS-3",
+    "desc": "Reheat Control Station",
+    "msrp": "199.00",
+    "ws5": "139.38",
+    "ws": "132.74",
+    "compat": "HCS-2, HCS-3",
+    "dim": "530*285*420mm",
+    "weight": "19.03"
+  },
+  {
+    "model": "ARS-1",
+    "desc": "AC Remote Station, Universal Remote Control for any remote controlled AC such as Mini-Split AC system",
+    "msrp": "110.25",
+    "ws5": "77.31",
+    "ws": "73.63",
+    "compat": "HCS-1, HCS-2, HCS-3",
+    "dim": "530*285*420mm",
+    "weight": "20.38"
+  },
+  {
+    "model": "ARS-2",
+    "desc": "AC Remote Station, Universal Remote Control for any remote controlled Heat & Cool AC such as Mini-Split AC system",
+    "msrp": "128.63",
+    "ws5": "89.95",
+    "ws": "85.67",
+    "compat": "HCS-1, HCS-2, HCS-3, TCS-1, GCS-1",
+    "dim": "530*285*420mm",
+    "weight": "1.03"
+  },
+  {
+    "model": "DST-1",
+    "desc": "Temperature Device Station\nTemperature Control Relay Single Pack with cable set",
+    "msrp": "73.50",
+    "ws5": "51.06",
+    "ws": "48.63",
+    "compat": "HCS-1, HCS-2, HCS-3, TCS-1, GCS-1",
+    "dim": "530*285*420mm",
+    "weight": "31.63"
+  },
+  {
+    "model": "HS-1",
+    "desc": "Humidistat Station, for Dehumidifier with 24V terminal",
+    "msrp": "128.63",
+    "ws5": "89.95",
+    "ws": "85.67",
+    "compat": "HCS-1, HCS-2, HCS-3",
+    "dim": "530*285*420mm",
+    "weight": "19.00"
+  },
+  {
+    "model": "DSH-1",
+    "desc": "Humidity Device Station\nHumidity Control Relay Single Pack with cable set",
+    "msrp": "73.50",
+    "ws5": "51.06",
+    "ws": "48.63",
+    "compat": "HCS-1, HCS-2, HCS-3, TCS-1, GCS-1",
+    "dim": "530*285*420mm",
+    "weight": "31.60"
+  },
+  {
+    "model": "OA6-24",
+    "desc": "24V Control Board, 6 inividual 24V controlled output for solenoid valve control",
+    "msrp": "100.28",
+    "ws5": "70.51",
+    "ws": "67.15",
+    "compat": "NFS-1, NFS-2, NFS-3, GCS-1",
+    "dim": "530*285*400mm",
+    "weight": "17.43"
+  },
+  {
+    "model": "OAT-24",
+    "desc": "12 Outputs 24V Control Board",
+    "msrp": "261.45",
+    "ws5": "188.06",
+    "ws": "179.10",
+    "compat": "NFS-2, NFS-3, GCS-1",
+    "dim": "530*285*400mm",
+    "weight": "16.25"
+  },
+  {
+    "model": "OA6-110",
+    "desc": "110V Control Board, 6 inividual 110V controlled output (1.5A per outlet) for pump control",
+    "msrp": "109.73",
+    "ws5": "77.31",
+    "ws": "73.63",
+    "compat": "NFS-1, NFS-2, NFS-3, GCS-1",
+    "dim": "530*285*400mm",
+    "weight": "16.98"
+  },
+  {
+    "model": "DSC-1",
+    "desc": "CO2 Device Station\nCO2 Control Relay Single Pack with cable set",
+    "msrp": "73.50",
+    "ws5": "51.06",
+    "ws": "48.63",
+    "compat": "HCS-1, HCS-2, HCS-3, TCS-1, CDA-1, GCS-1",
+    "dim": "530*285*420mm",
+    "weight": "31.60"
+  },
+  {
+    "model": "DSP-1",
+    "desc": "Program Device StationTimer Program Control Relay Single Pack with cable set",
+    "msrp": "73.50",
+    "ws5": "51.06",
+    "ws": "48.63",
+    "compat": "HCS-1, HCS-2, HCS-3, NFS-1, NFS-2, NFS-3, TCS-1, GCS-1",
+    "dim": "530*285*420mm",
+    "weight": "31.60"
+  },
+  {
+    "model": "DSD-1",
+    "desc": "Dry Contact Station Single Pack with cable set.",
+    "msrp": "82.95",
+    "ws5": "57.98",
+    "ws": "55.22",
+    "compat": "HCS-1, HCS-2, HCS-3, NFS-1, NFS-2, NFS-3, TCS-1, CDA-1, GCS-1",
+    "dim": "530*285*420mm",
+    "weight": "31.60"
+  },
+  {
+    "model": "DSD-3",
+    "desc": "Dry Contact Control Station",
+    "msrp": "99.00",
+    "ws5": "70.69",
+    "ws": "67.32",
+    "compat": "HCS-1, HCS-2, HCS-3, NFS-1, NFS-2, NFS-3, TCS-1, CDA-1, GCS-1",
+    "dim": "",
+    "weight": ""
+  },
+  {
+    "model": "DSV-1",
+    "desc": "TrolMaster Low-Volt Station",
+    "msrp": "82.95",
+    "ws5": "57.98",
+    "ws": "55.22",
+    "compat": "HCS-1, HCS-2, HCS-3, NFS-1, NFS-2, NFS-3, TCS-1, CDA-1, GCS-1",
+    "dim": "530*285*420mm",
+    "weight": "31.60"
+  },
+  {
+    "model": "DCC-1",
+    "desc": "Dual Condition Adapter for Hydro-X system",
+    "msrp": "78.38",
+    "ws5": "54.69",
+    "ws": "52.09",
+    "compat": "HCS-1, HCS-2, HCS-3, NFS-1, NFS-2, NFS-3, TCS-1, CDA-1, GCS-1",
+    "dim": "530*285*420mm",
+    "weight": "7.65"
+  },
+  {
+    "model": "DCC-2",
+    "desc": "Dual System Control Adapter",
+    "msrp": "110.00",
+    "ws5": "78.54",
+    "ws": "74.80",
+    "compat": "HCS-1, HCS-2, HCS-3, NFS-1, NFS-2, NFS-3, CDA-1, GCS-1",
+    "dim": "530*285*420mm",
+    "weight": "15.66"
+  },
+  {
+    "model": "4RS-1",
+    "desc": "Expander Station 4:\n 4 outlet expander station with trigger cable for mutiple devices control",
+    "msrp": "152.25",
+    "ws5": "106.94",
+    "ws": "101.85",
+    "compat": "HCS-1, HCS-2, HCS-3, NFS-1, NFS-2, NFS-3, TCS-1, CDA-1, GCS-1",
+    "dim": "530*285*400mm",
+    "weight": "18.96"
+  },
+  {
+    "model": "4RS-2",
+    "desc": "Device Station Kit with 4 control outlets including 1x DST, 1x DSH and 2x DSP NEW",
+    "msrp": "210.00",
+    "ws5": "151.04",
+    "ws": "143.85",
+    "compat": "TCS-1, GCS-1",
+    "dim": "530*285*400mm",
+    "weight": "21.75"
+  },
+  {
+    "model": "EFC-1",
+    "desc": "EC Fan Control Adaptor, for control EC Fan in PWM or 0-10V variable speed",
+    "msrp": "61.95",
+    "ws5": "45.54",
+    "ws": "43.37",
+    "compat": "HCS-2, HCS-3, TCS-1, GCS-1",
+    "dim": "530*285*420mm",
+    "weight": "9.75"
+  },
+  {
+    "model": "VFD-1",
+    "desc": "Variable Frequency Drive Station for VFD \nfan speed control in the Hydro-X Pro system",
+    "msrp": "128.63",
+    "ws5": "89.95",
+    "ws": "85.67",
+    "compat": "HCS-2",
+    "dim": "530*285*420mm",
+    "weight": "18.33"
+  },
+  {
+    "model": "Delta-1",
+    "desc": "3PH 460V/5HP/3.7KW VFD,  Basic Compact Driver for AC motors speed controls",
+    "msrp": "691.95",
+    "ws5": "508.08",
+    "ws": "483.89",
+    "compat": "HCS-2",
+    "dim": "530*285*400mm",
+    "weight": "9.27"
+  },
+  {
+    "model": "TSH-1",
+    "desc": "TrolMaster Temp/ Humidity Station with 0-10V protocol",
+    "msrp": "128.63",
+    "ws5": "89.95",
+    "ws": "85.67",
+    "compat": "HCS-1, HCS-2, HCS-3",
+    "dim": "530*285*420mm",
+    "weight": "16.99"
+  },
+  {
+    "model": "OM-8",
+    "desc": "Dry Contact Board for HCS-2/NFS-2, 8 individual electrical contacts, each contact up to 12 Amps",
+    "msrp": "313.95",
+    "ws5": "224.16",
+    "ws": "213.49",
+    "compat": "HCS-2, NFS-2",
+    "dim": "530*285*400mm",
+    "weight": "20.08"
+  },
+  {
+    "model": "DSE-1",
+    "desc": "Emergency Stop Station with cable set",
+    "msrp": "109.20",
+    "ws5": "76.58",
+    "ws": "72.93",
+    "compat": "HCS-2, HCS-3, NFS-2, NFS-3, CDA-1",
+    "dim": "530*285*420mm",
+    "weight": "31.60"
+  },
+  {
+    "model": "DMC-1",
+    "desc": "24V DC Greenhouse Roll Up Motor Controller",
+    "msrp": "399.00",
+    "ws5": "284.89",
+    "ws": "271.32",
+    "compat": "GCS-1",
+    "dim": "530*285*285mm",
+    "weight": "11.65"
+  },
+  {
+    "model": "AMC-1",
+    "desc": "Single/Three Phase Curtain Motor Controller",
+    "msrp": "539.00",
+    "ws5": "384.85",
+    "ws": "366.52",
+    "compat": "GCS-1",
+    "dim": "530*400*400mm",
+    "weight": "17.67"
+  },
+  {
+    "model": "DSR-1",
+    "desc": "25Amps Relay Device Station (100-277V)",
+    "msrp": "115.00",
+    "ws5": "82.11",
+    "ws": "78.20",
+    "compat": "HCS-1, HCS-2, HCS-3, NFS-1, NFS-2, NFS-3, TCS-1, CDA-1, GCS-1",
+    "dim": "530*285*285mm",
+    "weight": "24.34"
+  },
+  {
+    "model": "TC-1",
+    "desc": "TrolMaster Grow Camera",
+    "msrp": "145.95",
+    "ws5": "104.21",
+    "ws": "99.25",
+    "compat": "HCS-1, HCS-2, HCS-3, TCS-1, GCS-1",
+    "dim": "530*285*400mm",
+    "weight": "11.49"
+  },
+  {
+    "model": "TC-2",
+    "desc": "TrolMaster Grow Camera (New)",
+    "msrp": "99.00",
+    "ws5": "70.69",
+    "ws": "67.32",
+    "compat": "HCS-1, HCS-2, HCS-3, TCS-1, GCS-1",
+    "dim": "530*285*420mm",
+    "weight": "10.39"
+  },
+  {
+    "model": "ECS-1",
+    "desc": "Rj12 Extension Cable Set: 1x 16' RJ12 Cable; 1x 4' RJ12 Cable; 1x RJ12 T-Spliter",
+    "msrp": "21.00",
+    "ws5": "14.18",
+    "ws": "13.50",
+    "compat": "HCS-1, HCS-2, HCS-3, NFS-1, NFS-2, NFS-3, TCS-1, CDA-1, GCS-1",
+    "dim": "530*285*420mm",
+    "weight": "31.50"
+  },
+  {
+    "model": "ECS-2",
+    "desc": "RJ12 to 3.5 Jack Convertor Cable Set: 1x 4' RJ12 to 3.5 Jack Convertor Cable; 1x RJ12 T-Spliter; 1x 16' RJ12 Cable;",
+    "msrp": "22.05",
+    "ws5": "15.46",
+    "ws": "14.72",
+    "compat": "HCS-1, HCS-2, HCS-3, NFS-1, NFS-2, NFS-3, TCS-1, CDA-1, GCS-1",
+    "dim": "530*285*420mm",
+    "weight": "24.94"
+  },
+  {
+    "model": "ECS-3",
+    "desc": "1 x 16 ft RJ12 Cable\n\n1 x 4 ft RJ12 to 3.5 Jack Cable\n\n1 x T-shaped Splitter\n\n1 x 3.5mm Female Barrel Connecter",
+    "msrp": "22.05",
+    "ws5": "15.46",
+    "ws": "14.72",
+    "compat": "HCS-1, HCS-2, HCS-3, TCS-1, GCS-1",
+    "dim": "530*285*420mm",
+    "weight": "24.94"
+  },
+  {
+    "model": "ECS-4",
+    "desc": "16ft Extension Cable for Sensor Board AMP-2",
+    "msrp": "22.05",
+    "ws5": "15.46",
+    "ws": "14.72",
+    "compat": "NFS-1",
+    "dim": "530*285*420mm",
+    "weight": "20.95"
+  },
+  {
+    "model": "ECS-5",
+    "desc": "RJ12 to M16 PushLock Waterproof connecter converter Cable Set for Fluence new models",
+    "msrp": "24.26",
+    "ws5": "17.01",
+    "ws": "16.20",
+    "compat": "HCS-1, HCS-2, HCS-3, TCS-1, GCS-1",
+    "dim": "530*285*420mm",
+    "weight": "30.26"
+  },
+  {
+    "model": "ECS-6",
+    "desc": "16ft 4Pins Waterproof Extension Cable",
+    "msrp": "22.05",
+    "ws5": "15.80",
+    "ws": "15.05",
+    "compat": "HCS-1, HCS-2, HCS-3, NFS-1, NFS-2, NFS-3, TCS-1, GCS-1",
+    "dim": "530*285*420mm",
+    "weight": "18.29"
+  },
+  {
+    "model": "ECS-8",
+    "desc": "32ft Extension Cable for IR emitter in ARS-1 and Beta-1",
+    "msrp": "22.05",
+    "ws5": "15.80",
+    "ws": "15.05",
+    "compat": "HCS-1, HCS-2, HCS-3, TCS-1, GCS-1",
+    "dim": "530*285*420mm",
+    "weight": "21.91"
+  },
+  {
+    "model": "ECS-9",
+    "desc": "12ft RJ12 to 4-pin IP65 connecter cable for LMA-T and ThinkGrow LEDs",
+    "msrp": "21.00",
+    "ws5": "14.58",
+    "ws": "13.89",
+    "compat": "HCS-1, HCS-2, HCS-3, TCS-1, GCS-1",
+    "dim": "530*285*420mm",
+    "weight": "16.74"
+  },
+  {
+    "model": "ECS-10",
+    "desc": "RJ12 25' Coiled Communication Cable",
+    "msrp": "25.20",
+    "ws5": "18.00",
+    "ws": "17.14",
+    "compat": "HCS-1, HCS-2, HCS-3, TCS-1, GCS-1",
+    "dim": "530*285*400mm",
+    "weight": "14.82"
+  },
+  {
+    "model": "ECS-12",
+    "desc": "TrolMaster 4-Pin Waterproof Splitter Cable",
+    "msrp": "19.00",
+    "ws5": "13.37",
+    "ws": "12.73",
+    "compat": "HCS-1, HCS-2, HCS-3, NFS-1, NFS-2, NFS-3, TCS-1, GCS-1",
+    "dim": "530*285*285mm",
+    "weight": "11.53"
+  },
+  {
+    "model": "ECS-500",
+    "desc": "500ft RJ12 Cable Roll",
+    "msrp": "136.50",
+    "ws5": "96.03",
+    "ws": "91.46",
+    "compat": "HCS-1, HCS-2, HCS-3, NFS-1, NFS-2, NFS-3, TCS-1, CDA-1, GCS-1",
+    "dim": "530*285*420mm",
+    "weight": "34.93"
+  },
+  {
+    "model": "ECW-1",
+    "desc": "RJ12 Waterproof Straight-Through Inline Coupler",
+    "msrp": "21.00",
+    "ws5": "14.99",
+    "ws": "14.28",
+    "compat": "HCS-1, HCS-2, HCS-3, NFS-1, NFS-2, NFS-3, TCS-1, CDA-1, GCS-1",
+    "dim": "530*285*400mm",
+    "weight": "18.87"
+  },
+  {
+    "model": "MC-1",
+    "desc": "Multifunction Crimper",
+    "msrp": "57.23",
+    "ws5": "40.11",
+    "ws": "38.20",
+    "compat": "HCS-1, HCS-2, HCS-3, NFS-1, NFS-2, NFS-3, TCS-1, CDA-1, GCS-1",
+    "dim": "530*285*420mm",
+    "weight": "26.04"
+  },
+  {
+    "model": "SPH-1",
+    "desc": "RJ12 Splitter Hub with cable set",
+    "msrp": "34.65",
+    "ws5": "24.31",
+    "ws": "23.15",
+    "compat": "HCS-1, HCS-2, HCS-3, NFS-1, NFS-2, NFS-3, TCS-1, CDA-1, GCS-1",
+    "dim": "530*285*420mm",
+    "weight": "11.99"
+  },
+  {
+    "model": "BM-1",
+    "desc": "Wheatherproof Box for TS-1, TS-2, HS-1 and ARS-1",
+    "msrp": "20.48",
+    "ws5": "14.58",
+    "ws": "13.89",
+    "compat": "HCS-1, HCS-2, HCS-3, TCS-1",
+    "dim": "530*285*400mm",
+    "weight": "10.60"
+  },
+  {
+    "model": "TSB-1",
+    "desc": "TrolMaster Sensor Bracket (2 Packs)",
+    "msrp": "16.80",
+    "ws5": "11.99",
+    "ws": "11.42",
+    "compat": "HCS-2, HCS-3, CDA-1",
+    "dim": "530*285*420mm",
+    "weight": "9.07"
+  },
+  {
+    "model": "TSS-1",
+    "desc": "Touch Spot + T Split Extension Cable",
+    "msrp": "34.65",
+    "ws5": "24.31",
+    "ws": "23.15",
+    "compat": "NFS-1, NFS-2, NFS-3, TCS-1",
+    "dim": "530*285*400mm",
+    "weight": "12.66"
+  },
+  {
+    "model": "TSS-2",
+    "desc": "Touch Spot 16' Extension Cable",
+    "msrp": "17.33",
+    "ws5": "11.60",
+    "ws": "11.05",
+    "compat": "NFS-1, NFS-2, NFS-3, TCS-1",
+    "dim": "530*285*400mm",
+    "weight": "17.86"
+  },
+  {
+    "model": "AS-1",
+    "desc": "CO2 Alarm Station (audio/visual) with cable set",
+    "msrp": "131.25",
+    "ws5": "92.38",
+    "ws": "87.98",
+    "compat": "CDA-1",
+    "dim": "530*285*420mm",
+    "weight": "23.95"
+  },
+  {
+    "model": "AS-2",
+    "desc": "CO2 Alarm Station (audio/visual) plus LED display indicator with cable set",
+    "msrp": "219.45",
+    "ws5": "154.37",
+    "ws": "147.02",
+    "compat": "CDA-1",
+    "dim": "530*285*400mm",
+    "weight": "15.88"
+  },
+  {
+    "model": "AS-3",
+    "desc": "CO2 Alarm Station (amber light)",
+    "msrp": "219.45",
+    "ws5": "154.37",
+    "ws": "147.02",
+    "compat": "CDA-1",
+    "dim": "530*285*400mm",
+    "weight": "14.68"
+  },
+  {
+    "model": "AS-4",
+    "desc": "CO2 Alarm Station (blue light)",
+    "msrp": "219.45",
+    "ws5": "154.37",
+    "ws": "147.02",
+    "compat": "CDA-1",
+    "dim": "530*285*400mm",
+    "weight": "14.68"
+  },
+  {
+    "model": "AS-5",
+    "desc": "Alarm Station",
+    "msrp": "47.25",
+    "ws5": "33.74",
+    "ws": "32.13",
+    "compat": "HCS-2, HCS-3, NFS-2, NFS-3, CDA-1, TCS-1",
+    "dim": "530*285*420mm",
+    "weight": "12.94"
+  },
+  {
+    "model": "SCC-1",
+    "desc": "25“ Standard Controller Cabinet for Hydro-X Pro / Aqua-X Pro",
+    "msrp": "1,048.95",
+    "ws5": "748.95",
+    "ws": "713.29",
+    "compat": "HCS-2, NFS-2",
+    "dim": "720*550*265mm",
+    "weight": "16.69"
+  },
+  {
+    "model": "SCC-2",
+    "desc": "35” Large Controller Cabinet for Hydro-X Pro / Aqua-X Pro",
+    "msrp": "1,258.95",
+    "ws5": "898.89",
+    "ws": "856.09",
+    "compat": "HCS-2, NFS-2",
+    "dim": "975*550*265mm",
+    "weight": "23.59"
+  },
+  {
+    "model": "SCC-3",
+    "desc": "25“ Standard Controller Cabinet for Hydro-X Plus",
+    "msrp": "1,048.95",
+    "ws5": "748.95",
+    "ws": "713.29",
+    "compat": "HCS-3, NFS-3",
+    "dim": "720*550*265mm",
+    "weight": "17.04"
+  },
+  {
+    "model": "SCC-D",
+    "desc": "Controller Cabinet Door without pre-cut window",
+    "msrp": "103.95",
+    "ws5": "74.77",
+    "ws": "71.21",
+    "compat": "HCS-1, NFS-1, TCS-1, CDA-1, GCS-1",
+    "dim": "650*480*368mm",
+    "weight": "25.05"
+  },
+  {
+    "model": "SCC-D2",
+    "desc": "Controller Cabinet Door without pre-cut window for SCC-2",
+    "msrp": "119.50",
+    "ws5": "85.95",
+    "ws": "81.86",
+    "compat": "HCS-1, NFS-1, TCS-1, CDA-1, GCS-1",
+    "dim": "900*470*470mm",
+    "weight": "31.78"
+  },
+  {
+    "model": "SCC-4",
+    "desc": "Mini Controller Cabinet （100-277V）",
+    "msrp": "439.00",
+    "ws5": "313.45",
+    "ws": "298.52",
+    "compat": "HCS-1, NFS-1, CDA-1, GCS-1",
+    "dim": "395*395*170mm",
+    "weight": "5.13"
+  },
+  {
+    "model": "CM-1",
+    "desc": "Hawkeye 3-in-1 Monitor & Logger, 3-in-1 (Temp/Humid/CO2) Sensor, Ethernet Adapter; Free Smartphone App",
+    "msrp": "271.22",
+    "ws5": "190.69",
+    "ws": "181.61",
+    "compat": "",
+    "dim": "530*285*400mm",
+    "weight": "12.06"
+  },
+  {
+    "model": "Beta-1",
+    "desc": "Digital Day/Night Remote controller (For remote controled AC such as Mini Split)",
+    "msrp": "142.28",
+    "ws5": "100.50",
+    "ws": "95.71",
+    "compat": "",
+    "dim": "530*285*400mm",
+    "weight": "14.40"
+  },
+  {
+    "model": "Beta-2",
+    "desc": "Digital Day/Night Fans Speed controller",
+    "msrp": "98.70",
+    "ws5": "69.28",
+    "ws": "65.98",
+    "compat": "",
+    "dim": "530*285*400mm",
+    "weight": "14.40"
+  },
+  {
+    "model": "Beta-4",
+    "desc": "Digital Day/Night Temperature Controller",
+    "msrp": "77.18",
+    "ws5": "54.11",
+    "ws": "51.53",
+    "compat": "",
+    "dim": "530*285*400mm",
+    "weight": "14.40"
+  },
+  {
+    "model": "Beta-6",
+    "desc": "Digital Day/Night Humidity 110V Controller",
+    "msrp": "120.17",
+    "ws5": "83.75",
+    "ws": "79.76",
+    "compat": "",
+    "dim": "530*285*400mm",
+    "weight": "18.76"
+  },
+  {
+    "model": "Beta-8",
+    "desc": "Digital CO2 PPM controller, for Regulator & Generator",
+    "msrp": "312.01",
+    "ws5": "220.01",
+    "ws": "209.53",
+    "compat": "",
+    "dim": "530*285*400mm",
+    "weight": "14.40"
+  },
+  {
+    "model": "Model-H",
+    "desc": "ThinkGrow Model-H LED Grow Light",
+    "msrp": "1,417.50",
+    "ws5": "1,101.40",
+    "ws": "1,048.95",
+    "compat": "",
+    "dim": "1174*385*162mm",
+    "weight": "21.46"
+  },
+  {
+    "model": "Model-H Plus",
+    "desc": "ThinkGrow Model-H Plus",
+    "msrp": "1,573.95",
+    "ws5": "1,222.96",
+    "ws": "1,164.72",
+    "compat": "",
+    "dim": "1474*244*263mm",
+    "weight": "19.79"
+  },
+  {
+    "model": "Model-W",
+    "desc": "ThinkGrow Model-W LED Grow Light",
+    "msrp": "1,155.00",
+    "ws5": "893.03",
+    "ws": "850.50",
+    "compat": "",
+    "dim": "1174*385*162mm",
+    "weight": "21.46"
+  },
+  {
+    "model": "Model-V",
+    "desc": "ThinkGrow Model-V LED Grow Light",
+    "msrp": "787.50",
+    "ws5": "606.38",
+    "ws": "577.50",
+    "compat": "",
+    "dim": "1174*265*162mm",
+    "weight": "15.10"
+  },
+  {
+    "model": "Model-H Plus 4'",
+    "desc": "720watt 4'x8 Multi-Bars LED Grow Light with 4 Spectrum Channels, On-Board Control and Built-in Group Control",
+    "msrp": "799.00",
+    "ws5": "699.12",
+    "ws": "665.83",
+    "compat": "",
+    "dim": "263*244*1170mm",
+    "weight": "15.39"
+  },
+  {
+    "model": "Model-H Plus 5'",
+    "desc": "720watt 5'x8 Multi-Bars LED Grow Light with 4 Spectrum Channels, On-Board Control and Built-in Group Control",
+    "msrp": "899.00",
+    "ws5": "786.63",
+    "ws": "749.17",
+    "compat": "",
+    "dim": "263*244*1474mm",
+    "weight": "20.82"
+  },
+  {
+    "model": "Model-I",
+    "desc": "ThinkGrow Model-I LED Grow Light",
+    "msrp": "649.00",
+    "ws5": "567.87",
+    "ws": "540.83",
+    "compat": "",
+    "dim": "1165*203*157mm",
+    "weight": "12.82"
+  },
+  {
+    "model": "Model-I plus",
+    "desc": "ThinkGrow Model-I plus LED Grow Light",
+    "msrp": "749.00",
+    "ws5": "655.38",
+    "ws": "624.17",
+    "compat": "",
+    "dim": "1165*203*157mm",
+    "weight": "12.78"
+  },
+  {
+    "model": "ICL-300",
+    "desc": "120-watt 300° Light Angle Inner Canopy LED (4 Spectrum)",
+    "msrp": "185.00",
+    "ws5": "161.88",
+    "ws": "154.17",
+    "compat": "",
+    "dim": "1186*262*218mm",
+    "weight": "18.13"
+  },
+  {
+    "model": "ICL-150",
+    "desc": "120-watt 150° Light Angle Multi-Purpose LED (4 Spectrum)",
+    "msrp": "169.00",
+    "ws5": "147.87",
+    "ws": "140.83",
+    "compat": "",
+    "dim": "1175*315*169mm",
+    "weight": "24.00"
+  },
+  {
+    "model": "ICL-120",
+    "desc": "120-watt 120° Light Angle Under Canopy LED (4 Per Pack)",
+    "msrp": "556.00",
+    "ws5": "486.49",
+    "ws": "463.32",
+    "compat": "",
+    "dim": "1258*282*260mm",
+    "weight": "48.11"
+  },
+  {
+    "model": "ICL-120 (2)",
+    "desc": "120-watt 120° Light Angle Under Canopy LED (2 per pack)",
+    "msrp": "278.00",
+    "ws5": "243.24",
+    "ws": "231.66",
+    "compat": "",
+    "dim": "",
+    "weight": "1.03"
+  },
+  {
+    "model": "TSD-1",
+    "desc": "ThinkGrow LED Stand with Adjustable Height for ICL-300 (Single Unit)",
+    "msrp": "20.00",
+    "ws5": "17.50",
+    "ws": "16.67",
+    "compat": "",
+    "dim": "530*285*400mm",
+    "weight": "8.40"
+  },
+  {
+    "model": "TSD-3",
+    "desc": "ThinkGrow Vertical LED Stand for ICL-120 and ICL-150 (2 Per Pack)",
+    "msrp": "12.00",
+    "ws5": "10.50",
+    "ws": "10.00",
+    "compat": "",
+    "dim": "530*285*420mm",
+    "weight": "41.03"
+  },
+  {
+    "model": "Model-C",
+    "desc": "18-watt Single Spectrum Channel Clone LED (2 Per Pack)",
+    "msrp": "79.00",
+    "ws5": "69.12",
+    "ws": "65.83",
+    "compat": "",
+    "dim": "1225*370*560mm",
+    "weight": "85.03"
+  },
+  {
+    "model": "TLD-2",
+    "desc": "90 watt ThinkGrow Model One LED Driver with Two Spectrum Control Channels",
+    "msrp": "45.00",
+    "ws5": "39.38",
+    "ws": "37.50",
+    "compat": "",
+    "dim": "530*285*400mm",
+    "weight": "14.80"
+  },
+  {
+    "model": "TLD-4",
+    "desc": "90 watt ThinkGrow Model One LED Driver with Four Spectrum Control Channels",
+    "msrp": "60.00",
+    "ws5": "52.50",
+    "ws": "50.00",
+    "compat": "",
+    "dim": "530*285*400mm",
+    "weight": "14.80"
+  },
+  {
+    "model": "DR-1",
+    "desc": "4' LED bar with 2x Spectrum channels (Full Spectrum + Deep Red) for Model One system",
+    "msrp": "35.00",
+    "ws5": "30.63",
+    "ws": "29.17",
+    "compat": "",
+    "dim": "1163*283*238mm",
+    "weight": "13.03"
+  },
+  {
+    "model": "FR-1",
+    "desc": "4' LED bar with 2x Spectrum channels (Full Spectrum + Far Red) for Model One LED system",
+    "msrp": "35.00",
+    "ws5": "30.63",
+    "ws": "29.17",
+    "compat": "",
+    "dim": "1163*283*238mm",
+    "weight": "13.03"
+  },
+  {
+    "model": "TLB-1",
+    "desc": "4' LED bar with 4x Spectrum channels (White+ Deep Red+ Far Red+ UV) for Model One LED system",
+    "msrp": "50.00",
+    "ws5": "43.75",
+    "ws": "41.67",
+    "compat": "",
+    "dim": "1163*283*238mm",
+    "weight": "13.03"
+  },
+  {
+    "model": "TLB-2",
+    "desc": "5' LED bar with 4x Spectrum channels (White+ Deep Red+ Far Red+ UV) for Model One LED system",
+    "msrp": "55.00",
+    "ws5": "48.12",
+    "ws": "45.83",
+    "compat": "",
+    "dim": "1468*283*238mm",
+    "weight": "20.23"
+  },
+  {
+    "model": "TLB-3",
+    "desc": "2.5' LED Bar with 4 Spectrum Channels (White+ Deep Red+ UV + FAR Red)",
+    "msrp": "40.00",
+    "ws5": "35.00",
+    "ws": "33.33",
+    "compat": "",
+    "dim": "788*283*238mm",
+    "weight": "10.47"
+  },
+  {
+    "model": "TDC-1",
+    "desc": "AWG #18 Splitter Power Cord for Model One LED system",
+    "msrp": "15.00",
+    "ws5": "13.13",
+    "ws": "12.50",
+    "compat": "",
+    "dim": "530*285*420mm",
+    "weight": "17.50"
+  },
+  {
+    "model": "TDC-2",
+    "desc": "1ft AWG #18 Daisy Chain Cord for Model One LED system",
+    "msrp": "10.00",
+    "ws5": "8.75",
+    "ws": "8.33",
+    "compat": "",
+    "dim": "530*285*420mm",
+    "weight": "13.20"
+  },
+  {
+    "model": "TDC-3",
+    "desc": "2ft AWG #18 Daisy Chain Cord for Model One LED system",
+    "msrp": "12.00",
+    "ws5": "10.50",
+    "ws": "10.00",
+    "compat": "",
+    "dim": "530*285*420mm",
+    "weight": "16.70"
+  },
+  {
+    "model": "TDC-4",
+    "desc": "5ft AWG #18 Daisy Chain Cord for Model One LED system",
+    "msrp": "14.00",
+    "ws5": "12.25",
+    "ws": "11.67",
+    "compat": "",
+    "dim": "530*285*420mm",
+    "weight": "18.40"
+  },
+  {
+    "model": "TDC-120",
+    "desc": "7ft Splitter Power Cord for Model One LED System AWG #18 with NEMA 5-15 Plug",
+    "msrp": "19.00",
+    "ws5": "16.62",
+    "ws": "15.83",
+    "compat": "",
+    "dim": "530*285*400mm",
+    "weight": "12.05"
+  },
+  {
+    "model": "MB-4",
+    "desc": "Quick Release Mounting Bar for 4 Drivers (360watt)",
+    "msrp": "20.00",
+    "ws5": "17.50",
+    "ws": "16.67",
+    "compat": "",
+    "dim": "1163*283*283mm",
+    "weight": "31.18"
+  },
+  {
+    "model": "MB-7",
+    "desc": "Quick Release Mounting Bar for 7 Drivers (630watt)",
+    "msrp": "23.00",
+    "ws5": "20.13",
+    "ws": "19.17",
+    "compat": "",
+    "dim": "1163*283*283mm",
+    "weight": "40.18"
+  },
+  {
+    "model": "MB-8",
+    "desc": "Quick Release Mounting Bar for 8 Drivers (720watt)",
+    "msrp": "25.00",
+    "ws5": "21.87",
+    "ws": "20.83",
+    "compat": "",
+    "dim": "1163*283*283mm",
+    "weight": "47.38"
+  },
+  {
+    "model": "MB-9",
+    "desc": "Quick Release Mounting Bar for 9 Drivers (810watt)",
+    "msrp": "28.00",
+    "ws5": "24.50",
+    "ws": "23.33",
+    "compat": "",
+    "dim": "1163*283*283mm",
+    "weight": "50.08"
+  },
+  {
+    "model": "LLT-2",
+    "desc": "ThinkGrow Smart Light Lifter",
+    "msrp": "359.00",
+    "ws5": "314.13",
+    "ws": "299.17",
+    "compat": "",
+    "dim": "530*285*400mm",
+    "weight": "21.03"
+  },
+  {
+    "model": "LLT-3",
+    "desc": "ThinkGrow Smart Mini-Lifter System",
+    "msrp": "299.00",
+    "ws5": "261.63",
+    "ws": "249.17",
+    "compat": "",
+    "dim": "530*285*420mm",
+    "weight": "29.83"
+  },
+  {
+    "model": "LRC-1",
+    "desc": "Smart Lifter Remote",
+    "msrp": "110.00",
+    "ws5": "96.25",
+    "ws": "91.67",
+    "compat": "",
+    "dim": "530*285*400mm",
+    "weight": "15.18"
+  },
+  {
+    "model": "RC-1",
+    "desc": "Lifter Rigging Cable Kit",
+    "msrp": "48.30",
+    "ws5": "34.76",
+    "ws": "33.10",
+    "compat": "",
+    "dim": "530*285*400mm",
+    "weight": "29.75"
+  },
+  {
+    "model": "TDC-5",
+    "desc": "4' AWG#18 Daisy Chain CoiledCordwith T splitter for ThinkGrow Lifter systems",
+    "msrp": "29.00",
+    "ws5": "25.38",
+    "ws": "24.17",
+    "compat": "",
+    "dim": "",
+    "weight": ""
+  },
+  {
+    "model": "OPA-1",
+    "desc": "100-277V Smart Junction Box",
+    "msrp": "208.95",
+    "ws5": "149.19",
+    "ws": "142.09",
+    "compat": "",
+    "dim": "530*285*420mm",
+    "weight": "20.90"
+  },
+  {
+    "model": "OPA-2",
+    "desc": "100-277V Smart Junction Box",
+    "msrp": "230.00",
+    "ws5": "201.25",
+    "ws": "191.67",
+    "compat": "",
+    "dim": "530*285*420mm",
+    "weight": "21.67"
+  },
+  {
+    "model": "DCA-10",
+    "desc": "5' 30A AWG#10 ThinkGrow Daisy-Chain Power Cord",
+    "msrp": "60.00",
+    "ws5": "52.50",
+    "ws": "50.00",
+    "compat": "",
+    "dim": "530*285*420mm",
+    "weight": "16.21"
+  },
+  {
+    "model": "DCA-12",
+    "desc": "5' 20A AWG#12 ThinkGrow Daisy-Chain Power Cord",
+    "msrp": "55.00",
+    "ws5": "48.12",
+    "ws": "45.83",
+    "compat": "",
+    "dim": "530*285*420mm",
+    "weight": "16.21"
+  },
+  {
+    "model": "DCA-14",
+    "desc": "5' 15A AWG#14 ThinkGrow Daisy-Chain Power Cord",
+    "msrp": "52.00",
+    "ws5": "45.50",
+    "ws": "43.33",
+    "compat": "",
+    "dim": "530*285*420mm",
+    "weight": "16.21"
+  },
+  {
+    "model": "DEA-10",
+    "desc": "3' 30A AWG#10 ThinkGrow Extension Power Cord",
+    "msrp": "45.00",
+    "ws5": "39.38",
+    "ws": "37.50",
+    "compat": "",
+    "dim": "530*285*400mm",
+    "weight": "10.67"
+  },
+  {
+    "model": "DEA-12",
+    "desc": "3' 20A AWG#12 ThinkGrow Extension Power Cord",
+    "msrp": "42.00",
+    "ws5": "36.75",
+    "ws": "35.00",
+    "compat": "",
+    "dim": "530*285*400mm",
+    "weight": "10.67"
+  },
+  {
+    "model": "DEA-14",
+    "desc": "3' 15A AWG#14 ThinkGrow Extension Power Cord",
+    "msrp": "40.00",
+    "ws5": "35.00",
+    "ws": "33.33",
+    "compat": "",
+    "dim": "530*285*400mm",
+    "weight": "10.67"
+  },
+  {
+    "model": "DEA-10L",
+    "desc": "10' Daisy Chain Extension Power Cord",
+    "msrp": "65.00",
+    "ws5": "56.88",
+    "ws": "54.17",
+    "compat": "",
+    "dim": "530*285*420mm",
+    "weight": "22.11"
+  },
+  {
+    "model": "DPA-10",
+    "desc": "30A AWG#10 ThinkGrow Hardwire Cord",
+    "msrp": "59.00",
+    "ws5": "42.13",
+    "ws": "40.12",
+    "compat": "",
+    "dim": "530*285*400mm",
+    "weight": "16.51"
+  },
+  {
+    "model": "DOA-10",
+    "desc": "30A AWG#10 ThinkGrow Hardwire Cord for OPA-2 Output",
+    "msrp": "59.00",
+    "ws5": "42.13",
+    "ws": "40.12",
+    "compat": "",
+    "dim": "530*285*400mm",
+    "weight": "16.51"
+  },
+  {
+    "model": "ECS-6",
+    "desc": "16ft 4Pins Waterproof Extension Cable",
+    "msrp": "22.05",
+    "ws5": "15.80",
+    "ws": "15.05",
+    "compat": "",
+    "dim": "530*285*420mm",
+    "weight": "18.29"
+  },
+  {
+    "model": "ECS-7",
+    "desc": "ThinkGrow 12'Daisy chain control cable",
+    "msrp": "18.00",
+    "ws5": "15.75",
+    "ws": "15.00",
+    "compat": "",
+    "dim": "550*285*430mm",
+    "weight": "15.63"
+  },
+  {
+    "model": "UV-1",
+    "desc": "UV Light Bar for Model-H/W",
+    "msrp": "131.25",
+    "ws5": "100.33",
+    "ws": "95.55",
+    "compat": "",
+    "dim": "",
+    "weight": ""
+  },
+  {
+    "model": "UH-1",
+    "desc": "Unit-Strut Hanger for Modle-H/W/V",
+    "msrp": "20.00",
+    "ws5": "17.50",
+    "ws": "16.67",
+    "compat": "",
+    "dim": "530*285*420mm",
+    "weight": "29.60"
+  },
+  {
+    "model": "UH-2",
+    "desc": "Unit-Strut Hanger for Model-I & Plus",
+    "msrp": "20.00",
+    "ws5": "17.50",
+    "ws": "16.67",
+    "compat": "",
+    "dim": "530*285*400mm",
+    "weight": "17.10"
+  },
+  {
+    "model": "EC-12",
+    "desc": "12’ power extension cord",
+    "msrp": "21.00",
+    "ws5": "18.38",
+    "ws": "17.50",
+    "compat": "",
+    "dim": "530*285*400mm",
+    "weight": "19.70"
+  },
+  {
+    "model": "PA-1",
+    "desc": "ThinkGrow 240V to 120V Plug Adapter for US",
+    "msrp": "13.60",
+    "ws5": "8.82",
+    "ws": "8.40",
+    "compat": "",
+    "dim": "530*285*420mm",
+    "weight": "24.76"
+  },
+  {
+    "model": "FRC-1",
+    "desc": "Smart Fan Remote with built-in photocell for day/night setting",
+    "msrp": "62.00",
+    "ws5": "50.07",
+    "ws": "47.69",
+    "compat": "HCS-2, HCS-3, TCS-1, GCS-1",
+    "dim": "530*285*420mm",
+    "weight": "18.3"
+  },
+  {
+    "model": "FRC-2",
+    "desc": "Simple Fan Speed Dimmer",
+    "msrp": "19.00",
+    "ws5": "15.35",
+    "ws": "14.62",
+    "compat": "HCS-2, HCS-3, TCS-1, GCS-1",
+    "dim": "530*285*400mm",
+    "weight": "8.59"
+  },
+  {
+    "model": "V-6",
+    "desc": "6 Inch Inline Duct Ventilation Fan",
+    "msrp": "146.00",
+    "ws5": "117.93",
+    "ws": "112.31",
+    "compat": "HCS-2, HCS-3, TCS-1, GCS-1",
+    "dim": "330*235*235mm",
+    "weight": "3.1"
+  },
+  {
+    "model": "V-8",
+    "desc": "8 Inch Inline Duct Ventilation Fan",
+    "msrp": "209.00",
+    "ws5": "168.81",
+    "ws": "160.77",
+    "compat": "HCS-2, HCS-3, TCS-1, GCS-1",
+    "dim": "320*260*260mm",
+    "weight": "4.3"
+  },
+  {
+    "model": "V-10",
+    "desc": "10 Inch Inline Duct Ventilation Fan",
+    "msrp": "293.00",
+    "ws5": "236.65",
+    "ws": "225.38",
+    "compat": "HCS-2, HCS-3, TCS-1, GCS-1",
+    "dim": "445*415*345mm",
+    "weight": "9.1"
+  },
+  {
+    "model": "V-10M",
+    "desc": "10 Inch Metal Inline Duct Ventilation Fan Pro Model",
+    "msrp": "319.00",
+    "ws5": "257.65",
+    "ws": "245.38",
+    "compat": "HCS-2, HCS-3, TCS-1, GCS-1",
+    "dim": "350*310*260mm",
+    "weight": "5.79"
+  },
+  {
+    "model": "V-12",
+    "desc": "12 Inch Inline Duct Ventilation Fan",
+    "msrp": "389.00",
+    "ws5": "314.19",
+    "ws": "299.23",
+    "compat": "HCS-2, HCS-3, TCS-1, GCS-1",
+    "dim": "510*485*425mm",
+    "weight": "12.7"
+  },
+  {
+    "model": "V-12M",
+    "desc": "12 Inch Metal Inline Duct Ventilation Fan Pro Model",
+    "msrp": "419.00",
+    "ws5": "338.43",
+    "ws": "322.31",
+    "compat": "HCS-2, HCS-3, TCS-1, GCS-1",
+    "dim": "385*385*295mm",
+    "weight": "8.4"
+  },
+  {
+    "model": "HE-20",
+    "desc": "20 Inch High Velocity Fan",
+    "msrp": "399.00",
+    "ws5": "322.27",
+    "ws": "306.92",
+    "compat": "HCS-2, HCS-3, TCS-1, GCS-1",
+    "dim": "569*569*350mm",
+    "weight": "11.53"
+  },
+  {
+    "model": "HE-20M",
+    "desc": "20 Inch High Velocity Fan Pro Model",
+    "msrp": "549.00",
+    "ws5": "443.43",
+    "ws": "422.31",
+    "compat": "HCS-2, HCS-3, TCS-1, GCS-1",
+    "dim": "569*569*350mm",
+    "weight": "23.69"
+  },
+  {
+    "model": "AB-6",
+    "desc": "Aero-Fan Air Booster (4\" (10.1cm) Reducer for V-6, 2 per pack)",
+    "msrp": "12.00",
+    "ws5": "9.69",
+    "ws": "9.23",
+    "compat": "",
+    "dim": "154*154*1025mm",
+    "weight": "2.23"
+  },
+  {
+    "model": "AB-8",
+    "desc": "Aero-Fan Air Booster (6\" (15.24cm) Reducer for V-8, 2 per pack)",
+    "msrp": "12.00",
+    "ws5": "9.69",
+    "ws": "9.23",
+    "compat": "",
+    "dim": "1100*210*210mm",
+    "weight": "3.23"
+  },
+  {
+    "model": "PS-4",
+    "desc": "4\" (10.1cm) Poly Air Sock",
+    "msrp": "39.00",
+    "ws5": "31.50",
+    "ws": "30.00",
+    "compat": "",
+    "dim": "590*338*338mm",
+    "weight": "30.33"
+  },
+  {
+    "model": "PS-6",
+    "desc": "6\" (15.2cm) Poly Air Sock",
+    "msrp": "49.00",
+    "ws5": "39.57",
+    "ws": "37.69",
+    "compat": "",
+    "dim": "590*338*338mm",
+    "weight": "28.73"
+  }
+];
+const POPULAR = ["WCS-9","NFS-2","ECW-1","ECS-7","GCS-1","HCS-2","WN-9","Model-V","V-6","V-10"];
+
+function init() {
+  var tEl = document.getElementById("tags");
+  tEl.innerHTML = POPULAR.map(function(m) { return '<span class="tag" data-m="' + m + '">' + m + '</span>'; }).join("");
+  tEl.addEventListener("click", function(e) { if (e.target.dataset.m) { q.value = e.target.dataset.m; go(); } });
+  document.getElementById("searchBtn").onclick = go;
+  document.getElementById("q").addEventListener("keydown", function(e) { if (e.key === "Enter") go(); });
+  // Price type change triggers recalc
+  document.querySelectorAll('input[name="priceType"]').forEach(function(r) {
+    r.addEventListener("change", recalcOE);
+  });
+  updateStockStatus("loading");
+  loadInventory();
+  setLang(curLang);
+  // Add first empty OE row
+  addOEItem();
+}
+
+function go() {
+  var v = q.value.trim().toUpperCase();
+  lastQuery = v;
+  if (!v) return;
+  var vNorm = v.replace(/-/g, "").replace(/\s+/g, "");
+  var r = document.getElementById("res");
+  var hits = PRODUCTS.filter(function(p) {
+    var modelNorm = p.model.toUpperCase().replace(/-/g, "").replace(/\s+/g, "");
+    var descNorm = (p.desc || "").toUpperCase().replace(/-/g, "").replace(/\s+/g, "");
+    return modelNorm === vNorm ||
+      modelNorm.indexOf(vNorm) !== -1 ||
+      descNorm.indexOf(vNorm) !== -1;
+  });
+  hits.sort(function(a, b) {
+    var aModel = a.model.toUpperCase().replace(/-/g, "").replace(/\s+/g, "");
+    var bModel = b.model.toUpperCase().replace(/-/g, "").replace(/\s+/g, "");
+    var aExact = aModel === vNorm ? 0 : (aModel.indexOf(vNorm) !== -1 ? 1 : 2);
+    var bExact = bModel === vNorm ? 0 : (bModel.indexOf(vNorm) !== -1 ? 1 : 2);
+    return aExact - bExact;
+  });
+  if (!hits.length) {
+    r.innerHTML = '<div class="noresult">?? ' + t("notFound").replace("{q}", esc(v)) + "</div>";
+    return;
+  }
+  r.innerHTML = hits.map(render).join("");
+}
+
+function esc(s) { var d = document.createElement("div"); d.textContent = s; return d.innerHTML; }
+
+function render(p) {
+  var inv = INVENTORY[p.model.toUpperCase()];
+  var ph = '<table class="ptable"><thead><tr><th>' + t("msrpLabel") + '</th><th>USD</th></tr></thead><tbody>'
+    + "<tr><td>" + t("msrpLabel") + "</td><td>$" + esc(p.msrp) + "</td></tr>"
+    + "<tr><td>" + t("ws5Label") + "</td><td>$" + esc(p.ws5) + "</td></tr>"
+    + "<tr><td>" + t("wsLabel") + "</td><td>$" + esc(p.ws) + "</td></tr></tbody></table>"
+    + '<div class="price-note">' + t("priceNote") + '</div>';
+  var ex = "";
+  if (p.compat) ex += '<div class="irow"><div class="ilabel">' + t("compatLabel") + '</div><div class="ivalue">' + esc(p.compat) + '</div></div>';
+  if (p.dim) ex += '<div class="irow"><div class="ilabel">' + t("dimLabel") + '</div><div class="ivalue">' + esc(p.dim.replace(/\n/g, " ")) + '</div></div>';
+  if (p.weight) ex += '<div class="irow"><div class="ilabel">' + t("weightLabel") + '</div><div class="ivalue">' + esc(p.weight) + ' kg</div></div>';
+  var ih = "";
+  if (inv) {
+    var cs = parseInt(inv.canSale) || 0;
+    var sl = parseInt(inv.stockLevel) || 0;
+    var sc = "stock-ok", st;
+    if (cs <= 0) { sc = "stock-out"; st = t("stockOut"); }
+    else if (cs <= 5) { sc = "stock-low"; st = t("stockLow").replace("{n}", cs); }
+    else { st = t("stockOk").replace("{n}", cs); }
+    ih = '<div class="stock"><div class="stock-title">' + t("stockTitle") + '</div>'
+      + '<div class="igrid">'
+      + '<div class="icard"><div class="l">' + t("canSaleLabel") + '</div><div class="v ' + sc + '">' + esc(String(cs)) + '</div></div>'
+      + '<div class="icard"><div class="l">' + t("stockLevelLabel") + '</div><div class="v">' + esc(String(sl)) + '</div></div>'
+      + '</div>'
+      + '<div class="stock-msg ' + sc + '">' + st + '</div></div>';
+  } else {
+    ih = '<div class="stock" style="border-color:#fed7d7;background:#fff5f5"><div style="color:#c53030;font-size:12px;font-weight:600">' + t("stockError") + '</div></div>';
+  }
+  return '<div class="card"><div class="c-head"><h2>' + esc(p.desc || p.model) + '</h2>'
+    + '<div class="c-badge">' + t("badgeLabel") + ': ' + esc(p.model) + '</div></div>'
+    + '<div class="c-body">'
+    + '<div class="irow"><div class="ilabel">' + t("modelLabel") + '</div><div class="ivalue"><strong>' + esc(p.model) + '</strong></div></div>'
+    + ex + ph + ih
+    + "</div></div>";
+}
+
+// ============ ORDER ESTIMATION ============
+
+function addOEItem() {
+  oeItems.push({ model: "", qty: 0 });
+  renderOETable();
+}
+
+function removeOEItem(idx) {
+  oeItems.splice(idx, 1);
+  if (oeItems.length === 0) addOEItem();
+  renderOETable();
+}
+
+function getSelectedPriceType() {
+  var checked = document.querySelector('input[name="priceType"]:checked');
+  return checked ? checked.value : "msrp";
+}
+
+function getPriceForProduct(p, priceType) {
+  if (!p) return 0;
+  var raw = "";
+  if (priceType === "msrp") raw = p.msrp;
+  else if (priceType === "ws5") raw = p.ws5;
+  else raw = p.ws;
+  return parseFloat(raw.replace(/[^0-9.\-]/g, "")) || 0;
+}
+
+function findProduct(modelStr) {
+  if (!modelStr) return null;
+  var norm = modelStr.toUpperCase().replace(/-/g, "").replace(/\s+/g, "");
+  for (var i = 0; i < PRODUCTS.length; i++) {
+    var pNorm = PRODUCTS[i].model.toUpperCase().replace(/-/g, "").replace(/\s+/g, "");
+    if (pNorm === norm) return PRODUCTS[i];
+  }
+  return null;
+}
+
+function searchProducts(query) {
+  if (!query || query.length < 1) return [];
+  var q = query.toUpperCase().replace(/-/g, "").replace(/\s+/g, "");
+  var hits = [];
+  for (var i = 0; i < PRODUCTS.length; i++) {
+    var p = PRODUCTS[i];
+    var mNorm = p.model.toUpperCase().replace(/-/g, "").replace(/\s+/g, "");
+    var dNorm = (p.desc || "").toUpperCase().replace(/-/g, "").replace(/\s+/g, "");
+    if (mNorm === q || mNorm.indexOf(q) !== -1 || dNorm.indexOf(q) !== -1) {
+      hits.push(p);
+      if (hits.length >= 15) break;
+    }
+  }
+  hits.sort(function(a, b) {
+    var aM = a.model.toUpperCase().replace(/-/g, "").replace(/\s+/g, "");
+    var bM = b.model.toUpperCase().replace(/-/g, "").replace(/\s+/g, "");
+    var aE = aM === q ? 0 : (aM.indexOf(q) !== -1 ? 1 : 2);
+    var bE = bM === q ? 0 : (bM.indexOf(q) !== -1 ? 1 : 2);
+    return aE - bE;
+  });
+  return hits;
+}
+
+function renderOETable() {
+  var tbody = document.getElementById("oeItemsBody");
+  var priceType = getSelectedPriceType();
+  if (!oeItems.length) {
+    tbody.innerHTML = "";
+    document.getElementById("oeSummary").style.display = "none";
+    return;
+  }
+  var html = "";
+  for (var i = 0; i < oeItems.length; i++) {
+    var item = oeItems[i];
+    var product = findProduct(item.model);
+    var unitPrice = getPriceForProduct(product, priceType);
+    var subtotal = unitPrice * (item.qty || 0);
+    // Stock badge
+    var stockBadge = "";
+    if (product) {
+      var inv = INVENTORY[product.model.toUpperCase()];
+      if (inv) {
+        var cs = parseInt(inv.canSale) || 0;
+        if (cs > 5) stockBadge = '<span class="oe-stock-badge in-stock">' + esc(String(cs)) + '</span>';
+        else if (cs > 0) stockBadge = '<span class="oe-stock-badge low-stock">' + esc(String(cs)) + '</span>';
+        else stockBadge = '<span class="oe-stock-badge no-stock">0</span>';
+      } else {
+        stockBadge = '<span class="oe-stock-badge unknown">-</span>';
+      }
+    }
+    html += '<tr>'
+      + '<td class="num-col">' + (i + 1) + '</td>'
+      + '<td class="model-col"><div class="oe-search-wrap">'
+      + '<input type="text" class="oe-search-input" value="' + esc(item.model) + '" placeholder="' + esc(t("oeSearchPH")) + '" data-idx="' + i + '" oninput="onOESearch(this,' + i + ')" onfocus="onOESearch(this,' + i + ')">'
+      + '<div class="oe-dropdown" id="oe-dd-' + i + '"></div>'
+      + '</div></td>'
+      + '<td class="desc-col">' + (product ? esc(product.desc) : '') + ' ' + stockBadge + '</td>'
+      + '<td class="qty-col"><input type="number" value="' + (item.qty || '') + '" min="0" step="1" data-idx="' + i + '" oninput="onOEQty(this,' + i + ')"></td>'
+      + '<td class="price-col">$' + (unitPrice ? unitPrice.toFixed(2) : "0.00") + '</td>'
+      + '<td class="total-col">$' + subtotal.toFixed(2) + '</td>'
+      + '<td class="action-col"><button class="oe-del-btn" onclick="removeOEItem(' + i + ')">&times;</button></td>'
+      + '</tr>';
+  }
+  tbody.innerHTML = html;
+  recalcOE();
+}
+
+function onOESearch(input, idx) {
+  var query = input.value.trim();
+  var dd = document.getElementById("oe-dd-" + idx);
+  if (!query) { dd.classList.remove("show"); return; }
+  var hits = searchProducts(query);
+  if (!hits.length) {
+    dd.innerHTML = '<div class="oe-dd-empty">' + esc(t("oeNoMatch")) + '</div>';
+    dd.classList.add("show");
+    return;
+  }
+  var priceType = getSelectedPriceType();
+  var html = hits.map(function(p) {
+    var price = getPriceForProduct(p, priceType);
+    return '<div class="oe-dd-item" data-idx="' + idx + '" data-model="' + esc(p.model) + '" onmousedown="selectOEProduct(this)">'
+      + '<div class="dd-model">' + esc(p.model) + '</div>'
+      + '<div class="dd-desc">' + esc(p.desc) + '</div>'
+      + '<div class="dd-price">$' + price.toFixed(2) + '</div>'
+      + '</div>';
+  }).join("");
+  dd.innerHTML = html;
+  dd.classList.add("show");
+}
+
+function selectOEProduct(el) {
+  var idx = parseInt(el.dataset.idx);
+  var model = el.dataset.model;
+  oeItems[idx].model = model;
+  if (oeItems[idx].qty < 1) oeItems[idx].qty = 1;
+  document.getElementById("oe-dd-" + idx).classList.remove("show");
+  renderOETable();
+}
+
+function onOEQty(input, idx) {
+  oeItems[idx].qty = parseInt(input.value) || 0;
+  renderOETable();
+}
+
+function recalcOE() {
+  var priceType = getSelectedPriceType();
+  var totalItems = 0, totalQty = 0, subtotal = 0;
+  for (var i = 0; i < oeItems.length; i++) {
+    var item = oeItems[i];
+    if (!item.model) continue;
+    var product = findProduct(item.model);
+    if (!product) continue;
+    totalItems++;
+    var qty = item.qty || 0;
+    totalQty += qty;
+    subtotal += getPriceForProduct(product, priceType) * qty;
+  }
+  var vat = subtotal * 0.07;
+  var ship = parseFloat(document.getElementById("oeShipInput").value) || 0;
+  var grand = subtotal + vat + ship;
+
+  document.getElementById("oeSumItemsVal").textContent = totalItems;
+  document.getElementById("oeSumQtyVal").textContent = totalQty;
+  document.getElementById("oeSumSubtotalVal").textContent = "$" + subtotal.toFixed(2);
+  document.getElementById("oeSumVatVal").textContent = "$" + vat.toFixed(2);
+  document.getElementById("oeSumGrandVal").textContent = "$" + grand.toFixed(2);
+
+  document.getElementById("oeSummary").style.display = totalItems > 0 ? "" : "none";
+}
+
+init();
+</script>
+</body>
+</html>
