@@ -1,0 +1,23 @@
+<!-- ═══════════════════════════════════════
+     PAGE: PRODUCT SEARCH
+═══════════════════════════════════════ -->
+<div class="page active" id="page-product-search">
+  <div class="hero">
+    <div class="hero-title" data-i18n="hero_title">TrolMaster Product Search</div>
+    <div class="hero-sub" data-i18n="hero_sub">Enter model number for pricing and stock</div>
+    <div class="s-wrap">
+      <input type="text" id="q" data-i18n-placeholder="search_placeholder"
+             placeholder="Enter product model, e.g.: WCS-9, NFS-2, ECW-1"
+             autocomplete="off" />
+      <button id="searchBtn" data-i18n="search_button">Search</button>
+    </div>
+    <div class="tags" id="tags"></div>
+  </div>
+
+  <!-- Status -->
+  <div style="max-width:900px;margin:0 auto;padding:0 20px;">
+    <div id="stockStatus" class="stock-status loading">⏳ Loading stock...</div>
+  </div>
+
+  <div class="res" id="res"></div>
+</div>

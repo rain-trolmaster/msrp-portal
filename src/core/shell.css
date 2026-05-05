@@ -1,0 +1,319 @@
+/* ===================================
+   TrolMaster Portal — SHELL CSS (shared across all pages)
+   =================================== */
+
+/* ---- CSS Variables ---- */
+:root {
+  --color-primary: #0d1b3e;
+  --color-primary-light: #1a2b5e;
+  --color-primary-bg: rgba(13, 27, 62, 0.08);
+  --color-bg: #f5f5f5;
+  --color-surface: #ffffff;
+  --color-border: #e2e8f0;
+  --color-border-light: #f0f4f8;
+  --color-text-primary: #1a1a2e;
+  --color-text-secondary: #2d3748;
+  --color-text-muted: #718096;
+  --color-text-faint: #a0aec0;
+  --color-success: #276749;
+  --color-success-bg: #f0fff4;
+  --color-warning: #c05621;
+  --color-warning-bg: #fffaf0;
+  --color-danger: #c53030;
+  --color-danger-bg: #fff5f5;
+  --color-accent: #e53e3e;
+
+  --shadow-sm: 0 1px 4px rgba(0,0,0,0.04);
+  --shadow-md: 0 1px 4px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.06);
+  --shadow-card: 0 1px 4px rgba(0,0,0,0.04);
+  --shadow-lg: 0 2px 8px rgba(0,0,0,0.1);
+
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-pill: 100px;
+
+  --font-sans: -apple-system, "Microsoft JhengHei", "Noto Sans TC", "Noto Sans Thai", sans-serif;
+
+  --header-height: 62px;
+  --sidebar-width: 280px;
+}
+
+/* ---- Reset & Base ---- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+a { color: var(--color-primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ---- Header ---- */
+.header {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: 12px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.h-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.h-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.menu-btn {
+  background: none;
+  border: none;
+  color: var(--color-text-primary);
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+}
+
+.h-text h1 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: 0.3px;
+}
+
+.h-text p {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  margin-top: 1px;
+}
+
+.lang-switcher { position: relative; }
+
+.lang-btn {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  cursor: pointer;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--color-text-primary);
+  transition: all 0.2s;
+}
+
+.lang-btn:hover { border-color: var(--color-primary); }
+
+.lang-dd {
+  display: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  z-index: 100;
+  min-width: 120px;
+  box-shadow: var(--shadow-lg);
+}
+
+.lang-dd.show { display: block; }
+
+.lang-opt {
+  padding: 10px 16px;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.lang-opt:hover { background: var(--color-bg); }
+.lang-opt.active { background: var(--color-primary-bg); font-weight: 600; color: var(--color-primary); }
+
+/* ---- Overlay ---- */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: 90;
+}
+
+.overlay.show { display: block; }
+
+/* ---- Sidebar ---- */
+.sidebar {
+  position: fixed;
+  top: 0; left: -280px;
+  width: var(--sidebar-width);
+  height: 100%;
+  background: var(--color-primary);
+  z-index: 100;
+  transition: left 0.3s ease;
+  overflow-y: auto;
+  box-shadow: 2px 0 12px rgba(0,0,0,0.3);
+}
+
+.sidebar.open { left: 0; }
+
+.sb-header {
+  padding: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sb-header h2 {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.sb-close {
+  background: none;
+  border: none;
+  color: var(--color-text-faint);
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+}
+
+.sb-close:hover { color: #fff; }
+
+.sb-nav { padding: 8px 0; }
+
+.sb-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  color: #e2e8f0;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+}
+
+.sb-item:hover { background: rgba(255,255,255,0.08); }
+
+.sb-item.active {
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  font-weight: 600;
+  border-left: 3px solid #e53e3e;
+}
+
+.sb-item .sb-icon {
+  font-size: 18px;
+  width: 24px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.sb-item.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.sb-item .coming-soon {
+  font-size: 10px;
+  color: var(--color-text-faint);
+  margin-left: auto;
+  background: rgba(255,255,255,0.1);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-weight: 400;
+}
+
+.sb-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+  margin: 4px 0;
+}
+
+.sb-footer {
+  padding: 16px 20px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  margin-top: auto;
+}
+
+.sb-footer p {
+  color: var(--color-text-muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+/* ---- Page Base ---- */
+.page { display: none; }
+.page.active { display: block; }
+
+/* ---- Footer ---- */
+.footer {
+  text-align: center;
+  padding: 24px 20px;
+  color: var(--color-text-faint);
+  font-size: 11px;
+  border-top: 1px solid var(--color-border);
+  margin-top: 16px;
+}
+
+.footer-disclaimer {
+  margin-top: 8px;
+  font-size: 10px;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+
+/* ---- Stock Status Badge (shared) ---- */
+.stock-status {
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.stock-status.ok { color: var(--color-success); background: var(--color-success-bg); }
+.stock-status.err { color: var(--color-danger); background: var(--color-danger-bg); }
+.stock-status.loading { color: var(--color-text-faint); background: var(--color-bg); }
+.stock-status.fallback { color: var(--color-warning); background: var(--color-warning-bg); }
+
+/* ---- Responsive: Shared ---- */
+@media (max-width: 600px) {
+  .logo-img { height: 28px; }
+  .h-text h1 { font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 200px; }
+  .header-sub { display: none; }
+}

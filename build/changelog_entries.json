@@ -1,0 +1,272 @@
+[
+  {
+    "version": "1.0.0",
+    "timestamp": "2026-05-03T09:09:47.234722",
+    "description": "initial_build",
+    "snapshot": "build/versions/2026-05-03/20260503_090947_v1.0.0_initial_build.html"
+  },
+  {
+    "version": "1.0.1",
+    "timestamp": "2026-05-03T09:25:23.508367",
+    "description": "restored old pro blue style",
+    "snapshot": "build/versions/2026-05-03/20260503_092523_v1.0.1_restored_old_pro_blue_style.html"
+  },
+  {
+    "version": "1.0.2",
+    "timestamp": "2026-05-03T09:43:50.172020",
+    "description": "修复搜索功能：擴展到所有產品欄位；修復 getStockInfo() bug (badgeLabel/badgeKey)；修復 no_results i18n key",
+    "snapshot": "build/versions/2026-05-03/20260503_094350_v1.0.2_修复搜索功能_擴展到所有產品欄位_修復_getStockInfo___bug__.html"
+  },
+  {
+    "version": "1.0.3",
+    "timestamp": "2026-05-03T09:44:42.440252",
+    "description": "修復搜索功能（擴展到所有產品欄位）；修復getStockInfo() bug；更新no_results i18n加入{q}佔位",
+    "snapshot": "build/versions/2026-05-03/20260503_094442_v1.0.3_修復搜索功能_擴展到所有產品欄位__修復getStockInfo___bug_更.html"
+  },
+  {
+    "version": "1.0.4",
+    "timestamp": "2026-05-03T09:48:53.515027",
+    "description": "更新hero_title/hero_sub為頁面正確名稱：Product Price and Stock / 產品價格及庫存 / ราคาและสต็อกสินค้า",
+    "snapshot": "build/versions/2026-05-03/20260503_094853_v1.0.4_更新hero_title_hero_sub為頁面正確名稱_Product_Pri.html"
+  },
+  {
+    "version": "1.0.5",
+    "timestamp": "2026-05-03T09:53:25.103858",
+    "description": "修復庫存unknown問題：stock_level係數字唔係文字，改用數字判斷庫存狀態；新增in_stock/low_stock/out_of_stock/unknown i18n key",
+    "snapshot": "build/versions/2026-05-03/20260503_095325_v1.0.5_修復庫存unknown問題_stock_level係數字唔係文字_改用數字判斷庫.html"
+  },
+  {
+    "version": "1.0.6",
+    "timestamp": "2026-05-03T09:56:36.086989",
+    "description": "Description truncation with more/less toggle",
+    "snapshot": "build/versions/2026-05-03/20260503_095636_v1.0.6_Description_truncation_with_more_less_to.html"
+  },
+  {
+    "version": "1.0.7",
+    "timestamp": "2026-05-03T09:59:30.976694",
+    "description": "Card layout: description as title, model in chip, remove unknown badge",
+    "snapshot": "build/versions/2026-05-03/20260503_095930_v1.0.7_Card_layout__description_as_title__model.html"
+  },
+  {
+    "version": "1.0.8",
+    "timestamp": "2026-05-03T10:01:49.102051",
+    "description": "Search normalization: ignore hyphens (V8 matches V-8, HydroX matches Hydro-X)",
+    "snapshot": "build/versions/2026-05-03/20260503_100149_v1.0.8_Search_normalization__ignore_hyphens__V8.html"
+  },
+  {
+    "version": "1.0.9",
+    "timestamp": "2026-05-03T10:16:22.914627",
+    "description": "Fix inventory: skip header row, normalize search with spaces, sort results",
+    "snapshot": "build/versions/2026-05-03/20260503_101622_v1.0.9_Fix_inventory__skip_header_row__normaliz.html"
+  },
+  {
+    "version": "1.0.10",
+    "timestamp": "2026-05-03T10:26:04.651995",
+    "description": "v1.0.10: 新增Product Information欄位於圖片上方，移除藍色標題區的more按鈕",
+    "snapshot": "build/versions/2026-05-03/20260503_102604_v1.0.10_v1_0_10__新增Product_Information欄位於圖片上方_移除.html"
+  },
+  {
+    "version": "1.0.11",
+    "timestamp": "2026-05-03T10:27:56.929367",
+    "description": "v1.0.11: 藍色標題區改為只顯示Short Description，唔再用完整描述",
+    "snapshot": "build/versions/2026-05-03/20260503_102756_v1.0.11_v1_0_11__藍色標題區改為只顯示Short_Description_唔再用.html"
+  },
+  {
+    "version": "1.0.12",
+    "timestamp": "2026-05-03T10:33:01.620236",
+    "description": "v1.0.12: 修復庫存顯示—加入fallback庫存數據同console debug",
+    "snapshot": "build/versions/2026-05-03/20260503_103301_v1.0.12_v1_0_12__修復庫存顯示_加入fallback庫存數據同console_d.html"
+  },
+  {
+    "version": "1.0.13",
+    "timestamp": "2026-05-03T10:39:12.394345",
+    "description": "Order Estimation page changed to Coming Soon",
+    "snapshot": "build/versions/2026-05-03/20260503_103912_v1.0.13_Order_Estimation_page_changed_to_Coming_.html"
+  },
+  {
+    "version": "1.0.14",
+    "timestamp": "2026-05-03T12:09:16.271988",
+    "description": "Improve search relevance scoring",
+    "snapshot": "build/versions/2026-05-03/20260503_120916_v1.0.14_Improve_search_relevance_scoring.html"
+  },
+  {
+    "version": "1.0.15",
+    "timestamp": "2026-05-03T12:14:50.865648",
+    "description": "Fix search false matches: word-boundary regex prevents V-6 matching CV6001",
+    "snapshot": "build/versions/2026-05-03/20260503_121450_v1.0.15_Fix_search_false_matches__word-boundary_.html"
+  },
+  {
+    "version": "1.0.16",
+    "timestamp": "2026-05-03T12:16:24.359537",
+    "description": "Improve search: short_desc starts-with bonus + word-boundary fix",
+    "snapshot": "build/versions/2026-05-03/20260503_121624_v1.0.16_Improve_search__short_desc_starts-with_b.html"
+  },
+  {
+    "version": "1.0.17",
+    "timestamp": "2026-05-03T12:27:36.949089",
+    "description": "Fix: include HCS-1 (gviz rows already exclude headers, no need to skip row 0)",
+    "snapshot": "build/versions/2026-05-03/20260503_122736_v1.0.17_Fix__include_HCS-1__gviz_rows_already_ex.html"
+  },
+  {
+    "version": "1.0.18",
+    "timestamp": "2026-05-03T12:28:54.525971",
+    "description": "Fix: include HCS-1 (remove incorrect skip_header=1 in fetch_products/inventory)",
+    "snapshot": "build/versions/2026-05-03/20260503_122854_v1.0.18_Fix__include_HCS-1__remove_incorrect_ski.html"
+  },
+  {
+    "version": "1.0.19",
+    "timestamp": "2026-05-03T12:35:32.254523",
+    "description": "Add category headers for brand grouping",
+    "snapshot": "build/versions/2026-05-03/20260503_123532_v1.0.19_Add_category_headers_for_brand_grouping.html"
+  },
+  {
+    "version": "1.0.20",
+    "timestamp": "2026-05-03T13:04:58.844546",
+    "description": "Hide Image/Materials rows when no link",
+    "snapshot": "build/versions/2026-05-03/20260503_130458_v1.0.20_Hide_Image_Materials_rows_when_no_link.html"
+  },
+  {
+    "version": "1.0.21",
+    "timestamp": "2026-05-03T13:25:51.913705",
+    "description": "Add compatibility display in product card",
+    "snapshot": "build/versions/2026-05-03/20260503_132551_v1.0.21_Add_compatibility_display_in_product_car.html"
+  },
+  {
+    "version": "1.0.22",
+    "timestamp": "2026-05-03T13:32:14.475221",
+    "description": "v1.0.22: 搜索相关性修复(Hydro/HCS/fan词边界)、品牌分类标题、Image/Materials/Compatibility条件显示(有则显示无则隐藏)",
+    "snapshot": "build/versions/2026-05-03/20260503_133214_v1.0.22_v1_0_22__搜索相关性修复_Hydro_HCS_fan词边界__品牌分类标.html"
+  },
+  {
+    "version": "1.0.23",
+    "timestamp": "2026-05-03T14:31:09.468864",
+    "description": "v1.0.23: 產品翻譯zh-Hant+Thai(short_desc)，翻譯fallback邏輯(冇就收埋有就顯示)",
+    "snapshot": "build/versions/2026-05-03/20260503_143109_v1.0.23_v1_0_23__產品翻譯zh-Hant_Thai_short_desc__翻譯.html"
+  },
+  {
+    "version": "1.0.24",
+    "timestamp": "2026-05-03T14:45:09.331947",
+    "description": "UI优化：价格移至产品信息前，手机端Header优化",
+    "snapshot": "build/versions/2026-05-03/20260503_144509_v1.0.24_UI优化_价格移至产品信息前_手机端Header优化.html"
+  },
+  {
+    "version": "1.0.25",
+    "timestamp": "2026-05-03T14:56:07.911045",
+    "description": "添加Footer Disclaimer免責聲明",
+    "snapshot": "build/versions/2026-05-03/20260503_145607_v1.0.25_添加Footer_Disclaimer免責聲明.html"
+  },
+  {
+    "version": "1.0.26",
+    "timestamp": "2026-05-03T15:25:33.504612",
+    "description": "Modular architecture refactor",
+    "snapshot": "build/versions/2026-05-03/20260503_152533_v1.0.26_Modular_architecture_refactor.html"
+  },
+  {
+    "version": "1.0.27",
+    "timestamp": "2026-05-03T15:26:50.826221",
+    "description": "Modular architecture - fix shell/page bridge",
+    "snapshot": "build/versions/2026-05-03/20260503_152650_v1.0.27_Modular_architecture_-_fix_shell_page_br.html"
+  },
+  {
+    "version": "1.0.28",
+    "timestamp": "2026-05-03T15:49:32.919182",
+    "description": "Add Order Estimation as page 2",
+    "snapshot": "build/versions/2026-05-03/20260503_154932_v1.0.28_Add_Order_Estimation_as_page_2.html"
+  },
+  {
+    "version": "1.0.29",
+    "timestamp": "2026-05-03T16:05:21.719345",
+    "description": "Simplify Order Estimation with disclaimer",
+    "snapshot": "build/versions/2026-05-03/20260503_160521_v1.0.29_Simplify_Order_Estimation_with_disclaime.html"
+  },
+  {
+    "version": "1.0.30",
+    "timestamp": "2026-05-03T16:26:52.270481",
+    "description": "test_rebuild",
+    "snapshot": "build/versions/2026-05-03/20260503_162652_v1.0.30_test_rebuild.html"
+  },
+  {
+    "version": "1.0.31",
+    "timestamp": "2026-05-03T16:33:26.401805",
+    "description": "fix_multi_page_callback",
+    "snapshot": "build/versions/2026-05-03/20260503_163326_v1.0.31_fix_multi_page_callback.html"
+  },
+  {
+    "version": "1.0.32",
+    "timestamp": "2026-05-03T18:04:15.869539",
+    "description": "redesign_oe_compact",
+    "snapshot": "build/versions/2026-05-03/20260503_180415_v1.0.32_redesign_oe_compact.html"
+  },
+  {
+    "version": "1.0.33",
+    "timestamp": "2026-05-03T18:18:58.060248",
+    "description": "oe_v2_guide_quickadd_3rows_fix",
+    "snapshot": "build/versions/2026-05-03/20260503_181858_v1.0.33_oe_v2_guide_quickadd_3rows_fix.html"
+  },
+  {
+    "version": "1.0.34",
+    "timestamp": "2026-05-03T18:28:56.043470",
+    "description": "v1.0.34: 修复价格类型颜色、Quick Add跳第一格、免责声明改为普通文字、Summary更紧凑",
+    "snapshot": "build/versions/2026-05-03/20260503_182856_v1.0.34_v1_0_34__修复价格类型颜色_Quick_Add跳第一格_免责声明改为普通.html"
+  },
+  {
+    "version": "1.0.35",
+    "timestamp": "2026-05-03T18:32:13.720030",
+    "description": "v1.0.35: Radio用淺灰/深灰區分選中狀態、Summary改橫向並排排版",
+    "snapshot": "build/versions/2026-05-03/20260503_183213_v1.0.35_v1_0_35__Radio用淺灰_深灰區分選中狀態_Summary改橫向並排排.html"
+  },
+  {
+    "version": "1.0.36",
+    "timestamp": "2026-05-03T18:34:09.127232",
+    "description": "v1.0.36: Summary 每個項目改為橫向 (label: value 同一行)，三個項目並排",
+    "snapshot": "build/versions/2026-05-03/20260503_183409_v1.0.36_v1_0_36__Summary_每個項目改為橫向__label__value_.html"
+  },
+  {
+    "version": "1.0.37",
+    "timestamp": "2026-05-03T18:41:06.311123",
+    "description": "v1.0.37: 移除舊 static/styles.css，修復 Summary 橫向排版",
+    "snapshot": "build/versions/2026-05-03/20260503_184106_v1.0.37_v1_0_37__移除舊_static_styles_css_修復_Summar.html"
+  },
+  {
+    "version": "1.0.38",
+    "timestamp": "2026-05-03T18:43:11.596426",
+    "description": "v1.0.38: 移除 product-search/page.css 中的舊 .oe-summary CSS，修復 Summary 橫向排版",
+    "snapshot": "build/versions/2026-05-03/20260503_184311_v1.0.38_v1_0_38__移除_product-search_page_css_中的舊_.html"
+  },
+  {
+    "version": "1.0.39",
+    "timestamp": "2026-05-03T18:44:51.288596",
+    "description": "v1.0.39: 修正 JS display='flex'，Summary 真正橫向排版",
+    "snapshot": "build/versions/2026-05-03/20260503_184451_v1.0.39_v1_0_39__修正_JS_display__flex__Summary_真正.html"
+  },
+  {
+    "version": "1.0.40",
+    "timestamp": "2026-05-03T18:47:04.443325",
+    "description": "v1.0.40: 精簡 Header，移除 oe_subtitle，oe_guide 縮短一行",
+    "snapshot": "build/versions/2026-05-03/20260503_184704_v1.0.40_v1_0_40__精簡_Header_移除_oe_subtitle_oe_gui.html"
+  },
+  {
+    "version": "1.0.41",
+    "timestamp": "2026-05-03T19:33:24.507930",
+    "description": "v1.0.41: 阻止瀏覽器自動 Dark Mode，加 color-scheme meta tag，刪除 CSS dark mode 設定",
+    "snapshot": "build/versions/2026-05-03/20260503_193324_v1.0.41_v1_0_41__阻止瀏覽器自動_Dark_Mode_加_color-schem.html"
+  },
+  {
+    "version": "1.0.42",
+    "timestamp": "2026-05-03T20:43:16.241199",
+    "description": "v1.0.42: 修復手機版 Order Estimation Unit Price/Total 被隱藏問題，改為橫向滾動顯示全部欄位",
+    "snapshot": "build/versions/2026-05-03/20260503_204316_v1.0.42_v1_0_42__修復手機版_Order_Estimation_Unit_Pri.html"
+  },
+  {
+    "version": "1.0.43",
+    "timestamp": "2026-05-03T21:02:25.101505",
+    "description": "v1.0.43: OE Model 輸入框加 Autocomplete 下拉提示，打字即時搜索匹配產品",
+    "snapshot": "build/versions/2026-05-03/20260503_210225_v1.0.43_v1_0_43__OE_Model_輸入框加_Autocomplete_下拉提示.html"
+  },
+  {
+    "version": "1.0.44",
+    "timestamp": "2026-05-05T11:20:55.190152",
+    "description": "MSRP-only version with updated exchange rates (HKD=8.5, THB=34)",
+    "snapshot": "build/versions/2026-05-05/20260505_112055_v1.0.44_MSRP-only_version_with_updated_exchange_.html"
+  }
+]

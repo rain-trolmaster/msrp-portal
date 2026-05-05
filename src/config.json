@@ -1,0 +1,114 @@
+{
+  "app": {
+    "name": "TrolMaster Product Search (MSRP Only)",
+    "company": "TrolMaster Asia Company Ltd",
+    "version": "2.0.0",
+    "default_lang": "en"
+  },
+  "pages": [
+    {
+      "id": "product-search",
+      "icon": "&#128269;",
+      "i18n_key": "nav_product_search",
+      "label": "Product Price and Stock",
+      "disabled": false
+    },
+    {
+      "id": "order-est",
+      "icon": "&#128178;",
+      "i18n_key": "nav_orders_estimation",
+      "label": "Order Estimation",
+      "disabled": false
+    },
+    {
+      "id": "tech-sheet",
+      "icon": "&#128196;",
+      "i18n_key": "nav_tech_sheet",
+      "label": "Tech sheet download",
+      "disabled": true
+    },
+    {
+      "id": "model-one",
+      "icon": "&#128290;",
+      "i18n_key": "nav_cable_calculator",
+      "label": "Model-One Calculator",
+      "disabled": true
+    }
+  ],
+  "google_sheets": {
+    "product": {
+      "sheet_id": "1SJKY8cDn5_mGmaCw3zraOrAVpK95kPZ5",
+      "gid": "1191522392",
+      "gviz_url": "https://docs.google.com/spreadsheets/d/1SJKY8cDn5_mGmaCw3zraOrAVpK95kPZ5/gviz/tq?tqx=out:json&gid=1191522392",
+      "csv_url": "https://docs.google.com/spreadsheets/d/1SJKY8cDn5_mGmaCw3zraOrAVpK95kPZ5/export?format=csv&gid=1191522392",
+      "columns": {
+        "model": 0,
+        "short_desc": 1,
+        "msrp": 2,
+        "wholesale_plus5": 3,
+        "wholesale": 4,
+        "compatibility": 5,
+        "dimensions_mm": 6,
+        "dimensions_inch": 7,
+        "weight_kg": 8,
+        "weight_lb": 9,
+        "qty_per_case": 10,
+        "case_dimensions_mm": 11,
+        "case_dimensions_inch": 12,
+        "case_weight_kg": 13,
+        "case_weight_lb": 14,
+        "upc_sku": 15,
+        "image_link": 16,
+        "full_description": 17,
+        "features": 18,
+        "package_content": 19,
+        "specifications": 20,
+        "materials_link": 21
+      }
+    },
+    "inventory": {
+      "sheet_id": "1GVRc_dSaDGesEdh_7pnU4bzhm5lyBLvm-XCC4gQWr8w",
+      "gid": "817864539",
+      "gviz_url": "https://docs.google.com/spreadsheets/d/1GVRc_dSaDGesEdh_7pnU4bzhm5lyBLvm-XCC4gQWr8w/gviz/tq?tqx=out:json&gid=817864539",
+      "csv_url": "https://docs.google.com/spreadsheets/d/1GVRc_dSaDGesEdh_7pnU4bzhm5lyBLvm-XCC4gQWr8w/export?format=csv&gid=817864539",
+      "columns": {
+        "model": 0,
+        "description": 1,
+        "stock_can_sale": 2,
+        "stock_level": 3
+      }
+    }
+  },
+  "exchange_rate": {
+    "api_url": "https://open.er-api.com/v6/latest/USD",
+    "cache_hours": 24,
+    "fallback_rates": {
+      "USD": 1,
+      "HKD": 8.5,
+      "THB": 34
+    },
+    "lang_currency_map": {
+      "en": "USD",
+      "zh-Hant": "HKD",
+      "th": "THB"
+    }
+  },
+  "netlify": {
+    "site_id": "",
+    "url": "",
+    "production_url": ""
+  },
+  "paths": {
+    "logo": "assets/Primary TM logo - Vertical.png",
+    "output_html": "build/index.html",
+    "versions_dir": "build/versions",
+    "changelog_json": "build/changelog_entries.json",
+    "version_history_md": "docs/VERSION_HISTORY.md"
+  },
+  "popular_models": ["WCS-9", "NFS-2", "ECW-1", "ECS-7", "GCS-1", "HCS-2", "WN-9", "Model-V", "V-6", "V-10"],
+  "price_type": {
+    "allowed": ["msrp"],
+    "default": "msrp",
+    "show_selector": false
+  }
+}

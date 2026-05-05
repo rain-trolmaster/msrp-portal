@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="{{DEFAULT_LANG}}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light" />
+  <meta name="description" content="TrolMaster Asia — Product Search Portal" />
+  <title>TrolMaster Product Search</title>
+
+  <!-- Inline CSS: shell + pages -->
+  <style>
+{{CSS_ALL}}
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     OVERLAY
+═════════════════════════════════════════ -->
+<div class="overlay" id="overlay" onclick="closeMenu()"></div>
+
+<!-- ══════════════════════════════════════════
+     SIDEBAR
+═════════════════════════════════════════ -->
+<div class="sidebar" id="sidebar">
+  <div class="sb-header">
+    <h2 id="sbTitle">TM Testing Tools</h2>
+    <button class="sb-close" onclick="closeMenu()">&times;</button>
+  </div>
+  <div class="sb-nav">
+    <!-- Dynamic sidebar items injected by shell.js buildSidebar() -->
+  </div>
+  <div class="sb-footer">
+    <p>&copy; 2026 Green Environmental Control</p>
+    <p>TrolMaster Authorized Distributor</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     HEADER
+═════════════════════════════════════════ -->
+<header class="header">
+  <div class="h-inner">
+    <div class="h-left">
+      <button class="menu-btn" onclick="openMenu()">&#9776;</button>
+      <img class="logo-img" src="{{LOGO_DATA_URI}}" alt="TrolMaster Logo" />
+      <div class="h-text">
+        <h1 data-i18n="company_name">TrolMaster Asia Company Ltd</h1>
+        <p class="header-sub" data-i18n="footer_data_source">Data sourced from Google Sheets</p>
+      </div>
+    </div>
+    <div class="lang-switcher">
+      <button class="lang-btn" id="langBtn">
+        <span>EN</span>
+        <span style="font-size:10px;">▼</span>
+      </button>
+      <div class="lang-dd" id="langDD">
+        <div class="lang-opt" data-lang="en">English</div>
+        <div class="lang-opt" data-lang="zh-Hant">繁體中文</div>
+        <div class="lang-opt" data-lang="th">ภาษาไทย</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════
+     PAGES (injected by build_app.py)
+═════════════════════════════════════════ -->
+{{PAGES_HTML}}
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+═════════════════════════════════════════ -->
+<div class="footer">
+  <span id="stockStatusBottom" class="stock-status loading">⏳ Loading stock...</span>
+  &nbsp;&middot;&nbsp;
+  &copy; 2026 <span data-i18n="company_name">TrolMaster Asia Co., Ltd.</span>
+  <div class="footer-disclaimer" data-i18n="disclaimer">Prices shown are for reference only. Final pricing is subject to confirmation by TrolMaster.</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     EMBEDDED DATA & SCRIPTS
+═════════════════════════════════════════ -->
+<script>
+// Config injected by build_app.py
+window.__TM_CONFIG__ = {{CONFIG_JSON}};
+
+// i18n bundles
+window.__TM_I18N__ = {{I18N_JSON}};
+
+// Product translations (zh-Hant & th)
+window.__TM_PRODUCT_TRANSLATIONS__ = {{PRODUCT_TRANSLATIONS_JSON}};
+
+// Fallback product data (snapshot from build time)
+window.__TM_PRODUCTS__  = {{PRODUCTS_JSON}};
+window.__TM_INVENTORY__ = {{INVENTORY_JSON}};
+</script>
+
+<!-- Shell JS (shared across all pages) -->
+<script>
+{{JS_SHELL}}
+</script>
+
+<!-- Page JS (each page injected in order) -->
+{{JS_PAGES}}
+
+</body>
+</html>

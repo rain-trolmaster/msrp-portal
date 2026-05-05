@@ -1,0 +1,887 @@
+{
+  "HCS-1": {
+    "short_desc": "ตัวควบคุม Hydro-X พร้อมเซ็นเซอร์ 3-in-1 (อุณหภูมิ / ความชื้น / แสง) และสายเคเบิล แอปโทรศัพท์ฟรี",
+    "full_description": "",
+    "features": ""
+  },
+  "HCS-2": {
+    "short_desc": "ตัวควบคุม Hydro-X Pro พร้อมเซ็นเซอร์ 4-in-1 (อุณหภูมิ / ความชื้น / CO2 / แสง) และสายเคเบิล แอปโทรศัพท์ฟรี",
+    "full_description": "",
+    "features": ""
+  },
+  "HCS-3": {
+    "short_desc": "ตัวควบคุม Hydro-X Plus พร้อมเซ็นเซอร์ 4-in-1 (อุณหภูมิ / ความชื้น / CO2 / แสง) และสายเคเบิล แอปโทรศัพท์ฟรี",
+    "full_description": "",
+    "features": ""
+  },
+  "NFS-1": {
+    "short_desc": "ตัวควบคุม Aqua-X พร้อมชุดตรวจจับระดับน้ำ แอปสมาร์ทโฟนฟรี",
+    "full_description": "",
+    "features": ""
+  },
+  "NFS-2": {
+    "short_desc": "ตัวควบคุม Aqua-X Pro พร้อมแผงเซ็นเซอร์ AMP-3 แอปโทรศัพท์ฟรี",
+    "full_description": "",
+    "features": ""
+  },
+  "NFS-3": {
+    "short_desc": "ตัวควบคุม Aqua-X Plus พร้อมแผงเซ็นเซอร์ AMP-3 แอปโทรศัพท์ฟรี",
+    "full_description": "",
+    "features": ""
+  },
+  "TCS-1": {
+    "short_desc": "ตัวควบคุมหลัก Tent-X พร้อมเซ็นเซอร์ 3-in-1 (อุณหภูมิ / ความชื้น / แสง) และสายเคเบิล แอปโทรศัพท์ฟรี",
+    "full_description": "",
+    "features": ""
+  },
+  "CDA-1": {
+    "short_desc": "ตัวควบคุม Carbon-X พร้อมสายเคเบิล แอปสมาร์ทโฟนฟรี",
+    "full_description": "",
+    "features": ""
+  },
+  "GCS-1": {
+    "short_desc": "ตัวควบคุม Green-X พร้อมเซ็นเซอร์ 4-in-1 (อุณหภูมิ / ความชื้น / CO2 / แสง) และสายเคเบิล แอปโทรศัพท์ฟรี",
+    "full_description": "",
+    "features": ""
+  },
+  "MBS-TH": {
+    "short_desc": "เซ็นเซอร์สำรอง อุณหภูมิ / ความชื้น / แสง สำหรับ Hydro-X",
+    "full_description": "",
+    "features": ""
+  },
+  "MBS-S8": {
+    "short_desc": "เซ็นเซอร์ CO2 สำหรับ Hydro-X พร้อมสายเคเบิล",
+    "full_description": "",
+    "features": ""
+  },
+  "MBS-PRO": {
+    "short_desc": "เซ็นเซอร์ 4-in-1 (อุณหภูมิ/ความชื้น/CO2/แสง) สำหรับ Hydro-X Pro และ Hydro-X Plus",
+    "full_description": "",
+    "features": ""
+  },
+  "MBS-SD": {
+    "short_desc": "ตัวตรวจจับควันสำหรับ Hydro-X พร้อมสายเคเบิล",
+    "full_description": "",
+    "features": ""
+  },
+  "MBS-PAR": {
+    "short_desc": "เซ็นเซอร์ควอนตัมสเปกตรัมเต็ม",
+    "full_description": "",
+    "features": ""
+  },
+  "MBS-K30": {
+    "short_desc": "เซ็นเซอร์ CO2 สำหรับ Carbon-X พร้อมสายเคเบิล",
+    "full_description": "",
+    "features": ""
+  },
+  "AMP-2": {
+    "short_desc": "แผงเซ็นเซอร์สำหรับเชื่อมต่อเซ็นเซอร์กับตัวควบคุม",
+    "full_description": "",
+    "features": ""
+  },
+  "AMP-3": {
+    "short_desc": "แผงเซ็นเซอร์สำหรับเชื่อมต่อกับตัวควบคุม NFS-2 พร้อมจอ LCD สำหรับ Aqua-X Pro และ Tent-X",
+    "full_description": "",
+    "features": ""
+  },
+  "PCT-1": {
+    "short_desc": "เซ็นเซอร์ 2-in-1 EC + อุณหภูมิ สำหรับถังเก็บน้ำ",
+    "full_description": "",
+    "features": ""
+  },
+  "PCT-2": {
+    "short_desc": "เซ็นเซอร์ EC+อุณหภูมิแบบอินไลน์ รุ่นหนัก",
+    "full_description": "",
+    "features": ""
+  },
+  "PCT-3": {
+    "short_desc": "เซ็นเซอร์ EC+อุณหภูมิสารละลายธาตุ รุ่นหนัก ใช้แบบจุ่ม/อินไลน์ได้",
+    "full_description": "",
+    "features": ""
+  },
+  "PPH-1": {
+    "short_desc": "เซ็นเซอร์ pH สำหรับถังเก็บน้ำ",
+    "full_description": "",
+    "features": ""
+  },
+  "PPH-2": {
+    "short_desc": "เซ็นเซอร์ pH แบบอินไลน์ รุ่นหนัก",
+    "full_description": "",
+    "features": ""
+  },
+  "PPH-3": {
+    "short_desc": "เซ็นเซอร์ pH สารละลายธาตุ รุ่นหนัก ใช้แบบจุ่ม/อินไลน์ได้",
+    "full_description": "",
+    "features": ""
+  },
+  "WCS-1": {
+    "short_desc": "เซ็นเซอร์วัดปริมาณน้ำ พร้อมสายเคเบิล",
+    "full_description": "",
+    "features": ""
+  },
+  "WCS-2": {
+    "short_desc": "เซ็นเซอร์ 3-in-1 (ความชื้นดิน/อุณหภูมิ/EC) พร้อมสายเคเบิล",
+    "full_description": "",
+    "features": ""
+  },
+  "WCS-3": {
+    "short_desc": "เซ็นเซอร์วัดปริมาณน้ำ 3 พร้อมสายแยก",
+    "full_description": "",
+    "features": ""
+  },
+  "WCS-9": {
+    "short_desc": "ชุดเซ็นเซอร์ 3-in-1 (ความชื้นดิน/EC/อุณหภูมิ) สำหรับวัสดุเพาะปลูก",
+    "full_description": "",
+    "features": ""
+  },
+  "WN-9": {
+    "short_desc": "โหนดเซ็นเซอร์ 3-in-1 (ความชื้นดิน/EC/อุณหภูมิ) สำหรับวัสดุเพาะปลูก",
+    "full_description": "",
+    "features": ""
+  },
+  "WD-1": {
+    "short_desc": "ตัวตรวจจับน้ำ + Touch Spot สำหรับยืนยันการรดน้ำ",
+    "full_description": "",
+    "features": ""
+  },
+  "DFM-1": {
+    "short_desc": "",
+    "full_description": "",
+    "features": ""
+  },
+  "DFM-2": {
+    "short_desc": "มิเตอร์วัดการไหลแบบดิจิทัล 1.25 นิ้ว",
+    "full_description": "",
+    "features": ""
+  },
+  "DFM-3": {
+    "short_desc": "",
+    "full_description": "",
+    "features": ""
+  },
+  "MBS-WS": {
+    "short_desc": "เซ็นเซอร์สถานีอากาศ สำหรับตัวควบคุม Green-X",
+    "full_description": "",
+    "features": ""
+  },
+  "MBS-GH": {
+    "short_desc": "เซ็นเซอร์ 4-in-1 สำรอง สำหรับตัวควบคุม Green-X",
+    "full_description": "",
+    "features": ""
+  },
+  "LMA-11": {
+    "short_desc": "อะแดปเตอร์ควบคุมแสง P สำหรับควบคุมบัลลาสท์ Phantom",
+    "full_description": "",
+    "features": ""
+  },
+  "LMA-12": {
+    "short_desc": "อะแดปเตอร์ควบคุมแสง D สำหรับควบคุมบัลลาสท์ Dimlux",
+    "full_description": "",
+    "features": ""
+  },
+  "LMA-13": {
+    "short_desc": "อะแดปเตอร์ควบคุมแสง S สำหรับควบคุมบัลลาสท์ Sun System",
+    "full_description": "",
+    "features": ""
+  },
+  "LMA-14": {
+    "short_desc": "",
+    "full_description": "",
+    "features": ""
+  },
+  "LMA-15": {
+    "short_desc": "",
+    "full_description": "",
+    "features": ""
+  },
+  "LMA-24": {
+    "short_desc": "",
+    "full_description": "",
+    "features": ""
+  },
+  "LMA-T": {
+    "short_desc": "อะแดปเตอร์ควบคุมแสง T สำหรับควบคุม ThinkGrow LED",
+    "full_description": "",
+    "features": ""
+  },
+  "LMA-G": {
+    "short_desc": "อะแดปเตอร์ควบคุมแสงแบบกลุ่ม สำหรับจัดกลุ่ม ThinkGrow Model-I LED",
+    "full_description": "",
+    "features": ""
+  },
+  "LMA-9": {
+    "short_desc": "อะแดปเตอร์แสงแปลงสัญญาณ 0-10V เป็นสัญญาณดิจิทัล สำหรับควบคุม ThinkGrow LED",
+    "full_description": "",
+    "features": ""
+  },
+  "LMA-14G": {
+    "short_desc": "อะแดปเตอร์ควบคุมแสงแบบกลุ่ม สำหรับโปรโตคอล 0-10V",
+    "full_description": "",
+    "features": ""
+  },
+  "TS-1": {
+    "short_desc": "",
+    "full_description": "",
+    "features": ""
+  },
+  "TS-2": {
+    "short_desc": "สถานีเธอร์โมสตัท 2 สำหรับ HVAC ทุกประเภท (ฮีตปั๊มและแบบดั้งเดิม)",
+    "full_description": "",
+    "features": ""
+  },
+  "TS-3": {
+    "short_desc": "สถานีควบคุมรีฮีท",
+    "full_description": "",
+    "features": ""
+  },
+  "ARS-1": {
+    "short_desc": "สถานีรีโมท AC รีโมทสากล สำหรับแอร์ควบคุมระยะไกล เช่น ระบบแอร์มินิสปลิท",
+    "full_description": "",
+    "features": ""
+  },
+  "ARS-2": {
+    "short_desc": "สถานีรีโมท AC รีโมทสากล สำหรับแอร์ร้อน-เย็นควบคุมระยะไกล เช่น ระบบแอร์มินิสปลิท",
+    "full_description": "",
+    "features": ""
+  },
+  "DST-1": {
+    "short_desc": "สถานีอุปกรณ์อุณหภูมิ\nรีเลย์ควบคุมอุณหภูมิ แพ็คเดี่ยว พร้อมสายเคเบิล",
+    "full_description": "",
+    "features": ""
+  },
+  "HS-1": {
+    "short_desc": "สถานีฮิวมิดิสแตท สำหรับเครื่องลดความชื้นที่มีเทอร์มินัล 24V",
+    "full_description": "",
+    "features": ""
+  },
+  "DSH-1": {
+    "short_desc": "สถานีอุปกรณ์ความชื้น\nรีเลย์ควบคุมความชื้น แพ็คเดี่ยว พร้อมสายเคเบิล",
+    "full_description": "",
+    "features": ""
+  },
+  "OA6-24": {
+    "short_desc": "",
+    "full_description": "",
+    "features": ""
+  },
+  "OAT-24": {
+    "short_desc": "บอร์ดควบคุม 24V 12 เอาต์พุต",
+    "full_description": "",
+    "features": ""
+  },
+  "OA6-110": {
+    "short_desc": "",
+    "full_description": "",
+    "features": ""
+  },
+  "DSC-1": {
+    "short_desc": "สถานีอุปกรณ์ CO2\nรีเลย์ควบคุม CO2 แพ็คเดี่ยว พร้อมสายเคเบิล",
+    "full_description": "",
+    "features": ""
+  },
+  "DSP-1": {
+    "short_desc": "",
+    "full_description": "",
+    "features": ""
+  },
+  "DSD-1": {
+    "short_desc": "สถานี Dry Contact แพ็คเดี่ยว พร้อมสายเคเบิล",
+    "full_description": "",
+    "features": ""
+  },
+  "DSD-3": {
+    "short_desc": "สถานีควบคุม Dry Contact",
+    "full_description": "",
+    "features": ""
+  },
+  "DSV-1": {
+    "short_desc": "สถานีแรงดันต่ำ TrolMaster",
+    "full_description": "",
+    "features": ""
+  },
+  "DCC-1": {
+    "short_desc": "อะแดปเตอร์เงื่อนไขคู่ สำหรับระบบ Hydro-X",
+    "full_description": "",
+    "features": ""
+  },
+  "DCC-2": {
+    "short_desc": "อะแดปเตอร์ควบคุมระบบคู่",
+    "full_description": "",
+    "features": ""
+  },
+  "4RS-1": {
+    "short_desc": "",
+    "full_description": "",
+    "features": ""
+  },
+  "4RS-2": {
+    "short_desc": "ชุดสถานีอุปกรณ์ 4 เอาต์พุตควบคุม ประกอบด้วย 1x DST, 1x DSH และ 2x DSP (ใหม่)",
+    "full_description": "",
+    "features": ""
+  },
+  "EFC-1": {
+    "short_desc": "อะแดปเตอร์ควบคุมพัด EC สำหรับควบคุมความเร็วพัด EC แบบ PWM หรือ 0-10V",
+    "full_description": "",
+    "features": ""
+  },
+  "VFD-1": {
+    "short_desc": "",
+    "full_description": "",
+    "features": ""
+  },
+  "Delta-1": {
+    "short_desc": "",
+    "full_description": "",
+    "features": ""
+  },
+  "TSH-1": {
+    "short_desc": "สถานีอุณหภูมิ/ความชื้น TrolMaster พร้อมโปรโตคอล 0-10V",
+    "full_description": "",
+    "features": ""
+  },
+  "OM-8": {
+    "short_desc": "บอร์ด Dry Contact สำหรับ HCS-2/NFS-2 มี 8 จุดสัมผัสไฟฟ้าแยกอิสระ แต่ละจุดรับได้สูงสุด 12 แอมป์",
+    "full_description": "",
+    "features": ""
+  },
+  "DSE-1": {
+    "short_desc": "สถานีหยุดฉุกเฉิน พร้อมสายเคเบิล",
+    "full_description": "",
+    "features": ""
+  },
+  "TC-1": {
+    "short_desc": "กล้องเพาะปลูก TrolMaster",
+    "full_description": "",
+    "features": ""
+  },
+  "TC-2": {
+    "short_desc": "กล้องเพาะปลูก TrolMaster (รุ่นใหม่)",
+    "full_description": "",
+    "features": ""
+  },
+  "DSR-1": {
+    "short_desc": "สถานีอุปกรณ์รีเลย์ 25 แอมป์ (100-277V)",
+    "full_description": "",
+    "features": ""
+  },
+  "DMC-1": {
+    "short_desc": "ตัวควบคุมมอเตอร์ม้วนฟิล์มเรือนกระจก 24V DC",
+    "full_description": "",
+    "features": ""
+  },
+  "AMC-1": {
+    "short_desc": "ตัวควบคุมมอเตอร์ม่าน 1 เฟส/3 เฟส",
+    "full_description": "",
+    "features": ""
+  },
+  "ECS-1": {
+    "short_desc": "ชุดสายต่อ RJ12: 1x สาย RJ12 16 ฟุต; 1x สาย RJ12 4 ฟุต; 1x ตัวแยก RJ12 แบบ T",
+    "full_description": "",
+    "features": ""
+  },
+  "ECS-2": {
+    "short_desc": "",
+    "full_description": "",
+    "features": ""
+  },
+  "ECS-3": {
+    "short_desc": "1x สาย RJ12 16 ฟุต; 1x สาย RJ12 เป็น 3.5 แจ็ค 4 ฟุต; 1x ตัวแยกแบบ T; 1x ตัวเชื่อม 3.5mm ตัวเมีย",
+    "full_description": "",
+    "features": ""
+  },
+  "ECS-4": {
+    "short_desc": "สายต่อ 16 ฟุต สำหรับแผงเซ็นเซอร์ AMP-2",
+    "full_description": "",
+    "features": ""
+  },
+  "ECS-5": {
+    "short_desc": "ชุดสายแปลง RJ12 เป็น M16 PushLock กันน้ำ สำหรับรุ่นใหม่ Fluence",
+    "full_description": "",
+    "features": ""
+  },
+  "ECS-6": {
+    "short_desc": "สายต่อกันน้ำ 4 ขา 16 ฟุต",
+    "full_description": "",
+    "features": ""
+  },
+  "ECS-8": {
+    "short_desc": "สายต่อ 32 ฟุต สำหรับตัวส่ง IR ใน ARS-1 และ Beta-1",
+    "full_description": "",
+    "features": ""
+  },
+  "ECS-9": {
+    "short_desc": "",
+    "full_description": "",
+    "features": ""
+  },
+  "ECS-10": {
+    "short_desc": "สายสื่อสาร RJ12 แบบม้วน 25 ฟุต",
+    "full_description": "",
+    "features": ""
+  },
+  "ECS-12": {
+    "short_desc": "สายแยกกันน้ำ 4 ขา TrolMaster",
+    "full_description": "",
+    "features": ""
+  },
+  "ECS-500": {
+    "short_desc": "สาย RJ12 ม้วน 500 ฟุต",
+    "full_description": "",
+    "features": ""
+  },
+  "ECW-1": {
+    "short_desc": "ตัวเชื่อมต่อตรงกันน้ำ RJ12 แบบอินไลน์",
+    "full_description": "",
+    "features": ""
+  },
+  "MC-1": {
+    "short_desc": "คริมเปอร์อเนกประสงค์",
+    "full_description": "",
+    "features": ""
+  },
+  "SPH-1": {
+    "short_desc": "",
+    "full_description": "",
+    "features": ""
+  },
+  "BM-1": {
+    "short_desc": "",
+    "full_description": "",
+    "features": ""
+  },
+  "TSB-1": {
+    "short_desc": "แบร็กเก็ตเซ็นเซอร์ TrolMaster (2 ชิ้น)",
+    "full_description": "",
+    "features": ""
+  },
+  "TSS-1": {
+    "short_desc": "Touch Spot + สายต่อแยกแบบ T",
+    "full_description": "",
+    "features": ""
+  },
+  "TSS-2": {
+    "short_desc": "สายต่อ Touch Spot 16 ฟุต",
+    "full_description": "",
+    "features": ""
+  },
+  "AS-1": {
+    "short_desc": "สถานีสัญญาณเตือน CO2 (เสียง/ภาพ) พร้อมสายเคเบิล",
+    "full_description": "",
+    "features": ""
+  },
+  "AS-2": {
+    "short_desc": "สถานีสัญญาณเตือน CO2 (เสียง/ภาพ) พร้อมตัวบอกสถานะ LED และสายเคเบิล",
+    "full_description": "",
+    "features": ""
+  },
+  "AS-3": {
+    "short_desc": "สถานีสัญญาณเตือน CO2 (ไฟสีเหลือง)",
+    "full_description": "",
+    "features": ""
+  },
+  "AS-4": {
+    "short_desc": "สถานีสัญญาณเตือน CO2 (ไฟสีน้ำเงิน)",
+    "full_description": "",
+    "features": ""
+  },
+  "AS-5": {
+    "short_desc": "สถานีสัญญาณเตือน",
+    "full_description": "",
+    "features": ""
+  },
+  "SCC-1": {
+    "short_desc": "",
+    "full_description": "",
+    "features": ""
+  },
+  "SCC-2": {
+    "short_desc": "ตู้ควบคุมขนาดใหญ่ 35 นิ้ว สำหรับ Hydro-X Pro / Aqua-X Pro",
+    "full_description": "",
+    "features": ""
+  },
+  "SCC-3": {
+    "short_desc": "",
+    "full_description": "",
+    "features": ""
+  },
+  "SCC-D": {
+    "short_desc": "ประตูตู้ควบคุม ไม่มีหน้าต่างตัดล่วงหน้า",
+    "full_description": "",
+    "features": ""
+  },
+  "SCC-D2": {
+    "short_desc": "ประตูตู้ควบคุม ไม่มีหน้าต่างตัดล่วงหน้า สำหรับ SCC-2",
+    "full_description": "",
+    "features": ""
+  },
+  "SCC-4": {
+    "short_desc": "",
+    "full_description": "",
+    "features": ""
+  },
+  "CM-1": {
+    "short_desc": "มอนิเตอร์และตัวบันทึก Hawkeye 3-in-1 พร้อมเซ็นเซอร์ 3-in-1 (อุณหภูมิ/ความชื้น/CO2) อะแดปเตอร์อีเทอร์เน็ต แอปสมาร์ทโฟนฟรี",
+    "full_description": "",
+    "features": ""
+  },
+  "Beta-1": {
+    "short_desc": "",
+    "full_description": "",
+    "features": ""
+  },
+  "Beta-2": {
+    "short_desc": "",
+    "full_description": "",
+    "features": ""
+  },
+  "Beta-4": {
+    "short_desc": "ตัวควบคุมอุณหภูมิกลางวัน/กลางคืนแบบดิจิทัล",
+    "full_description": "",
+    "features": ""
+  },
+  "Beta-6": {
+    "short_desc": "ตัวควบคุมความชื้นกลางวัน/กลางคืน 110V แบบดิจิทัล",
+    "full_description": "",
+    "features": ""
+  },
+  "Beta-8": {
+    "short_desc": "ตัวควบคุม CO2 PPM แบบดิจิทัล สำหรับรีกูเลเตอร์และเครื่องกำเนิด CO2",
+    "full_description": "",
+    "features": ""
+  },
+  "Model-H": {
+    "short_desc": "ไฟเพาะปลูก LED ThinkGrow Model-H",
+    "full_description": "",
+    "features": ""
+  },
+  "Model-H Plus": {
+    "short_desc": "ไฟเพาะปลูก LED ThinkGrow Model-H Plus",
+    "full_description": "",
+    "features": ""
+  },
+  "Model-W": {
+    "short_desc": "ไฟเพาะปลูก LED ThinkGrow Model-W",
+    "full_description": "",
+    "features": ""
+  },
+  "Model-V": {
+    "short_desc": "ไฟเพาะปลูก LED ThinkGrow Model-V",
+    "full_description": "",
+    "features": ""
+  },
+  "Model-H Plus 4'": {
+    "short_desc": "",
+    "full_description": "",
+    "features": ""
+  },
+  "Model-H Plus 5'": {
+    "short_desc": "",
+    "full_description": "",
+    "features": ""
+  },
+  "Model-I": {
+    "short_desc": "ไฟเพาะปลูก LED ThinkGrow Model-I",
+    "full_description": "",
+    "features": ""
+  },
+  "Model-I plus": {
+    "short_desc": "ไฟเพาะปลูก LED ThinkGrow Model-I Plus",
+    "full_description": "",
+    "features": ""
+  },
+  "ICL-300": {
+    "short_desc": "LED ในชั้นพุ่ม 120W มุมแสง 300° (4 สเปกตรัม)",
+    "full_description": "",
+    "features": ""
+  },
+  "ICL-150": {
+    "short_desc": "LED อเนกประสงค์ 120W มุมแสง 150° (4 สเปกตรัม)",
+    "full_description": "",
+    "features": ""
+  },
+  "ICL-120": {
+    "short_desc": "LED ใต้ชั้นพุ่ม 120W มุมแสง 120° (4 ชิ้น/แพ็ค)",
+    "full_description": "",
+    "features": ""
+  },
+  "ICL-120 (2)": {
+    "short_desc": "LED ใต้ชั้นพุ่ม 120W มุมแสง 120° (2 ชิ้น/แพ็ค)",
+    "full_description": "",
+    "features": ""
+  },
+  "TSD-1": {
+    "short_desc": "ขาตั้ง LED ThinkGrow ปรับความสูงได้ สำหรับ ICL-300 (1 ชิ้น)",
+    "full_description": "",
+    "features": ""
+  },
+  "TSD-3": {
+    "short_desc": "ขาตั้ง LED แนวตั้ง ThinkGrow สำหรับ ICL-120 และ ICL-150 (2 ชิ้น/แพ็ค)",
+    "full_description": "",
+    "features": ""
+  },
+  "Model-C": {
+    "short_desc": "LED โคลน 18W 1 ช่องสเปกตรัม (2 ชิ้น/แพ็ค)",
+    "full_description": "",
+    "features": ""
+  },
+  "TLD-2": {
+    "short_desc": "ไดรเวอร์ LED ThinkGrow Model One 90W พร้อม 2 ช่องควบคุมสเปกตรัม",
+    "full_description": "",
+    "features": ""
+  },
+  "TLD-4": {
+    "short_desc": "ไดรเวอร์ LED ThinkGrow Model One 90W พร้อม 4 ช่องควบคุมสเปกตรัม",
+    "full_description": "",
+    "features": ""
+  },
+  "DR-1": {
+    "short_desc": "แท่ง LED 4 ฟุต 2 ช่องสเปกตรัม (สเปกตรัมเต็ม + แดงเข้ม) สำหรับระบบ Model One",
+    "full_description": "",
+    "features": ""
+  },
+  "FR-1": {
+    "short_desc": "แท่ง LED 4 ฟุต 2 ช่องสเปกตรัม (สเปกตรัมเต็ม + แดงไกล) สำหรับระบบ LED Model One",
+    "full_description": "",
+    "features": ""
+  },
+  "TLB-1": {
+    "short_desc": "แท่ง LED 4 ฟุต 4 ช่องสเปกตรัม (ขาว+แดงเข้ม+แดงไกล+UV) สำหรับระบบ LED Model One",
+    "full_description": "",
+    "features": ""
+  },
+  "TLB-2": {
+    "short_desc": "แท่ง LED 5 ฟุต 4 ช่องสเปกตรัม (ขาว+แดงเข้ม+แดงไกล+UV) สำหรับระบบ LED Model One",
+    "full_description": "",
+    "features": ""
+  },
+  "TLB-3": {
+    "short_desc": "แท่ง LED 2.5 ฟุต 4 ช่องสเปกตรัม (ขาว+แดงเข้ม+UV+แดงไกล)",
+    "full_description": "",
+    "features": ""
+  },
+  "MB-4": {
+    "short_desc": "แท่งติดตั้งแบบถอดเร็ว สำหรับ 4 ไดรเวอร์ (360W)",
+    "full_description": "",
+    "features": ""
+  },
+  "MB-7": {
+    "short_desc": "แท่งติดตั้งแบบถอดเร็ว สำหรับ 7 ไดรเวอร์ (630W)",
+    "full_description": "",
+    "features": ""
+  },
+  "MB-8": {
+    "short_desc": "แท่งติดตั้งแบบถอดเร็ว สำหรับ 8 ไดรเวอร์ (720W)",
+    "full_description": "",
+    "features": ""
+  },
+  "MB-9": {
+    "short_desc": "แท่งติดตั้งแบบถอดเร็ว สำหรับ 9 ไดรเวอร์ (810W)",
+    "full_description": "",
+    "features": ""
+  },
+  "TDC-1": {
+    "short_desc": "สายไฟแยก AWG #18 สำหรับระบบ LED Model One",
+    "full_description": "",
+    "features": ""
+  },
+  "TDC-2": {
+    "short_desc": "สายเดซี่เชน AWG #18 1 ฟุต สำหรับระบบ LED Model One",
+    "full_description": "",
+    "features": ""
+  },
+  "TDC-3": {
+    "short_desc": "สายเดซี่เชน AWG #18 2 ฟุต สำหรับระบบ LED Model One",
+    "full_description": "",
+    "features": ""
+  },
+  "TDC-4": {
+    "short_desc": "สายเดซี่เชน AWG #18 5 ฟุต สำหรับระบบ LED Model One",
+    "full_description": "",
+    "features": ""
+  },
+  "TDC-120": {
+    "short_desc": "สายไฟแยก 7 ฟุต AWG #18 พร้อมปลั๊ก NEMA 5-15 สำหรับระบบ LED Model One",
+    "full_description": "",
+    "features": ""
+  },
+  "LLT-2": {
+    "short_desc": "ระบบยกไฟอัจฉริยะ ThinkGrow",
+    "full_description": "",
+    "features": ""
+  },
+  "LLT-3": {
+    "short_desc": "ระบบยกไฟอัจฉริยะขนาดเล็ก ThinkGrow",
+    "full_description": "",
+    "features": ""
+  },
+  "LRC-1": {
+    "short_desc": "รีโมทระบบยกอัจฉริยะ",
+    "full_description": "",
+    "features": ""
+  },
+  "RC-1": {
+    "short_desc": "ชุดสายรั้งระบบยก",
+    "full_description": "",
+    "features": ""
+  },
+  "TDC-5": {
+    "short_desc": "",
+    "full_description": "",
+    "features": ""
+  },
+  "OPA-1": {
+    "short_desc": "กล่องจunctionอัจฉริยะ 100-277V",
+    "full_description": "",
+    "features": ""
+  },
+  "OPA-2": {
+    "short_desc": "กล่องจunctionอัจฉริยะ 100-277V",
+    "full_description": "",
+    "features": ""
+  },
+  "DCA-10": {
+    "short_desc": "สายไฟเดซี่เชน ThinkGrow AWG#10 30A 5 ฟุต",
+    "full_description": "",
+    "features": ""
+  },
+  "DCA-12": {
+    "short_desc": "สายไฟเดซี่เชน ThinkGrow AWG#12 20A 5 ฟุต",
+    "full_description": "",
+    "features": ""
+  },
+  "DCA-14": {
+    "short_desc": "สายไฟเดซี่เชน ThinkGrow AWG#14 15A 5 ฟุต",
+    "full_description": "",
+    "features": ""
+  },
+  "DEA-10": {
+    "short_desc": "สายไฟต่อ ThinkGrow AWG#10 30A 3 ฟุต",
+    "full_description": "",
+    "features": ""
+  },
+  "DEA-12": {
+    "short_desc": "สายไฟต่อ ThinkGrow AWG#12 20A 3 ฟุต",
+    "full_description": "",
+    "features": ""
+  },
+  "DEA-14": {
+    "short_desc": "สายไฟต่อ ThinkGrow AWG#14 15A 3 ฟุต",
+    "full_description": "",
+    "features": ""
+  },
+  "DEA-10L": {
+    "short_desc": "สายไฟต่อเดซี่เชน 10 ฟุต",
+    "full_description": "",
+    "features": ""
+  },
+  "DPA-10": {
+    "short_desc": "สายไฟฮาร์ดไวร์ ThinkGrow AWG#10 30A",
+    "full_description": "",
+    "features": ""
+  },
+  "DOA-10": {
+    "short_desc": "สายไฟฮาร์ดไวร์ ThinkGrow AWG#10 30A สำหรับเอาต์พุต OPA-2",
+    "full_description": "",
+    "features": ""
+  },
+  "ECS-7": {
+    "short_desc": "",
+    "full_description": "",
+    "features": ""
+  },
+  "UV-1": {
+    "short_desc": "แท่งไฟ UV สำหรับ Model-H/W",
+    "full_description": "",
+    "features": ""
+  },
+  "UH-1": {
+    "short_desc": "",
+    "full_description": "",
+    "features": ""
+  },
+  "UH-2": {
+    "short_desc": "แขวน Unit-Strut สำหรับ Model-I & Plus",
+    "full_description": "",
+    "features": ""
+  },
+  "EC-12": {
+    "short_desc": "",
+    "full_description": "",
+    "features": ""
+  },
+  "PA-1": {
+    "short_desc": "อะแดปเตอร์ปลั๊ก ThinkGrow 240V เป็น 120V สำหรับสหรัฐอเมริกา",
+    "full_description": "",
+    "features": ""
+  },
+  "FRC-1": {
+    "short_desc": "รีโมทพัดอัจฉริยะ พร้อมโฟโตเซลล์ในตัว สำหรับตั้งค่ากลางวัน/กลางคืน",
+    "full_description": "",
+    "features": ""
+  },
+  "FRC-2": {
+    "short_desc": "ตัวหรี่ความเร็วพัดแบบง่าย",
+    "full_description": "",
+    "features": ""
+  },
+  "V-6": {
+    "short_desc": "พัดระบายอากาศท่ออินไลน์ 6 นิ้ว",
+    "full_description": "",
+    "features": ""
+  },
+  "V-8": {
+    "short_desc": "พัดระบายอากาศท่ออินไลน์ 8 นิ้ว",
+    "full_description": "",
+    "features": ""
+  },
+  "V-10": {
+    "short_desc": "พัดระบายอากาศท่ออินไลน์ 10 นิ้ว",
+    "full_description": "",
+    "features": ""
+  },
+  "V-10M": {
+    "short_desc": "พัดระบายอากาศท่ออินไลน์โลหะ 10 นิ้ว รุ่น Pro",
+    "full_description": "",
+    "features": ""
+  },
+  "V-12": {
+    "short_desc": "พัดระบายอากาศท่ออินไลน์ 12 นิ้ว",
+    "full_description": "",
+    "features": ""
+  },
+  "V-12M": {
+    "short_desc": "พัดระบายอากาศท่ออินไลน์โลหะ 12 นิ้ว รุ่น Pro",
+    "full_description": "",
+    "features": ""
+  },
+  "HE-20": {
+    "short_desc": "พัดความเร็วสูง 20 นิ้ว",
+    "full_description": "",
+    "features": ""
+  },
+  "HE-20M": {
+    "short_desc": "พัดความเร็วสูง 20 นิ้ว รุ่น Pro",
+    "full_description": "",
+    "features": ""
+  },
+  "AB-6": {
+    "short_desc": "ตัวเพิ่มแรงลม Aero-Fan (ตัวลดขนาด 4 นิ้ว/10.1ซม. สำหรับ V-6, 2 ชิ้น/แพ็ค)",
+    "full_description": "",
+    "features": ""
+  },
+  "AB-8": {
+    "short_desc": "ตัวเพิ่มแรงลม Aero-Fan (ตัวลดขนาด 6 นิ้ว/15.24ซม. สำหรับ V-8, 2 ชิ้น/แพ็ค)",
+    "full_description": "",
+    "features": ""
+  },
+  "PS-4": {
+    "short_desc": "ถุงลม Poly 4 นิ้ว (10.1 ซม.)",
+    "full_description": "",
+    "features": ""
+  },
+  "PS-6": {
+    "short_desc": "ถุงลม Poly 6 นิ้ว (15.2 ซม.)",
+    "full_description": "",
+    "features": ""
+  }
+}

@@ -1,0 +1,56 @@
+<!-- ═════════════════════════════════════
+     PAGE: ORDER ESTIMATION
+═══════════════════════════════════════ -->
+<div class="page" id="page-order-est">
+  <div class="oe-page">
+
+    <!-- Header -->
+    <div class="oe-header">
+      <h1 data-i18n="nav_orders_estimation">Orders Estimation</h1>
+      <p class="oe-guide" data-i18n="oe_guide">輸入型號同數量即時計算總價，或點擊下方熱門型號快速加入。</p>
+    </div>
+
+    <!-- Greeting text -->
+    <div class="oe-greeting" id="oeGreeting">
+      <p data-i18n="oe_greeting">Welcome! Start adding products to estimate your order.</p>
+    </div>
+    <div class="oe-quick-add">
+      <span class="oe-qa-label" data-i18n="oe_quick_add">Quick Add</span>
+      <div class="oe-qa-tags" id="oeQuickTags">
+        <!-- populated by JS -->
+      </div>
+    </div>
+
+    <!-- Order Items — compact list -->
+    <div class="oe-list" id="oeList">
+      <!-- populated by JS -->
+    </div>
+
+    <!-- Add Item button (below the list) -->
+    <button class="oe-add-btn" onclick="addOEItem()">
+      <span>＋</span> <span data-i18n="oe_add_item">Add Item</span>
+    </button>
+
+    <!-- Summary (always visible at bottom) -->
+    <div class="oe-summary" id="oeSummary" style="display:none;">
+      <div class="oe-sum-row">
+        <span class="oe-sum-label" data-i18n="oe_sum_items">Items</span>
+        <span class="oe-sum-value" id="oeSumItemsVal">0</span>
+      </div>
+      <div class="oe-sum-row">
+        <span class="oe-sum-label" data-i18n="oe_sum_qty">Qty</span>
+        <span class="oe-sum-value" id="oeSumQtyVal">0</span>
+      </div>
+      <div class="oe-sum-row oe-sum-total-row">
+        <span class="oe-sum-label" data-i18n="oe_sum_subtotal">Subtotal</span>
+        <span class="oe-sum-value oe-sum-total" id="oeSumSubtotalVal">$0.00</span>
+      </div>
+    </div>
+
+    <!-- Disclaimer -->
+    <p class="oe-disclaimer">
+      <span data-i18n="oe_empty_msg">Price is for reference only. VAT and shipping may apply depending on region. Final price is determined by the company.</span>
+    </p>
+
+  </div>
+</div>

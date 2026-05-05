@@ -1,0 +1,887 @@
+{
+  "HCS-1": {
+    "short_desc": "Hydro-X 控制器（附 3 合 1 感測器：溫度/濕度/光照）及連接線組，免費手機應用程式",
+    "full_description": "",
+    "features": ""
+  },
+  "HCS-2": {
+    "short_desc": "Hydro-X Pro 控制器（附 4 合 1 感測器：溫度/濕度/CO2/光照）及連接線組，免費手機應用程式",
+    "full_description": "",
+    "features": ""
+  },
+  "HCS-3": {
+    "short_desc": "Hydro-X Plus 控制器（附 4 合 1 感測器：溫度/濕度/CO2/光照）及連接線組，免費手機應用程式",
+    "full_description": "",
+    "features": ""
+  },
+  "NFS-1": {
+    "short_desc": "Aqua-X 控制器（附水位探測器套件），免費智能手機應用程式",
+    "full_description": "",
+    "features": ""
+  },
+  "NFS-2": {
+    "short_desc": "Aqua-X Pro 控制器（附 AMP-3 感測器板），免費手機應用程式",
+    "full_description": "",
+    "features": ""
+  },
+  "NFS-3": {
+    "short_desc": "Aqua-X Plus 控制器（附 AMP-3 感測器板），免費手機應用程式",
+    "full_description": "",
+    "features": ""
+  },
+  "TCS-1": {
+    "short_desc": "Tent-X 主控制器（附 3 合 1 感測器：溫度/濕度/光照）及連接線組，免費手機應用程式",
+    "full_description": "",
+    "features": ""
+  },
+  "CDA-1": {
+    "short_desc": "Carbon-X 控制器（附連接線組），免費智能手機應用程式",
+    "full_description": "",
+    "features": ""
+  },
+  "GCS-1": {
+    "short_desc": "Green-X 控制器（附 4 合 1 感測器：溫度/濕度/CO2/光照）及連接線組，免費手機應用程式",
+    "full_description": "",
+    "features": ""
+  },
+  "MBS-TH": {
+    "short_desc": "Hydro-X 替換及備用 溫度/濕度/光照 感測器",
+    "full_description": "",
+    "features": ""
+  },
+  "MBS-S8": {
+    "short_desc": "Hydro-X CO2 感測器（附連接線組）",
+    "full_description": "",
+    "features": ""
+  },
+  "MBS-PRO": {
+    "short_desc": "Hydro-X Pro 及 Hydro-X Plus 適用 溫度/濕度/CO2/光照 4 合 1 感測器",
+    "full_description": "",
+    "features": ""
+  },
+  "MBS-SD": {
+    "short_desc": "Hydro-X 煙霧探測器（附連接線組）",
+    "full_description": "",
+    "features": ""
+  },
+  "MBS-PAR": {
+    "short_desc": "全光譜量子感測器",
+    "full_description": "",
+    "features": ""
+  },
+  "MBS-K30": {
+    "short_desc": "Carbon-X CO2 感測器（附連接線組）",
+    "full_description": "",
+    "features": ""
+  },
+  "AMP-2": {
+    "short_desc": "連接感測器至控制器之感測器板",
+    "full_description": "",
+    "features": ""
+  },
+  "AMP-3": {
+    "short_desc": "連接感測器至 NFS-2 控制器之感測器板（附 LCD 顯示屏），適用於 Aqua-X Pro 及 Tent-X 主控制器",
+    "full_description": "",
+    "features": ""
+  },
+  "PCT-1": {
+    "short_desc": "儲液槽適用 2 合 1 EC + 溫度感測器",
+    "full_description": "",
+    "features": ""
+  },
+  "PCT-2": {
+    "short_desc": "重型 內聯式 EC+溫度 感測器",
+    "full_description": "",
+    "features": ""
+  },
+  "PCT-3": {
+    "short_desc": "重型營養液 EC+溫度感測器（可浸入/內聯式）",
+    "full_description": "",
+    "features": ""
+  },
+  "PPH-1": {
+    "short_desc": "儲液槽適用 pH 感測器",
+    "full_description": "",
+    "features": ""
+  },
+  "PPH-2": {
+    "short_desc": "重型 內聯式 pH 感測器",
+    "full_description": "",
+    "features": ""
+  },
+  "PPH-3": {
+    "short_desc": "重型營養液 pH 感測器（可浸入/內聯式）",
+    "full_description": "",
+    "features": ""
+  },
+  "WCS-1": {
+    "short_desc": "含水量感測器（附連接線組）",
+    "full_description": "",
+    "features": ""
+  },
+  "WCS-2": {
+    "short_desc": "土壤濕度、溫度及 EC 3 合 1 感測器（附連接線組）",
+    "full_description": "",
+    "features": ""
+  },
+  "WCS-3": {
+    "short_desc": "含水量感測器 3（附分接線組）",
+    "full_description": "",
+    "features": ""
+  },
+  "WCS-9": {
+    "short_desc": "土壤濕度、EC 及溫度 3 合 1 介質感測器套件",
+    "full_description": "",
+    "features": ""
+  },
+  "WN-9": {
+    "short_desc": "土壤濕度、EC 及溫度 3 合 1 介質感測器節點",
+    "full_description": "",
+    "features": ""
+  },
+  "WD-1": {
+    "short_desc": "水位探測器 + 觸摸點（用於澆水確認）",
+    "full_description": "",
+    "features": ""
+  },
+  "DFM-1": {
+    "short_desc": "1“ Digital Flow Meter",
+    "full_description": "",
+    "features": ""
+  },
+  "DFM-2": {
+    "short_desc": "1.25吋 數碼流量計",
+    "full_description": "",
+    "features": ""
+  },
+  "DFM-3": {
+    "short_desc": "1.5“ Digital Flow Meter",
+    "full_description": "",
+    "features": ""
+  },
+  "MBS-WS": {
+    "short_desc": "Green-X 控制器適用 氣象站感測器",
+    "full_description": "",
+    "features": ""
+  },
+  "MBS-GH": {
+    "short_desc": "Green-X 控制器替換用 4 合 1 感測器",
+    "full_description": "",
+    "features": ""
+  },
+  "LMA-11": {
+    "short_desc": "照明控制轉接器 P（適用於 Phantom 鎮流器）",
+    "full_description": "",
+    "features": ""
+  },
+  "LMA-12": {
+    "short_desc": "照明控制轉接器 D（適用於 Dimlux 鎮流器）",
+    "full_description": "",
+    "features": ""
+  },
+  "LMA-13": {
+    "short_desc": "照明控制轉接器 S（適用於 Sun System 鎮流器）",
+    "full_description": "",
+    "features": ""
+  },
+  "LMA-14": {
+    "short_desc": "Lighting Control Adapter F \nfor Controlling Fluence or any light using 0~10V protocal",
+    "full_description": "",
+    "features": ""
+  },
+  "LMA-15": {
+    "short_desc": "Lighting Control Adapter DLI\nfor Hydro-X Control System",
+    "full_description": "",
+    "features": ""
+  },
+  "LMA-24": {
+    "short_desc": "Lantern Schedule Lighting Adapter Compatible with any light controled by 0~10V code",
+    "full_description": "",
+    "features": ""
+  },
+  "LMA-T": {
+    "short_desc": "照明控制轉接器 T（適用於 ThinkGrow LED）",
+    "full_description": "",
+    "features": ""
+  },
+  "LMA-G": {
+    "short_desc": "群組控制照明轉接器（適用於 ThinkGrow Model-I LED 群組）",
+    "full_description": "",
+    "features": ""
+  },
+  "LMA-9": {
+    "short_desc": "將 0-10V 訊號轉換為數碼訊號以控制 ThinkGrow LED 之照明轉接器",
+    "full_description": "",
+    "features": ""
+  },
+  "LMA-14G": {
+    "short_desc": "群組控制照明轉接器（適用於 0-10V 協議）",
+    "full_description": "",
+    "features": ""
+  },
+  "TS-1": {
+    "short_desc": "Thermostat Station, for Cool only conventinal HVAC",
+    "full_description": "",
+    "features": ""
+  },
+  "TS-2": {
+    "short_desc": "恆溫站 2（適用於所有類型 HVAC，包括熱泵及傳統式）",
+    "full_description": "",
+    "features": ""
+  },
+  "TS-3": {
+    "short_desc": "再熱控制站",
+    "full_description": "",
+    "features": ""
+  },
+  "ARS-1": {
+    "short_desc": "AC 遙控站（通用遙控器，適用於任何遙控式冷氣，如分體式冷氣系統）",
+    "full_description": "",
+    "features": ""
+  },
+  "ARS-2": {
+    "short_desc": "AC 遙控站（通用遙控器，適用於任何遙控式冷暖冷氣，如分體式冷氣系統）",
+    "full_description": "",
+    "features": ""
+  },
+  "DST-1": {
+    "short_desc": "溫度裝置站\n溫度控制繼電器單裝包（附連接線組）",
+    "full_description": "",
+    "features": ""
+  },
+  "HS-1": {
+    "short_desc": "濕度恆定站（適用於附 24V 端子之除濕機）",
+    "full_description": "",
+    "features": ""
+  },
+  "DSH-1": {
+    "short_desc": "濕度裝置站\n濕度控制繼電器單裝包（附連接線組）",
+    "full_description": "",
+    "features": ""
+  },
+  "OA6-24": {
+    "short_desc": "24V Control Board, 6 inividual 24V controlled output for solenoid valve control",
+    "full_description": "",
+    "features": ""
+  },
+  "OAT-24": {
+    "short_desc": "12 輸出 24V 控制板",
+    "full_description": "",
+    "features": ""
+  },
+  "OA6-110": {
+    "short_desc": "110V Control Board, 6 inividual 110V controlled output (1.5A per outlet) for pump control",
+    "full_description": "",
+    "features": ""
+  },
+  "DSC-1": {
+    "short_desc": "CO2 裝置站\nCO2 控制繼電器單裝包（附連接線組）",
+    "full_description": "",
+    "features": ""
+  },
+  "DSP-1": {
+    "short_desc": "Program Device StationTimer Program Control Relay Single Pack with cable set",
+    "full_description": "",
+    "features": ""
+  },
+  "DSD-1": {
+    "short_desc": "乾觸點站單裝包（附連接線組）",
+    "full_description": "",
+    "features": ""
+  },
+  "DSD-3": {
+    "short_desc": "乾觸點控制站",
+    "full_description": "",
+    "features": ""
+  },
+  "DSV-1": {
+    "short_desc": "TrolMaster 低壓站",
+    "full_description": "",
+    "features": ""
+  },
+  "DCC-1": {
+    "short_desc": "Hydro-X 系統適用 雙條件轉接器",
+    "full_description": "",
+    "features": ""
+  },
+  "DCC-2": {
+    "short_desc": "雙系統控制轉接器",
+    "full_description": "",
+    "features": ""
+  },
+  "4RS-1": {
+    "short_desc": "Expander Station 4:\n 4 outlet expander station with trigger cable for mutiple devices control",
+    "full_description": "",
+    "features": ""
+  },
+  "4RS-2": {
+    "short_desc": "裝置站套件（4 個控制插座，包括 1x DST、1x DSH 及 2x DSP，新型號）",
+    "full_description": "",
+    "features": ""
+  },
+  "EFC-1": {
+    "short_desc": "EC 風扇控制轉接器（用於 PWM 或 0-10V 可變速控制 EC 風扇）",
+    "full_description": "",
+    "features": ""
+  },
+  "VFD-1": {
+    "short_desc": "Variable Frequency Drive Station for VFD \nfan speed control in the Hydro-X Pro system",
+    "full_description": "",
+    "features": ""
+  },
+  "Delta-1": {
+    "short_desc": "3PH 460V/5HP/3.7KW VFD,  Basic Compact Driver for AC motors speed controls",
+    "full_description": "",
+    "features": ""
+  },
+  "TSH-1": {
+    "short_desc": "TrolMaster 溫度/濕度站（附 0-10V 協議）",
+    "full_description": "",
+    "features": ""
+  },
+  "OM-8": {
+    "short_desc": "HCS-2/NFS-2 適用 乾觸點板（8 個獨立電觸點，每觸點最高 12 安培）",
+    "full_description": "",
+    "features": ""
+  },
+  "DSE-1": {
+    "short_desc": "緊急停止站（附連接線組）",
+    "full_description": "",
+    "features": ""
+  },
+  "TC-1": {
+    "short_desc": "TrolMaster 種植攝影機",
+    "full_description": "",
+    "features": ""
+  },
+  "TC-2": {
+    "short_desc": "TrolMaster 種植攝影機（新型號）",
+    "full_description": "",
+    "features": ""
+  },
+  "DSR-1": {
+    "short_desc": "25 安培繼電器裝置站（100-277V）",
+    "full_description": "",
+    "features": ""
+  },
+  "DMC-1": {
+    "short_desc": "24V DC 溫室捲膜馬達控制器",
+    "full_description": "",
+    "features": ""
+  },
+  "AMC-1": {
+    "short_desc": "單相/三相 遮光簾馬達控制器",
+    "full_description": "",
+    "features": ""
+  },
+  "ECS-1": {
+    "short_desc": "RJ12 延長線組：1 條 16 呎 RJ12 線；1 條 4 呎 RJ12 線；1 個 RJ12 T 型分接器",
+    "full_description": "",
+    "features": ""
+  },
+  "ECS-2": {
+    "short_desc": "RJ12 to 3.5 Jack Convertor Cable Set: 1x 4' RJ12 to 3.5 Jack Convertor Cable; 1x RJ12 T-Spliter; 1x 16' RJ12 Cable;",
+    "full_description": "",
+    "features": ""
+  },
+  "ECS-3": {
+    "short_desc": "1 條 16 呎 RJ12 線；1 條 4 呎 RJ12 轉 3.5 插孔線；1 個 T 型分接器；1 個 3.5mm 母座連接器",
+    "full_description": "",
+    "features": ""
+  },
+  "ECS-4": {
+    "short_desc": "AMP-2 感測器板適用 16 呎延長線",
+    "full_description": "",
+    "features": ""
+  },
+  "ECS-5": {
+    "short_desc": "Fluence 新型號適用 RJ12 轉 M16 PushLock 防水連接器轉換線組",
+    "full_description": "",
+    "features": ""
+  },
+  "ECS-6": {
+    "short_desc": "16 呎 4 針腳防水延長線",
+    "full_description": "",
+    "features": ""
+  },
+  "ECS-8": {
+    "short_desc": "ARS-1 及 Beta-1 適用 IR 發射器 32 呎延長線",
+    "full_description": "",
+    "features": ""
+  },
+  "ECS-9": {
+    "short_desc": "12ft RJ12 to 4-pin IP65 connecter cable for LMA-T and ThinkGrow LEDs",
+    "full_description": "",
+    "features": ""
+  },
+  "ECS-10": {
+    "short_desc": "RJ12 25 呎捲曲通訊線",
+    "full_description": "",
+    "features": ""
+  },
+  "ECS-12": {
+    "short_desc": "TrolMaster 4 針腳防水分接線",
+    "full_description": "",
+    "features": ""
+  },
+  "ECS-500": {
+    "short_desc": "500 呎 RJ12 線捲",
+    "full_description": "",
+    "features": ""
+  },
+  "ECW-1": {
+    "short_desc": "RJ12 防水直通內聯耦合器",
+    "full_description": "",
+    "features": ""
+  },
+  "MC-1": {
+    "short_desc": "多功能壓線鉗",
+    "full_description": "",
+    "features": ""
+  },
+  "SPH-1": {
+    "short_desc": "RJ12 Splitter Hub with cable set",
+    "full_description": "",
+    "features": ""
+  },
+  "BM-1": {
+    "short_desc": "Wheatherproof Box for TS-1, TS-2, HS-1 and ARS-1",
+    "full_description": "",
+    "features": ""
+  },
+  "TSB-1": {
+    "short_desc": "TrolMaster 感測器支架（2 個裝）",
+    "full_description": "",
+    "features": ""
+  },
+  "TSS-1": {
+    "short_desc": "觸摸點 + T 型分接延長線",
+    "full_description": "",
+    "features": ""
+  },
+  "TSS-2": {
+    "short_desc": "觸摸點 16 呎延長線",
+    "full_description": "",
+    "features": ""
+  },
+  "AS-1": {
+    "short_desc": "CO2 警報站（聲音/視覺，附連接線組）",
+    "full_description": "",
+    "features": ""
+  },
+  "AS-2": {
+    "short_desc": "CO2 警報站（聲音/視覺，附 LED 顯示指示燈及連接線組）",
+    "full_description": "",
+    "features": ""
+  },
+  "AS-3": {
+    "short_desc": "CO2 警報站（琥珀色燈）",
+    "full_description": "",
+    "features": ""
+  },
+  "AS-4": {
+    "short_desc": "CO2 警報站（藍色燈）",
+    "full_description": "",
+    "features": ""
+  },
+  "AS-5": {
+    "short_desc": "警報站",
+    "full_description": "",
+    "features": ""
+  },
+  "SCC-1": {
+    "short_desc": "25“ Standard Controller Cabinet for Hydro-X Pro / Aqua-X Pro",
+    "full_description": "",
+    "features": ""
+  },
+  "SCC-2": {
+    "short_desc": "Hydro-X Pro / Aqua-X Pro 適用 35 吋大型控制器機櫃",
+    "full_description": "",
+    "features": ""
+  },
+  "SCC-3": {
+    "short_desc": "25“ Standard Controller Cabinet for Hydro-X Plus",
+    "full_description": "",
+    "features": ""
+  },
+  "SCC-D": {
+    "short_desc": "無預切窗口之控制器機櫃門",
+    "full_description": "",
+    "features": ""
+  },
+  "SCC-D2": {
+    "short_desc": "SCC-2 適用 無預切窗口之控制器機櫃門",
+    "full_description": "",
+    "features": ""
+  },
+  "SCC-4": {
+    "short_desc": "Mini Controller Cabinet （100-277V）",
+    "full_description": "",
+    "features": ""
+  },
+  "CM-1": {
+    "short_desc": "Hawkeye 3 合 1 監測器及記錄儀（附 3 合 1 溫度/濕度/CO2 感測器、乙太網路轉接器），免費智能手機應用程式",
+    "full_description": "",
+    "features": ""
+  },
+  "Beta-1": {
+    "short_desc": "Digital Day/Night Remote controller (For remote controled AC such as Mini Split)",
+    "full_description": "",
+    "features": ""
+  },
+  "Beta-2": {
+    "short_desc": "Digital Day/Night Fans Speed controller",
+    "full_description": "",
+    "features": ""
+  },
+  "Beta-4": {
+    "short_desc": "數碼晝/夜溫度控制器",
+    "full_description": "",
+    "features": ""
+  },
+  "Beta-6": {
+    "short_desc": "數碼晝/夜濕度 110V 控制器",
+    "full_description": "",
+    "features": ""
+  },
+  "Beta-8": {
+    "short_desc": "數碼 CO2 PPM 控制器（適用於調節器及發生器）",
+    "full_description": "",
+    "features": ""
+  },
+  "Model-H": {
+    "short_desc": "ThinkGrow Model-H LED 種植燈",
+    "full_description": "",
+    "features": ""
+  },
+  "Model-H Plus": {
+    "short_desc": "ThinkGrow Model-H Plus LED 種植燈",
+    "full_description": "",
+    "features": ""
+  },
+  "Model-W": {
+    "short_desc": "ThinkGrow Model-W LED 種植燈",
+    "full_description": "",
+    "features": ""
+  },
+  "Model-V": {
+    "short_desc": "ThinkGrow Model-V LED 種植燈",
+    "full_description": "",
+    "features": ""
+  },
+  "Model-H Plus 4'": {
+    "short_desc": "720watt 4'x8 Multi-Bars LED Grow Light with 4 Spectrum Channels, On-Board Control and Built-in Group Control",
+    "full_description": "",
+    "features": ""
+  },
+  "Model-H Plus 5'": {
+    "short_desc": "720watt 5'x8 Multi-Bars LED Grow Light with 4 Spectrum Channels, On-Board Control and Built-in Group Control",
+    "full_description": "",
+    "features": ""
+  },
+  "Model-I": {
+    "short_desc": "ThinkGrow Model-I LED 種植燈",
+    "full_description": "",
+    "features": ""
+  },
+  "Model-I plus": {
+    "short_desc": "ThinkGrow Model-I Plus LED 種植燈",
+    "full_description": "",
+    "features": ""
+  },
+  "ICL-300": {
+    "short_desc": "120W 300° 發光角度 冠層內 LED（4 光譜）",
+    "full_description": "",
+    "features": ""
+  },
+  "ICL-150": {
+    "short_desc": "120W 150° 發光角度 多用途 LED（4 光譜）",
+    "full_description": "",
+    "features": ""
+  },
+  "ICL-120": {
+    "short_desc": "120W 120° 發光角度 冠層下 LED（4 個裝）",
+    "full_description": "",
+    "features": ""
+  },
+  "ICL-120 (2)": {
+    "short_desc": "120W 120° 發光角度 冠層下 LED（2 個裝）",
+    "full_description": "",
+    "features": ""
+  },
+  "TSD-1": {
+    "short_desc": "ThinkGrow LED 支架（適用於 ICL-300，高度可調，單裝）",
+    "full_description": "",
+    "features": ""
+  },
+  "TSD-3": {
+    "short_desc": "ThinkGrow 垂直 LED 支架（適用於 ICL-120 及 ICL-150，2 個裝）",
+    "full_description": "",
+    "features": ""
+  },
+  "Model-C": {
+    "short_desc": "18W 單光譜通道 克隆 LED（2 個裝）",
+    "full_description": "",
+    "features": ""
+  },
+  "TLD-2": {
+    "short_desc": "90W ThinkGrow Model One LED 驅動器（2 光譜控制通道）",
+    "full_description": "",
+    "features": ""
+  },
+  "TLD-4": {
+    "short_desc": "90W ThinkGrow Model One LED 驅動器（4 光譜控制通道）",
+    "full_description": "",
+    "features": ""
+  },
+  "DR-1": {
+    "short_desc": "4 呎 LED 燈條（2 光譜通道：全光譜 + 深紅光），適用於 Model One 系統",
+    "full_description": "",
+    "features": ""
+  },
+  "FR-1": {
+    "short_desc": "4 呎 LED 燈條（2 光譜通道：全光譜 + 遠紅光），適用於 Model One LED 系統",
+    "full_description": "",
+    "features": ""
+  },
+  "TLB-1": {
+    "short_desc": "4 呎 LED 燈條（4 光譜通道：白光+深紅光+遠紅光+紫外光），適用於 Model One LED 系統",
+    "full_description": "",
+    "features": ""
+  },
+  "TLB-2": {
+    "short_desc": "5 呎 LED 燈條（4 光譜通道：白光+深紅光+遠紅光+紫外光），適用於 Model One LED 系統",
+    "full_description": "",
+    "features": ""
+  },
+  "TLB-3": {
+    "short_desc": "2.5 呎 LED 燈條（4 光譜通道：白光+深紅光+紫外光+遠紅光）",
+    "full_description": "",
+    "features": ""
+  },
+  "MB-4": {
+    "short_desc": "4 個驅動器適用 快拆安裝條（360W）",
+    "full_description": "",
+    "features": ""
+  },
+  "MB-7": {
+    "short_desc": "7 個驅動器適用 快拆安裝條（630W）",
+    "full_description": "",
+    "features": ""
+  },
+  "MB-8": {
+    "short_desc": "8 個驅動器適用 快拆安裝條（720W）",
+    "full_description": "",
+    "features": ""
+  },
+  "MB-9": {
+    "short_desc": "9 個驅動器適用 快拆安裝條（810W）",
+    "full_description": "",
+    "features": ""
+  },
+  "TDC-1": {
+    "short_desc": "Model One LED 系統適用 AWG #18 分接電源線",
+    "full_description": "",
+    "features": ""
+  },
+  "TDC-2": {
+    "short_desc": "Model One LED 系統適用 1 呎 AWG #18 菊花鏈線",
+    "full_description": "",
+    "features": ""
+  },
+  "TDC-3": {
+    "short_desc": "Model One LED 系統適用 2 呎 AWG #18 菊花鏈線",
+    "full_description": "",
+    "features": ""
+  },
+  "TDC-4": {
+    "short_desc": "Model One LED 系統適用 5 呎 AWG #18 菊花鏈線",
+    "full_description": "",
+    "features": ""
+  },
+  "TDC-120": {
+    "short_desc": "Model One LED 系統適用 7 呎分接電源線 AWG #18（附 NEMA 5-15 插頭）",
+    "full_description": "",
+    "features": ""
+  },
+  "LLT-2": {
+    "short_desc": "ThinkGrow 智能燈具升降器",
+    "full_description": "",
+    "features": ""
+  },
+  "LLT-3": {
+    "short_desc": "ThinkGrow 智能迷你升降系統",
+    "full_description": "",
+    "features": ""
+  },
+  "LRC-1": {
+    "short_desc": "智能升降器遙控器",
+    "full_description": "",
+    "features": ""
+  },
+  "RC-1": {
+    "short_desc": "升降器索具線套件",
+    "full_description": "",
+    "features": ""
+  },
+  "TDC-5": {
+    "short_desc": "4' AWG#18 Daisy Chain CoiledCordwith T splitter for ThinkGrow Lifter systems",
+    "full_description": "",
+    "features": ""
+  },
+  "OPA-1": {
+    "short_desc": "100-277V 智能接線盒",
+    "full_description": "",
+    "features": ""
+  },
+  "OPA-2": {
+    "short_desc": "100-277V 智能接線盒",
+    "full_description": "",
+    "features": ""
+  },
+  "DCA-10": {
+    "short_desc": "5 呎 30A AWG#10 ThinkGrow 菊花鏈電源線",
+    "full_description": "",
+    "features": ""
+  },
+  "DCA-12": {
+    "short_desc": "5 呎 20A AWG#12 ThinkGrow 菊花鏈電源線",
+    "full_description": "",
+    "features": ""
+  },
+  "DCA-14": {
+    "short_desc": "5 呎 15A AWG#14 ThinkGrow 菊花鏈電源線",
+    "full_description": "",
+    "features": ""
+  },
+  "DEA-10": {
+    "short_desc": "3 呎 30A AWG#10 ThinkGrow 延長電源線",
+    "full_description": "",
+    "features": ""
+  },
+  "DEA-12": {
+    "short_desc": "3 呎 20A AWG#12 ThinkGrow 延長電源線",
+    "full_description": "",
+    "features": ""
+  },
+  "DEA-14": {
+    "short_desc": "3 呎 15A AWG#14 ThinkGrow 延長電源線",
+    "full_description": "",
+    "features": ""
+  },
+  "DEA-10L": {
+    "short_desc": "10 呎 菊花鏈延長電源線",
+    "full_description": "",
+    "features": ""
+  },
+  "DPA-10": {
+    "short_desc": "30A AWG#10 ThinkGrow 硬接線電源線",
+    "full_description": "",
+    "features": ""
+  },
+  "DOA-10": {
+    "short_desc": "OPA-2 輸出適用 30A AWG#10 ThinkGrow 硬接線電源線",
+    "full_description": "",
+    "features": ""
+  },
+  "ECS-7": {
+    "short_desc": "ThinkGrow 12'Daisy chain control cable",
+    "full_description": "",
+    "features": ""
+  },
+  "UV-1": {
+    "short_desc": "Model-H/W 適用 UV 光條",
+    "full_description": "",
+    "features": ""
+  },
+  "UH-1": {
+    "short_desc": "Unit-Strut Hanger for Modle-H/W/V",
+    "full_description": "",
+    "features": ""
+  },
+  "UH-2": {
+    "short_desc": "Model-I 及 Plus 適用 Unit-Strut 吊架",
+    "full_description": "",
+    "features": ""
+  },
+  "EC-12": {
+    "short_desc": "12’ power extension cord",
+    "full_description": "",
+    "features": ""
+  },
+  "PA-1": {
+    "short_desc": "ThinkGrow 美國適用 240V 轉 120V 插頭轉接器",
+    "full_description": "",
+    "features": ""
+  },
+  "FRC-1": {
+    "short_desc": "內置光敏元件之智能風扇遙控器（用於晝/夜設定）",
+    "full_description": "",
+    "features": ""
+  },
+  "FRC-2": {
+    "short_desc": "簡易風扇速度調光器",
+    "full_description": "",
+    "features": ""
+  },
+  "V-6": {
+    "short_desc": "6 吋 內聯式管道通風風扇",
+    "full_description": "",
+    "features": ""
+  },
+  "V-8": {
+    "short_desc": "8 吋 內聯式管道通風風扇",
+    "full_description": "",
+    "features": ""
+  },
+  "V-10": {
+    "short_desc": "10 吋 內聯式管道通風風扇",
+    "full_description": "",
+    "features": ""
+  },
+  "V-10M": {
+    "short_desc": "10 吋 金屬內聯式管道通風風扇 Pro 型號",
+    "full_description": "",
+    "features": ""
+  },
+  "V-12": {
+    "short_desc": "12 吋 內聯式管道通風風扇",
+    "full_description": "",
+    "features": ""
+  },
+  "V-12M": {
+    "short_desc": "12 吋 金屬內聯式管道通風風扇 Pro 型號",
+    "full_description": "",
+    "features": ""
+  },
+  "HE-20": {
+    "short_desc": "20 吋 高速風扇",
+    "full_description": "",
+    "features": ""
+  },
+  "HE-20M": {
+    "short_desc": "20 吋 高速風扇 Pro 型號",
+    "full_description": "",
+    "features": ""
+  },
+  "AB-6": {
+    "short_desc": "Aero-Fan 空氣增壓器（4吋（10.1厘米）縮徑器，適用於 V-6，2 個裝）",
+    "full_description": "",
+    "features": ""
+  },
+  "AB-8": {
+    "short_desc": "Aero-Fan 空氣增壓器（6吋（15.24厘米）縮徑器，適用於 V-8，2 個裝）",
+    "full_description": "",
+    "features": ""
+  },
+  "PS-4": {
+    "short_desc": "4吋（10.1厘米）Poly 空氣分配襪",
+    "full_description": "",
+    "features": ""
+  },
+  "PS-6": {
+    "short_desc": "6吋（15.2厘米）Poly 空氣分配襪",
+    "full_description": "",
+    "features": ""
+  }
+}
