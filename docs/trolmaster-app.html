@@ -14,10 +14,6 @@ body{font-family:-apple-system,"Microsoft JhengHei","Noto Sans TC","Noto Sans Th
 .logo-img{height:36px;width:auto;object-fit:contain}
 .h-text h1{font-size:16px;font-weight:700;color:#1a1a2e;letter-spacing:.3px}
 .h-text p{font-size:11px;color:#718096;margin-top:1px}
-/* Top Header - for opening sidebar menu */
-.top-header{display:flex;align-items:center;gap:12px;background:#ffffff;border-bottom:1px solid #e2e8f0;padding:12px 16px;position:sticky;top:0;z-index:50}
-.header-logo{flex:1;text-align:center}
-.header-logo-text{font-size:16px;font-weight:700;color:#0d1b3e;letter-spacing:.3px}
 .lang-switcher{position:relative}
 .lang-btn{background:#f7fafc;border:1px solid #e2e8f0;padding:6px 14px;border-radius:8px;font-size:12px;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:5px;color:#1a1a2e}
 .lang-dd{display:none;position:absolute;top:calc(100% + 4px);right:0;background:#ffffff;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;z-index:100;min-width:120px;box-shadow:0 4px 12px rgba(0,0,0,0.1)}
@@ -169,14 +165,6 @@ body{font-family:-apple-system,"Microsoft JhengHei","Noto Sans TC","Noto Sans Th
 </style>
 </head>
 <body>
-<!-- Top Header with Menu Button and Logo -->
-<div class="top-header">
-  <button class="menu-btn" onclick="openMenu()">&#9776;</button>
-  <div class="header-logo">
-    <span class="header-logo-text">TM Testing Tools</span>
-  </div>
-</div>
-
 <div class="overlay" id="overlay" onclick="closeMenu()"></div>
 <div class="sidebar" id="sidebar">
   <div class="sb-header">
